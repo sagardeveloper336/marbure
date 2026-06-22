@@ -68,10 +68,17 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:focus-visible {
     color: var(--color-secondary);
 
     &::after { transform: scaleX(1); }
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 2px;
+    border-radius: var(--radius);
   }
 }
 

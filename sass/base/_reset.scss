@@ -70,6 +70,40 @@ button {
   border: none;
 }
 
+// ─── WCAG 2.1 AA — global focus management ────────────────────────────────────
+
+// Remove browser default focus ring; replace with :focus-visible on each component.
+// This keeps keyboard navigation visible while hiding rings on mouse clicks.
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Fallback focus ring for elements without component-level :focus-visible rules.
+:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+// High-contrast mode support.
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid ButtonText;
+  }
+}
+
+// Reduce motion for users who prefer it.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 // Skip link — shown on keyboard focus only.
 .skip-link {
   position: absolute;
@@ -82,7 +116,10 @@ button {
   border-radius: var(--radius);
   transition: top 0.2s;
 
-  &:focus {
+  &:focus,
+  &:focus-visible {
     top: 1rem;
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 3px;
   }
 }

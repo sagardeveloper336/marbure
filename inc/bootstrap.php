@@ -20,6 +20,7 @@ require_once get_template_directory() . '/inc/template-tags.php';
 require_once get_template_directory() . '/inc/template-functions.php';
 require_once get_template_directory() . '/inc/breadcrumb.php';
 require_once get_template_directory() . '/inc/schema.php';
+require_once get_template_directory() . '/inc/og-meta.php';
 require_once get_template_directory() . '/inc/customizer.php';
 
 // Kirki framework + theme options (helpers defines marbure_option(), loaded by kirki/bootstrap).

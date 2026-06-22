@@ -17,13 +17,13 @@ Kirki::add_section(
 	)
 );
 
-// ── Practice Areas ─────────────────────────────────────────────────────────
+// ── Products ───────────────────────────────────────────────────────────────
 Kirki::add_field(
 	'marbure_theme_options',
 	array(
 		'type'     => 'radio-buttonset',
-		'settings' => 'service_columns',
-		'label'    => esc_html__( 'Service Archive Columns', 'marbure' ),
+		'settings' => 'product_columns',
+		'label'    => esc_html__( 'Product Archive Columns', 'marbure' ),
 		'section'  => 'marbure_section_cpts',
 		'default'  => '3',
 		'priority' => 10,
@@ -39,21 +39,21 @@ Kirki::add_field(
 	'marbure_theme_options',
 	array(
 		'type'     => 'switch',
-		'settings' => 'service_show_excerpt',
-		'label'    => esc_html__( 'Show Excerpt on Service Cards', 'marbure' ),
+		'settings' => 'product_show_excerpt',
+		'label'    => esc_html__( 'Show Excerpt on Product Cards', 'marbure' ),
 		'section'  => 'marbure_section_cpts',
 		'default'  => true,
 		'priority' => 20,
 	)
 );
 
-// ── Case Results ───────────────────────────────────────────────────────────
+// ── Projects ───────────────────────────────────────────────────────────────
 Kirki::add_field(
 	'marbure_theme_options',
 	array(
 		'type'     => 'radio-buttonset',
-		'settings' => 'portfolio_columns',
-		'label'    => esc_html__( 'Portfolio Archive Columns', 'marbure' ),
+		'settings' => 'project_columns',
+		'label'    => esc_html__( 'Project Archive Columns', 'marbure' ),
 		'section'  => 'marbure_section_cpts',
 		'default'  => '3',
 		'priority' => 30,
@@ -68,40 +68,10 @@ Kirki::add_field(
 	'marbure_theme_options',
 	array(
 		'type'     => 'switch',
-		'settings' => 'portfolio_filter',
-		'label'    => esc_html__( 'Enable Portfolio Filter Tabs', 'marbure' ),
+		'settings' => 'project_filter',
+		'label'    => esc_html__( 'Enable Project Filter Tabs', 'marbure' ),
 		'section'  => 'marbure_section_cpts',
 		'default'  => true,
 		'priority' => 40,
-	)
-);
-
-// ── Team ────────────────────────────────────────────────────────────────────
-Kirki::add_field(
-	'marbure_theme_options',
-	array(
-		'type'     => 'radio-buttonset',
-		'settings' => 'team_columns',
-		'label'    => esc_html__( 'Team Archive Columns', 'marbure' ),
-		'section'  => 'marbure_section_cpts',
-		'default'  => '3',
-		'priority' => 50,
-		'choices'  => array(
-			'2' => '2',
-			'3' => '3',
-			'4' => '4',
-		),
-	)
-);
-
-Kirki::add_field(
-	'marbure_theme_options',
-	array(
-		'type'     => 'switch',
-		'settings' => 'team_show_socials',
-		'label'    => esc_html__( 'Show Social Links on Team Cards', 'marbure' ),
-		'section'  => 'marbure_section_cpts',
-		'default'  => true,
-		'priority' => 60,
 	)
 );

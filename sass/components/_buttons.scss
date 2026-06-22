@@ -38,6 +38,11 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(207, 151, 118, 0.4);
   }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+  }
 }
 
 // Outline — transparent with border.
@@ -51,6 +56,11 @@
     background: var(--color-primary);
     color: #fff;
     transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
   }
 }
 
@@ -66,6 +76,11 @@
     border-color: #fff;
     color: var(--color-primary);
     transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
   }
 }
 
@@ -86,6 +101,12 @@
     color: var(--color-primary);
 
     &::after { transform: translateX(4px); }
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 3px;
+    border-radius: var(--radius);
   }
 }
 

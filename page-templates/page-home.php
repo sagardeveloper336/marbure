@@ -3,8 +3,7 @@
  * Template Name: Home
  * Template Post Type: page
  *
- * Full-width homepage template. Assembles all homepage sections in order.
- * No breadcrumb band (front page check in header.php handles this).
+ * Full-width homepage template — assembles all sections in order.
  *
  * @package marbure
  */
@@ -16,21 +15,21 @@ get_header();
 
 	<?php get_template_part( 'template-parts/sections/hero-slider' ); ?>
 
-	<?php get_template_part( 'template-parts/sections/about-intro' ); ?>
-
-	<?php get_template_part( 'template-parts/sections/services-grid' ); ?>
+	<?php get_template_part( 'template-parts/sections/featured-collections' ); ?>
 
 	<?php get_template_part( 'template-parts/sections/marquee-strip' ); ?>
 
+	<?php get_template_part( 'template-parts/sections/why-choose-us' ); ?>
+
 	<?php get_template_part( 'template-parts/sections/stats-counter' ); ?>
 
-	<?php get_template_part( 'template-parts/sections/portfolio-preview' ); ?>
+	<?php get_template_part( 'template-parts/sections/projects-preview' ); ?>
 
-	<?php get_template_part( 'template-parts/sections/cta-band' ); ?>
-
-	<?php get_template_part( 'template-parts/sections/team-grid' ); ?>
+	<?php get_template_part( 'template-parts/sections/services-overview' ); ?>
 
 	<?php get_template_part( 'template-parts/sections/testimonials-carousel' ); ?>
+
+	<?php get_template_part( 'template-parts/sections/cta-band' ); ?>
 
 	<?php get_template_part( 'template-parts/sections/blog-grid' ); ?>
 

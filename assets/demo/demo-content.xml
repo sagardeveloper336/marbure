@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- WordPress Extended RSS (WXR) – Marbure Tiles & Flooring demo content -->
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/">
+<channel>
+	<title>Marbure Demo</title>
+	<link>http://demo.marbure.test</link>
+	<description>Tiles &amp; Flooring WordPress Theme</description>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>http://demo.marbure.test</wp:base_site_url>
+	<wp:base_blog_url>http://demo.marbure.test</wp:base_blog_url>
+
+	<wp:author>
+		<wp:author_id>1</wp:author_id>
+		<wp:author_login><![CDATA[marbure_admin]]></wp:author_login>
+		<wp:author_email><![CDATA[admin@marbure.test]]></wp:author_email>
+		<wp:author_display_name><![CDATA[Marbure Admin]]></wp:author_display_name>
+		<wp:author_first_name><![CDATA[Marbure]]></wp:author_first_name>
+		<wp:author_last_name><![CDATA[Admin]]></wp:author_last_name>
+	</wp:author>
+
+	<!-- ── Taxonomy terms ─────────────────────────────────────────── -->
+
+	<wp:term>
+		<wp:term_id>10</wp:term_id>
+		<wp:term_taxonomy>product_cat</wp:term_taxonomy>
+		<wp:term_slug>floor-tiles</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Floor Tiles]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>11</wp:term_id>
+		<wp:term_taxonomy>product_cat</wp:term_taxonomy>
+		<wp:term_slug>wall-tiles</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Wall Tiles]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>12</wp:term_id>
+		<wp:term_taxonomy>product_cat</wp:term_taxonomy>
+		<wp:term_slug>outdoor</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Outdoor]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>13</wp:term_id>
+		<wp:term_taxonomy>product_material</wp:term_taxonomy>
+		<wp:term_slug>porcelain</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Porcelain]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>14</wp:term_id>
+		<wp:term_taxonomy>product_material</wp:term_taxonomy>
+		<wp:term_slug>ceramic</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Ceramic]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>15</wp:term_id>
+		<wp:term_taxonomy>product_finish</wp:term_taxonomy>
+		<wp:term_slug>matte</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Matte]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>16</wp:term_id>
+		<wp:term_taxonomy>product_finish</wp:term_taxonomy>
+		<wp:term_slug>gloss</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Gloss]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>17</wp:term_id>
+		<wp:term_taxonomy>product_finish</wp:term_taxonomy>
+		<wp:term_slug>textured</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Textured]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>20</wp:term_id>
+		<wp:term_taxonomy>project_cat</wp:term_taxonomy>
+		<wp:term_slug>residential</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Residential]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>21</wp:term_id>
+		<wp:term_taxonomy>project_cat</wp:term_taxonomy>
+		<wp:term_slug>commercial</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Commercial]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>22</wp:term_id>
+		<wp:term_taxonomy>project_cat</wp:term_taxonomy>
+		<wp:term_slug>hospitality</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Hospitality]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>23</wp:term_id>
+		<wp:term_taxonomy>project_type</wp:term_taxonomy>
+		<wp:term_slug>kitchen</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Kitchen]]></wp:term_name>
+	</wp:term>
+
+	<wp:term>
+		<wp:term_id>24</wp:term_id>
+		<wp:term_taxonomy>project_type</wp:term_taxonomy>
+		<wp:term_slug>bathroom</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Bathroom]]></wp:term_name>
+	</wp:term>
+
+	<!-- ── Categories (blog) ───────────────────────────────────────── -->
+
+	<wp:category>
+		<wp:term_id>30</wp:term_id>
+		<wp:category_nicename>tile-tips</wp:category_nicename>
+		<wp:category_parent></wp:category_parent>
+		<wp:cat_name><![CDATA[Tile Tips]]></wp:cat_name>
+	</wp:category>
+
+	<wp:category>
+		<wp:term_id>31</wp:term_id>
+		<wp:category_nicename>design-ideas</wp:category_nicename>
+		<wp:category_parent></wp:category_parent>
+		<wp:cat_name><![CDATA[Design Ideas]]></wp:cat_name>
+	</wp:category>
+
+	<!-- ═══════════════════════════════════════════════════════════════
+	     PAGES
+	═══════════════════════════════════════════════════════════════ -->
+
+	<item>
+		<title>Home</title>
+		<link>http://demo.marbure.test/</link>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_name>home</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-templates/page-home.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<item>
+		<title>About Us</title>
+		<link>http://demo.marbure.test/about/</link>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>We are a leading tiles and flooring specialist with over 15 years of experience supplying and installing premium tiles for residential, commercial, and hospitality projects across the UK.</p>]]></content:encoded>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_name>about</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>1</wp:menu_order>
+	</item>
+
+	<item>
+		<title>Services</title>
+		<link>http://demo.marbure.test/services/</link>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_name>services</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>2</wp:menu_order>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-templates/page-services.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<item>
+		<title>Gallery</title>
+		<link>http://demo.marbure.test/gallery/</link>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_name>gallery</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>3</wp:menu_order>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-templates/page-gallery.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<item>
+		<title>Get a Quote</title>
+		<link>http://demo.marbure.test/get-a-quote/</link>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>Ready to start your project? Fill out the form and we'll be in touch within 24 hours with a detailed quote.</p>]]></content:encoded>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_name>get-a-quote</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>4</wp:menu_order>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-templates/page-quote.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<item>
+		<title>FAQ</title>
+		<link>http://demo.marbure.test/faq/</link>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_name>faq</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>5</wp:menu_order>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-templates/page-faq.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<item>
+		<title>Testimonials</title>
+		<link>http://demo.marbure.test/testimonials/</link>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_name>testimonials</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>6</wp:menu_order>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-templates/page-testimonials.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<item>
+		<title>Contact</title>
+		<link>http://demo.marbure.test/contact/</link>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_name>contact</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>7</wp:menu_order>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-templates/page-contact.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- ═══════════════════════════════════════════════════════════════
+	     PRODUCTS (marbure_product)
+	═══════════════════════════════════════════════════════════════ -->
+
+	<item>
+		<title>Milano Marble Effect</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>Inspired by classic Italian marble, this large-format porcelain tile brings timeless elegance to any floor space. Its subtle veining and matte finish make it a versatile choice for living rooms and hallways.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Classic Italian marble-effect porcelain tile with subtle veining and a sophisticated matte finish.]]></excerpt:encoded>
+		<wp:post_type>marbure_product</wp:post_type>
+		<wp:post_name>milano-marble-effect</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="product_cat" nicename="floor-tiles"><![CDATA[Floor Tiles]]></category>
+		<category domain="product_material" nicename="porcelain"><![CDATA[Porcelain]]></category>
+		<category domain="product_finish" nicename="matte"><![CDATA[Matte]]></category>
+		<wp:postmeta><wp:meta_key>_product_size</wp:meta_key><wp:meta_value><![CDATA[600x600mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_material</wp:meta_key><wp:meta_value><![CDATA[Porcelain]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_finish</wp:meta_key><wp:meta_value><![CDATA[Matte]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_thickness</wp:meta_key><wp:meta_value><![CDATA[10mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_color_family</wp:meta_key><wp:meta_value><![CDATA[White / Grey]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_usage</wp:meta_key><wp:meta_value><![CDATA[Indoor Floor]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_price_range</wp:meta_key><wp:meta_value><![CDATA[££]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_featured</wp:meta_key><wp:meta_value><![CDATA[1]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>Metro Gloss White</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>A timeless subway tile with a high-gloss finish that brightens any kitchen or bathroom. Its clean rectangular format makes it perfect for both traditional and contemporary schemes.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Classic gloss ceramic subway tile, perfect for kitchen splashbacks and bathroom walls.]]></excerpt:encoded>
+		<wp:post_type>marbure_product</wp:post_type>
+		<wp:post_name>metro-gloss-white</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="product_cat" nicename="wall-tiles"><![CDATA[Wall Tiles]]></category>
+		<category domain="product_material" nicename="ceramic"><![CDATA[Ceramic]]></category>
+		<category domain="product_finish" nicename="gloss"><![CDATA[Gloss]]></category>
+		<wp:postmeta><wp:meta_key>_product_size</wp:meta_key><wp:meta_value><![CDATA[300x600mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_material</wp:meta_key><wp:meta_value><![CDATA[Ceramic]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_finish</wp:meta_key><wp:meta_value><![CDATA[Gloss]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_thickness</wp:meta_key><wp:meta_value><![CDATA[8mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_color_family</wp:meta_key><wp:meta_value><![CDATA[White]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_usage</wp:meta_key><wp:meta_value><![CDATA[Indoor Wall]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_price_range</wp:meta_key><wp:meta_value><![CDATA[£]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_featured</wp:meta_key><wp:meta_value><![CDATA[1]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>Slate Grey Patio</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>Engineered for outdoor use, this large-format porcelain patio tile offers the natural beauty of slate with the durability of porcelain. Frost-proof and slip-resistant, ideal for patios and driveways.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Frost-proof, slip-resistant outdoor porcelain tile with a natural slate texture.]]></excerpt:encoded>
+		<wp:post_type>marbure_product</wp:post_type>
+		<wp:post_name>slate-grey-patio</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="product_cat" nicename="outdoor"><![CDATA[Outdoor]]></category>
+		<category domain="product_material" nicename="porcelain"><![CDATA[Porcelain]]></category>
+		<category domain="product_finish" nicename="textured"><![CDATA[Textured]]></category>
+		<wp:postmeta><wp:meta_key>_product_size</wp:meta_key><wp:meta_value><![CDATA[600x900mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_material</wp:meta_key><wp:meta_value><![CDATA[Porcelain]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_finish</wp:meta_key><wp:meta_value><![CDATA[Textured]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_thickness</wp:meta_key><wp:meta_value><![CDATA[20mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_color_family</wp:meta_key><wp:meta_value><![CDATA[Grey]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_usage</wp:meta_key><wp:meta_value><![CDATA[Outdoor]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_price_range</wp:meta_key><wp:meta_value><![CDATA[££]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_featured</wp:meta_key><wp:meta_value><![CDATA[1]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>Calacatta Gold Polished</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>Luxury Calacatta-effect porcelain with golden veining on a polished white base. Designed for statement floors and feature walls in premium interiors.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Statement Calacatta-effect porcelain with gold veining for luxury interiors.]]></excerpt:encoded>
+		<wp:post_type>marbure_product</wp:post_type>
+		<wp:post_name>calacatta-gold-polished</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="product_cat" nicename="floor-tiles"><![CDATA[Floor Tiles]]></category>
+		<category domain="product_material" nicename="porcelain"><![CDATA[Porcelain]]></category>
+		<category domain="product_finish" nicename="gloss"><![CDATA[Gloss]]></category>
+		<wp:postmeta><wp:meta_key>_product_size</wp:meta_key><wp:meta_value><![CDATA[800x800mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_material</wp:meta_key><wp:meta_value><![CDATA[Porcelain]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_finish</wp:meta_key><wp:meta_value><![CDATA[Polished Gloss]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_thickness</wp:meta_key><wp:meta_value><![CDATA[10mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_color_family</wp:meta_key><wp:meta_value><![CDATA[White / Gold]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_usage</wp:meta_key><wp:meta_value><![CDATA[Indoor Floor &amp; Wall]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_price_range</wp:meta_key><wp:meta_value><![CDATA[£££]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_featured</wp:meta_key><wp:meta_value><![CDATA[1]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>Travertine Beige Natural</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>A warm, earthy porcelain tile that replicates natural travertine stone. The subtly textured surface adds depth and warmth to bathrooms, kitchens, and living areas.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Warm travertine-effect porcelain with an earthy textured finish, ideal for bathrooms and living areas.]]></excerpt:encoded>
+		<wp:post_type>marbure_product</wp:post_type>
+		<wp:post_name>travertine-beige-natural</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="product_cat" nicename="floor-tiles"><![CDATA[Floor Tiles]]></category>
+		<category domain="product_material" nicename="porcelain"><![CDATA[Porcelain]]></category>
+		<category domain="product_finish" nicename="textured"><![CDATA[Textured]]></category>
+		<wp:postmeta><wp:meta_key>_product_size</wp:meta_key><wp:meta_value><![CDATA[600x600mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_material</wp:meta_key><wp:meta_value><![CDATA[Porcelain]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_finish</wp:meta_key><wp:meta_value><![CDATA[Natural Textured]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_thickness</wp:meta_key><wp:meta_value><![CDATA[10mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_color_family</wp:meta_key><wp:meta_value><![CDATA[Beige / Cream]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_usage</wp:meta_key><wp:meta_value><![CDATA[Indoor Floor &amp; Wall]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_price_range</wp:meta_key><wp:meta_value><![CDATA[££]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_featured</wp:meta_key><wp:meta_value><![CDATA[1]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>Anthracite Wood Effect</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>A slim-plank porcelain tile with a convincing dark wood grain effect. Ideal for a modern industrial look in open-plan living areas, bedrooms, and commercial spaces.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Dark wood-effect plank porcelain tile for modern industrial and contemporary interiors.]]></excerpt:encoded>
+		<wp:post_type>marbure_product</wp:post_type>
+		<wp:post_name>anthracite-wood-effect</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="product_cat" nicename="floor-tiles"><![CDATA[Floor Tiles]]></category>
+		<category domain="product_material" nicename="porcelain"><![CDATA[Porcelain]]></category>
+		<category domain="product_finish" nicename="matte"><![CDATA[Matte]]></category>
+		<wp:postmeta><wp:meta_key>_product_size</wp:meta_key><wp:meta_value><![CDATA[200x1200mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_material</wp:meta_key><wp:meta_value><![CDATA[Porcelain]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_finish</wp:meta_key><wp:meta_value><![CDATA[Matte]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_thickness</wp:meta_key><wp:meta_value><![CDATA[10mm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_color_family</wp:meta_key><wp:meta_value><![CDATA[Dark Grey / Charcoal]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_usage</wp:meta_key><wp:meta_value><![CDATA[Indoor Floor]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_price_range</wp:meta_key><wp:meta_value><![CDATA[££]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_product_featured</wp:meta_key><wp:meta_value><![CDATA[1]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<!-- ═══════════════════════════════════════════════════════════════
+	     PROJECTS (marbure_project)
+	═══════════════════════════════════════════════════════════════ -->
+
+	<item>
+		<title>Modern Kitchen Renovation – London</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>A complete kitchen floor and wall tile installation using our Milano Marble Effect collection. The client wanted a clean, contemporary finish that would stand the test of time. We installed large-format 600x600mm tiles throughout, with a contrasting gloss white wall tile on the splashback.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Full kitchen tile installation using Milano Marble Effect floor tiles and Metro Gloss White wall tiles.]]></excerpt:encoded>
+		<wp:post_type>marbure_project</wp:post_type>
+		<wp:post_name>modern-kitchen-renovation-london</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="project_cat" nicename="residential"><![CDATA[Residential]]></category>
+		<category domain="project_type" nicename="kitchen"><![CDATA[Kitchen]]></category>
+		<wp:postmeta><wp:meta_key>_project_location</wp:meta_key><wp:meta_value><![CDATA[London, UK]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_type</wp:meta_key><wp:meta_value><![CDATA[Residential]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_area</wp:meta_key><wp:meta_value><![CDATA[42 sqm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_completion_year</wp:meta_key><wp:meta_value><![CDATA[2024]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_client</wp:meta_key><wp:meta_value><![CDATA[Private Residential Client]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>Boutique Hotel Lobby – Manchester</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>A high-impact lobby flooring project for a boutique hotel in Manchester city centre. We specified Calacatta Gold Polished tiles in an 800x800mm format for the main floor, creating a grand first impression that complements the hotel's luxury branding.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Grand hotel lobby flooring using Calacatta Gold Polished tiles across 380 sqm.]]></excerpt:encoded>
+		<wp:post_type>marbure_project</wp:post_type>
+		<wp:post_name>boutique-hotel-lobby-manchester</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="project_cat" nicename="hospitality"><![CDATA[Hospitality]]></category>
+		<wp:postmeta><wp:meta_key>_project_location</wp:meta_key><wp:meta_value><![CDATA[Manchester, UK]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_type</wp:meta_key><wp:meta_value><![CDATA[Hospitality]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_area</wp:meta_key><wp:meta_value><![CDATA[380 sqm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_completion_year</wp:meta_key><wp:meta_value><![CDATA[2024]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_client</wp:meta_key><wp:meta_value><![CDATA[The Grand Rooms Hotel]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>Luxury Bathroom Suite – Birmingham</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>A full bathroom renovation featuring Travertine Beige Natural floor tiles and a contrasting Metro Gloss White wall tile. The warm, earthy tones create a spa-like atmosphere that the client had envisioned.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Spa-inspired bathroom renovation with travertine floor tiles and gloss wall tiles.]]></excerpt:encoded>
+		<wp:post_type>marbure_project</wp:post_type>
+		<wp:post_name>luxury-bathroom-suite-birmingham</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="project_cat" nicename="residential"><![CDATA[Residential]]></category>
+		<category domain="project_type" nicename="bathroom"><![CDATA[Bathroom]]></category>
+		<wp:postmeta><wp:meta_key>_project_location</wp:meta_key><wp:meta_value><![CDATA[Birmingham, UK]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_type</wp:meta_key><wp:meta_value><![CDATA[Residential]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_area</wp:meta_key><wp:meta_value><![CDATA[18 sqm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_completion_year</wp:meta_key><wp:meta_value><![CDATA[2025]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_client</wp:meta_key><wp:meta_value><![CDATA[Private Residential Client]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>Office Reception Tiling – Leeds</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>A corporate office reception area refurbishment using Anthracite Wood Effect plank tiles. The long, linear format of the 200x1200mm tiles creates a dynamic flow through the entrance, finished with concealed skirting tiles for a clean, professional look.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Corporate reception refurbishment using anthracite wood-effect plank tiles across 120 sqm.]]></excerpt:encoded>
+		<wp:post_type>marbure_project</wp:post_type>
+		<wp:post_name>office-reception-tiling-leeds</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="project_cat" nicename="commercial"><![CDATA[Commercial]]></category>
+		<wp:postmeta><wp:meta_key>_project_location</wp:meta_key><wp:meta_value><![CDATA[Leeds, UK]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_type</wp:meta_key><wp:meta_value><![CDATA[Commercial]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_area</wp:meta_key><wp:meta_value><![CDATA[120 sqm]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_completion_year</wp:meta_key><wp:meta_value><![CDATA[2025]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_project_client</wp:meta_key><wp:meta_value><![CDATA[Apex Business Interiors]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<!-- ═══════════════════════════════════════════════════════════════
+	     TESTIMONIALS (marbure_testimonial)
+	═══════════════════════════════════════════════════════════════ -->
+
+	<item>
+		<title>Sarah Thompson</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[Absolutely delighted with our new kitchen tiles. The team was professional, tidy, and the finish is perfect. The Milano Marble Effect tiles look even better in person than online.]]></content:encoded>
+		<wp:post_type>marbure_testimonial</wp:post_type>
+		<wp:post_name>sarah-thompson</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>1</wp:menu_order>
+		<wp:postmeta><wp:meta_key>_testimonial_rating</wp:meta_key><wp:meta_value><![CDATA[5]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_testimonial_title</wp:meta_key><wp:meta_value><![CDATA[Homeowner, London]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>James Hargreaves</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[We used Marbure for our hotel lobby refurbishment. Their product knowledge and installation quality was exceptional. The Calacatta Gold tiles have transformed the space.]]></content:encoded>
+		<wp:post_type>marbure_testimonial</wp:post_type>
+		<wp:post_name>james-hargreaves</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>2</wp:menu_order>
+		<wp:postmeta><wp:meta_key>_testimonial_rating</wp:meta_key><wp:meta_value><![CDATA[5]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_testimonial_title</wp:meta_key><wp:meta_value><![CDATA[Hotel Director, Manchester]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>Priya Patel</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[Great selection, great service. Visited the showroom and the team helped me choose exactly the right tiles for our bathroom renovation. Really happy with the result.]]></content:encoded>
+		<wp:post_type>marbure_testimonial</wp:post_type>
+		<wp:post_name>priya-patel</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>3</wp:menu_order>
+		<wp:postmeta><wp:meta_key>_testimonial_rating</wp:meta_key><wp:meta_value><![CDATA[5]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_testimonial_title</wp:meta_key><wp:meta_value><![CDATA[Homeowner, Birmingham]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<item>
+		<title>Mark Ellis</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[Excellent quality tiles and a very smooth installation process. The office looks completely transformed. Professional team from quote to completion.]]></content:encoded>
+		<wp:post_type>marbure_testimonial</wp:post_type>
+		<wp:post_name>mark-ellis</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>4</wp:menu_order>
+		<wp:postmeta><wp:meta_key>_testimonial_rating</wp:meta_key><wp:meta_value><![CDATA[4]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_testimonial_title</wp:meta_key><wp:meta_value><![CDATA[Office Manager, Leeds]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<!-- ═══════════════════════════════════════════════════════════════
+	     FAQ (marbure_faq)
+	═══════════════════════════════════════════════════════════════ -->
+
+	<item>
+		<title>What is the difference between porcelain and ceramic tiles?</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[Porcelain tiles are denser and less porous than ceramic, making them more durable and better suited to high-traffic areas and outdoor use. Ceramic tiles are lighter, easier to cut, and typically more affordable, making them ideal for wall applications and lower-traffic floors.]]></content:encoded>
+		<wp:post_type>marbure_faq</wp:post_type>
+		<wp:post_name>porcelain-vs-ceramic</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>1</wp:menu_order>
+	</item>
+
+	<item>
+		<title>Do you offer a professional installation service?</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[Yes. Our experienced team of tilers can handle projects of any size, from single bathroom renovations to large commercial installations. We provide a full service from design consultation through to final grouting and finishing.]]></content:encoded>
+		<wp:post_type>marbure_faq</wp:post_type>
+		<wp:post_name>installation-service</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>2</wp:menu_order>
+	</item>
+
+	<item>
+		<title>How do I calculate how many tiles I need?</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[Measure the length and width of your room in metres and multiply them to get the floor area in square metres. We recommend adding 10% to account for cuts and breakages. Our showroom team can also help you calculate quantities when you visit or get in touch for a quote.]]></content:encoded>
+		<wp:post_type>marbure_faq</wp:post_type>
+		<wp:post_name>how-many-tiles</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>3</wp:menu_order>
+	</item>
+
+	<item>
+		<title>Are your outdoor tiles frost-proof?</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[All of our outdoor porcelain tiles, including the Slate Grey Patio range, are manufactured to be frost-proof and suitable for year-round outdoor use in the UK climate. Check the product specification sheet for the specific frost resistance rating.]]></content:encoded>
+		<wp:post_type>marbure_faq</wp:post_type>
+		<wp:post_name>frost-proof-outdoor</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>4</wp:menu_order>
+	</item>
+
+	<item>
+		<title>What is your returns policy?</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[Unused, undamaged tiles in original packaging can be returned within 30 days of purchase for a full refund or exchange. We recommend ordering a sample before committing to a full order to ensure the tile is right for your project.]]></content:encoded>
+		<wp:post_type>marbure_faq</wp:post_type>
+		<wp:post_name>returns-policy</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>5</wp:menu_order>
+	</item>
+
+	<!-- ═══════════════════════════════════════════════════════════════
+	     BLOG POSTS
+	═══════════════════════════════════════════════════════════════ -->
+
+	<item>
+		<title>5 Tile Trends to Watch in 2025</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>From large-format slabs to bold geometric patterns, 2025 is shaping up to be an exciting year for tile design. Here are the five trends our design team is seeing most in client showroom visits this year.</p><h2>1. Oversized Slabs</h2><p>600x1200mm and larger formats are becoming increasingly popular for both floors and walls, reducing grout lines for a sleek, seamless look.</p><h2>2. Warm Neutrals</h2><p>Beige, cream, and warm grey tones are replacing the cooler tones of recent years, bringing a sense of comfort and warmth to interiors.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[From large-format slabs to bold geometric patterns, here are the five tile design trends dominating 2025.]]></excerpt:encoded>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_name>tile-trends-2025</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="category" nicename="design-ideas"><![CDATA[Design Ideas]]></category>
+	</item>
+
+	<item>
+		<title>How to Choose the Right Grout for Your Tiles</title>
+		<dc:creator><![CDATA[marbure_admin]]></dc:creator>
+		<content:encoded><![CDATA[<p>Grout is often an afterthought, but the wrong choice can undermine even the most beautiful tile installation. Here's what to consider when selecting grout for your project.</p><h2>Matching vs. Contrasting Grout</h2><p>Matching grout colour to your tile creates a seamless effect, while contrasting grout (like dark grout on white tiles) makes a design statement and defines the tile pattern.</p><h2>Joint Width</h2><p>The width of your grout joint affects which grout type to use. Narrow joints (under 3mm) require unsanded grout; wider joints need sanded grout for strength.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[The right grout makes or breaks a tile installation. Here's our guide to choosing colour, type, and joint width.]]></excerpt:encoded>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_name>how-to-choose-grout</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+		<category domain="category" nicename="tile-tips"><![CDATA[Tile Tips]]></category>
+	</item>
+
+</channel>
+</rss>

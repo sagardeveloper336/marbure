@@ -1,6 +1,6 @@
 # Marbure Theme — Complete Development Roadmap
+# Tiles & Flooring WordPress Theme for ThemeForest
 
-**Reference:** [Lagix Demo 01](https://lagix-demo.pbminfotech.com/demo-01) (Law Firm / Attorney)
 **Stack:** WordPress 6.x · Underscores (_s) · Kirki · Elementor · SCSS · Vanilla JS
 
 ---
@@ -29,19 +29,20 @@
 
 | Page | Template | Notes |
 |---|---|---|
-| Home (3 variants) | `page-templates/page-home-*.php` | Hero slider, all sections |
-| About Us | `page-templates/page-about.php` | Metrics, pillars, team preview, awards |
-| Practice Areas (archive) | `archive-marbure_service.php` | Filterable grid |
-| Practice Area (single) | `single-marbure_service.php` | Sidebar with related services |
-| Case Results (archive) | `archive-marbure_portfolio.php` | Isotope grid, category filter tabs |
-| Case Result (single) | `single-marbure_portfolio.php` | Full case details |
-| Our Team (archive) | `archive-marbure_team.php` | Grid with hover cards |
-| Attorney (single) | `single-marbure_team.php` | Bio, credentials, contact form |
-| Testimonials | `page-templates/page-testimonials.php` | Masonry or grid |
+| Home (3 variants) | `page-templates/page-home-*.php` | Hero slider, collections, stats, projects, testimonials |
+| About Us | `page-templates/page-about.php` | Story, team, certifications, showroom |
+| Products / Collections (archive) | `archive-marbure_product.php` | Grid with filter by taxonomy |
+| Product / Collection (single) | `single-marbure_product.php` | Gallery, specs, related products |
+| Projects (archive) | `archive-marbure_project.php` | Isotope grid, category filter |
+| Project (single) | `single-marbure_project.php` | Full project details, tile used |
+| Services | `page-templates/page-services.php` | Installation, consultation, supply |
+| Gallery | `page-templates/page-gallery.php` | Masonry / filterable lightbox grid |
+| Testimonials | `page-templates/page-testimonials.php` | Grid or masonry |
 | FAQ | `page-templates/page-faq.php` | Accordion + Schema |
-| Blog (archive) | `archive.php` | Left/right/no sidebar option |
+| Get a Quote | `page-templates/page-quote.php` | Quote request form |
+| Blog (archive) | `archive.php` | Left/right/no sidebar |
 | Blog (single) | `single.php` | Author box, related posts |
-| Contact | `page-templates/page-contact.php` | Map + form |
+| Contact | `page-templates/page-contact.php` | Map + form + showroom info |
 | Full Width | `page-templates/page-fullwidth.php` | No sidebar, for Elementor |
 | 404 | `404.php` | — |
 | Search | `search.php` | — |
@@ -53,14 +54,14 @@
 ```
 ┌─────────────────────────────────────────────────────┐
 │  TOP BAR (toggle on/off via Kirki)                  │
-│  [Phone] [Email]              [FB] [X] [IG]         │
+│  [Phone] [Email] [Showroom Hours]    [FB] [IG] [PT] │
 ├─────────────────────────────────────────────────────┤
 │  MAIN HEADER (sticky + shrink on scroll)            │
-│  [LOGO]   [Nav: Home | Services | Portfolio | ...]  │
-│           [🔍 Search]  [📞 Free Consultation CTA]   │
+│  [LOGO]   [Nav: Home | Products | Projects | ...]   │
+│           [🔍 Search]  [Get a Quote CTA]            │
 ├─────────────────────────────────────────────────────┤
-│  MEGA MENU DROPDOWN (on Services, Pages)            │
-│  [ Thumbnail cards with section previews ]          │
+│  MEGA MENU DROPDOWN (on Products, Projects)         │
+│  [ Thumbnail cards with category previews ]         │
 ├─────────────────────────────────────────────────────┤
 │  MOBILE (< 992px): [LOGO] ─────────── [☰ Hamburger]│
 │  → Off-canvas panel slides in from right            │
@@ -82,11 +83,11 @@
 ```
 ┌─────────────────────────────────────────────────────┐
 │  PRE-FOOTER CTA BAND (optional, Kirki toggle)       │
-│  "Ready to fight for your rights?" [Book a Call]    │
+│  "Transform Your Space Today" [Get a Free Quote]    │
 ├──────────┬──────────┬──────────┬────────────────────┤
 │ COLUMN 1 │ COLUMN 2 │ COLUMN 3 │ COLUMN 4           │
-│ Logo     │ Quick    │ Practice │ Newsletter         │
-│ About    │ Links    │ Areas    │ + Contact Info     │
+│ Logo     │ Quick    │ Products │ Newsletter         │
+│ About    │ Links    │ / Pages  │ + Contact Info     │
 │ Social   │          │          │                    │
 ├──────────┴──────────┴──────────┴────────────────────┤
 │  BOTTOM BAR                                         │
@@ -98,13 +99,14 @@
 
 ## 4. Custom Post Types & Taxonomies
 
+> **All CPTs and taxonomies are registered in the `pt-theme-addon` plugin** — not in the theme itself. The theme templates reference them universally.
+
 ### Custom Post Types
 
 | Post Type | Slug | Supports | Public Label |
 |---|---|---|---|
-| Practice Areas | `marbure_service` | title, editor, thumbnail, excerpt, page-attributes | Practice Area / Practice Areas |
-| Case Results | `marbure_portfolio` | title, editor, thumbnail, excerpt | Case Result / Case Results |
-| Attorneys | `marbure_team` | title, editor, thumbnail, excerpt | Attorney / Attorneys |
+| Products / Collections | `marbure_product` | title, editor, thumbnail, excerpt, page-attributes | Product / Products |
+| Projects | `marbure_project` | title, editor, thumbnail, excerpt, gallery | Project / Projects |
 | Testimonials | `marbure_testimonial` | title, editor, thumbnail, custom-fields | Testimonial / Testimonials |
 | FAQ Items | `marbure_faq` | title, editor | FAQ / FAQs |
 
@@ -112,34 +114,35 @@
 
 | Taxonomy | Slug | Attached To | Hierarchical |
 |---|---|---|---|
-| Service Category | `service_cat` | `marbure_service` | Yes |
-| Portfolio Category | `portfolio_cat` | `marbure_portfolio` | Yes |
-| Team Department | `team_dept` | `marbure_team` | Yes |
-| Testimonial Source | `testimonial_type` | `marbure_testimonial` | No |
+| Product Category | `product_cat` | `marbure_product` | Yes |
+| Product Material | `product_material` | `marbure_product` | No |
+| Product Finish | `product_finish` | `marbure_product` | No |
+| Project Category | `project_cat` | `marbure_project` | Yes |
+| Project Type | `project_type` | `marbure_project` | No |
 
 ### Custom Meta Fields (per CPT)
 
-**`marbure_team`**
-- `_team_position` — Job title / role
-- `_team_phone` — Direct phone number
-- `_team_email` — Email address
-- `_team_bar_number` — Bar registration number
-- `_team_linkedin`, `_team_facebook`, `_team_twitter` — Social URLs
+**`marbure_product`**
+- `_product_size` — Tile size (e.g. 600×600mm)
+- `_product_material` — Material type (free text fallback)
+- `_product_finish` — Finish type (e.g. Matte, Glossy, Satin)
+- `_product_thickness` — Thickness in mm
+- `_product_color_family` — Primary colour family
+- `_product_usage` — Usage (Floor / Wall / Both / Outdoor)
+- `_product_price_range` — Price range label (e.g. $$, $$$)
+- `_product_datasheet_url` — Link to PDF datasheet
 
-**`marbure_service`**
-- `_service_icon_class` — Font Awesome icon class
-- `_service_tagline` — Short tagline (used on cards)
-- `_service_featured` — Checkbox: show on homepage grid
-
-**`marbure_portfolio`**
-- `_portfolio_case_type` — Type of case
-- `_portfolio_settlement` — Settlement value (e.g. $2.5M)
-- `_portfolio_outcome` — Won / Settled / Dismissed
-- `_portfolio_year` — Year of resolution
+**`marbure_project`**
+- `_project_location` — City / region
+- `_project_type` — Residential / Commercial / Hospitality
+- `_project_area` — Area covered (e.g. 450 sqm)
+- `_project_products_used` — Comma-separated product names
+- `_project_completion_year` — Year completed
+- `_project_client` — Client name (optional)
 
 **`marbure_testimonial`**
 - `_testimonial_rating` — Star rating 1–5
-- `_testimonial_client_title` — Client's job title / description
+- `_testimonial_client_title` — Client designation / project type
 - `_testimonial_source_url` — Link to original review
 
 ---
@@ -148,50 +151,52 @@
 
 ```
 Panel: General Settings
-  ├── Site Identity        → logo, logo-white (for transparent header),
-  │                          favicon, tagline display on/off
-  ├── Colors               → primary (#0A1E3F navy), secondary (#CF9776 gold),
-  │                          accent, body-text, heading-text, bg
-  ├── Preloader            → on/off, style (circle spinner / logo pulse)
-  ├── Back to Top          → on/off, position (right/left), scroll offset
-  └── Social Media         → facebook, twitter/x, instagram, linkedin, youtube
+  ├── Site Identity        → logo, logo-white (transparent header),
+  │                          favicon, tagline on/off
+  ├── Colors               → primary, secondary, accent,
+  │                          body-text, heading-text, bg, bg-alt
+  ├── Preloader            → on/off, style (spinner / logo pulse)
+  ├── Back to Top          → on/off, scroll offset
+  └── Social Media         → facebook, instagram, pinterest,
+                             houzz, youtube, linkedin
 
 Panel: Header
-  ├── Top Bar              → on/off, phone number, email, custom HTML
-  ├── Main Header          → logo max-width, sticky on/off, shrink on scroll on/off
-  ├── Transparent Header   → enable on front-page only / all pages / off
-  └── CTA Button           → label text, URL, open in new tab, on/off
+  ├── Top Bar              → on/off, phone, email, showroom hours text
+  ├── Main Header          → logo max-width, sticky on/off, shrink on scroll
+  ├── Transparent Header   → front-page only / all pages / off
+  └── CTA Button           → label, URL, open in new tab, on/off
 
 Panel: Page Header (Breadcrumb Band)
-  ├── General              → on/off globally, breadcrumb separator character
-  ├── Default Background   → image upload, overlay color + opacity (0–1)
+  ├── General              → on/off globally, separator character
+  ├── Default Background   → image upload, overlay color + opacity
   └── Title Style          → font size override, text alignment
 
 Panel: Footer
-  ├── Pre-footer CTA       → on/off, heading, subtext, button label, button URL
+  ├── Pre-footer CTA       → on/off, heading, subtext, button label, URL
   ├── Footer Layout        → column count (1 / 2 / 3 / 4)
-  ├── Footer Style         → background color, background image, text color
-  └── Bottom Bar           → copyright text (supports {year} token), show/hide links
+  ├── Footer Style         → bg color, bg image, text color
+  └── Bottom Bar           → copyright text ({year} token), show/hide links
 
 Panel: Typography
-  ├── Body Font            → Google Font family, size (px), weight, line-height
-  ├── Heading Font         → Google Font family, weight, h1–h6 individual sizes
+  ├── Body Font            → Google Font family, size, weight, line-height
+  ├── Heading Font         → Google Font family, weight, h1–h6 sizes
   └── Navigation Font      → family, size, letter-spacing, text-transform
 
 Panel: Blog
-  ├── Archive Layout       → sidebar position (left / right / none), columns (2/3)
-  ├── Single Layout        → sidebar position, featured image style (full/boxed)
-  ├── Post Card            → excerpt length (words), show/hide: date, category, author
+  ├── Archive Layout       → sidebar position (left / right / none), columns
+  ├── Single Layout        → sidebar position, featured image style
+  ├── Post Card            → excerpt length, show/hide: date, category, author
   └── Author Box           → show/hide on single posts
 
 Panel: CPT Settings
-  ├── Services             → archive columns (2/3/4), show excerpt on cards
-  ├── Portfolio            → archive columns (2/3), enable Isotope filtering
-  └── Team                 → archive columns (2/3/4), show social links on cards
+  ├── Products             → archive columns (2/3/4), show meta on cards,
+  │                          enable filter bar on/off
+  ├── Projects             → archive columns (2/3), enable Isotope filtering
+  └── General CPT          → show excerpt on archive cards (on/off)
 
 Panel: Performance
-  ├── Scripts              → defer non-critical JS on/off, preconnect Google Fonts on/off
-  └── Images               → native lazy load on/off, output width/height attributes on/off
+  ├── Scripts              → defer non-critical JS, preconnect Google Fonts
+  └── Images               → native lazy load, output width/height attributes
 ```
 
 ---
@@ -201,9 +206,9 @@ Panel: Performance
 ```
 marbure/
 │
-├── style.css                        ← Theme header + compiled CSS output
-├── style-rtl.css                    ← Auto-generated RTL overrides
-├── functions.php                    ← Lean bootstrap — only requires inc/bootstrap.php
+├── style.css
+├── style-rtl.css
+├── functions.php
 ├── index.php
 ├── header.php
 ├── footer.php
@@ -215,197 +220,135 @@ marbure/
 ├── 404.php
 ├── comments.php
 ├── searchform.php
-├── screenshot.png                   ← 1200×900px (ThemeForest requirement)
+├── screenshot.png                   ← 1200×900px
+├── theme.json
+├── editor-style.css
 │
-├── archive-marbure_service.php      ← Practice Areas archive
-├── archive-marbure_portfolio.php    ← Case Results archive (with filter tabs)
-├── archive-marbure_team.php         ← Attorneys archive
-├── single-marbure_service.php       ← Single Practice Area
-├── single-marbure_portfolio.php     ← Single Case Result
-├── single-marbure_team.php          ← Single Attorney profile
+├── archive-marbure_product.php      ← Products archive (filter bar + grid)
+├── archive-marbure_project.php      ← Projects archive (Isotope grid)
+├── single-marbure_product.php       ← Single product / collection
+├── single-marbure_project.php       ← Single project
 │
 ├── page-templates/
-│   ├── page-home.php                ← Homepage v1 (template comment header)
+│   ├── page-home.php
 │   ├── page-home-v2.php
 │   ├── page-home-v3.php
 │   ├── page-about.php
-│   ├── page-contact.php
-│   ├── page-faq.php
+│   ├── page-services.php
+│   ├── page-gallery.php
 │   ├── page-testimonials.php
-│   └── page-fullwidth.php           ← No sidebar, full canvas for Elementor
+│   ├── page-faq.php
+│   ├── page-quote.php
+│   ├── page-contact.php
+│   └── page-fullwidth.php
 │
 ├── template-parts/
-│   ├── content.php                  ← Blog archive post loop
+│   ├── content.php
 │   ├── content-none.php
 │   ├── content-page.php
 │   ├── content-search.php
 │   ├── content-single.php
+│   ├── content-product.php          ← Product archive card
+│   ├── content-project.php          ← Project archive card
 │   │
 │   ├── header/
-│   │   ├── top-bar.php              ← Phone, email, social icons row
-│   │   ├── header-main.php          ← Logo + nav + CTA button
-│   │   └── mobile-off-canvas.php    ← Hamburger + slide-in panel
+│   │   ├── top-bar.php
+│   │   ├── header-main.php
+│   │   └── mobile-off-canvas.php
 │   │
 │   ├── footer/
-│   │   ├── pre-footer-cta.php       ← Full-width CTA band above footer
-│   │   ├── footer-widgets.php       ← 4-column widget grid
-│   │   └── footer-bottom.php        ← Copyright + nav links bar
+│   │   ├── pre-footer-cta.php
+│   │   ├── footer-widgets.php
+│   │   └── footer-bottom.php
 │   │
 │   ├── page-header/
-│   │   └── breadcrumb-band.php      ← Page title + breadcrumb (all inner pages)
+│   │   └── breadcrumb-band.php
 │   │
-│   ├── sections/                    ← Reusable homepage sections
-│   │   ├── hero-slider.php          ← Swiper full-width hero
-│   │   ├── about-intro.php          ← Mission + metrics (stars, %, $)
-│   │   ├── services-grid.php        ← Practice areas card grid
-│   │   ├── stats-counter.php        ← Animated number counters
-│   │   ├── portfolio-preview.php    ← Featured case results
-│   │   ├── team-grid.php            ← Attorney cards
-│   │   ├── testimonials-carousel.php← Swiper testimonials
-│   │   ├── blog-grid.php            ← Latest posts
-│   │   ├── cta-band.php             ← Mid-page consultation CTA
-│   │   └── marquee-strip.php        ← Animated scrolling ticker
-│   │
-│   ├── service/
-│   │   ├── card.php                 ← Archive card (icon, title, excerpt, link)
-│   │   └── single-content.php       ← Single page body layout
-│   │
-│   ├── portfolio/
-│   │   ├── card.php                 ← Archive card (image, category, outcome)
-│   │   └── single-content.php
-│   │
-│   └── team/
-│       ├── card.php                 ← Archive card (photo, name, role, socials)
-│       └── single-content.php       ← Bio, credentials, sidebar contact
+│   └── sections/                    ← Homepage sections
+│       ├── hero-slider.php
+│       ├── featured-collections.php
+│       ├── why-choose-us.php
+│       ├── stats-counter.php
+│       ├── projects-preview.php
+│       ├── services-overview.php
+│       ├── testimonials-carousel.php
+│       ├── blog-grid.php
+│       ├── cta-band.php
+│       └── marquee-strip.php        ← Brand / material logos ticker
 │
 ├── inc/
-│   ├── bootstrap.php                ← Single file that require_onces everything below
-│   ├── setup.php                    ← after_setup_theme: supports, image sizes
-│   ├── enqueue.php                  ← All wp_enqueue_scripts / styles
-│   ├── nav-menus.php                ← register_nav_menus (4 locations)
-│   ├── sidebars.php                 ← register_sidebar (6 widget areas)
-│   ├── cpts.php                     ← All register_post_type calls
-│   ├── taxonomies.php               ← All register_taxonomy calls
-│   ├── meta-boxes.php               ← Native WP meta boxes for CPT fields
-│   ├── helpers.php                  ← Utility/helper functions
-│   ├── template-tags.php            ← Custom template tag functions
-│   ├── template-functions.php       ← Hook-based template modifications
-│   ├── breadcrumb.php               ← Breadcrumb output function
-│   ├── schema.php                   ← JSON-LD structured data output
-│   ├── customizer.php               ← Core WP Customizer additional hooks
-│   ├── custom-header.php
+│   ├── bootstrap.php
+│   ├── setup.php
+│   ├── enqueue.php
+│   ├── nav-menus.php
+│   ├── sidebars.php
+│   ├── cpts.php                     ← Stub (CPTs in pt-theme-addon)
+│   ├── taxonomies.php               ← Stub (taxonomies in pt-theme-addon)
+│   ├── meta-boxes.php
+│   ├── helpers.php
+│   ├── template-tags.php
+│   ├── template-functions.php
+│   ├── breadcrumb.php
+│   ├── schema.php
+│   ├── og-meta.php
+│   ├── customizer.php
 │   ├── jetpack.php
 │   │
 │   ├── class/
-│   │   ├── class-marbure-walker-nav-menu.php  ← Mega menu HTML walker
-│   │   └── class-marbure-breadcrumb.php       ← Breadcrumb generator class
+│   │   ├── class-marbure-walker-nav-menu.php
+│   │   └── class-marbure-breadcrumb.php
 │   │
 │   ├── elementor/
-│   │   ├── elementor-support.php              ← Location API, kit ID, conditions
+│   │   ├── elementor-support.php
 │   │   └── widgets/
 │   │       ├── widget-hero-slider.php
-│   │       ├── widget-service-card.php
+│   │       ├── widget-product-card.php
+│   │       ├── widget-project-card.php
 │   │       ├── widget-stat-counter.php
-│   │       ├── widget-team-card.php
 │   │       ├── widget-testimonial-carousel.php
-│   │       ├── widget-case-card.php
 │   │       ├── widget-faq-accordion.php
 │   │       ├── widget-cta-band.php
+│   │       ├── widget-gallery-grid.php
 │   │       └── widget-marquee-strip.php
 │   │
 │   └── kirki/
-│       ├── bootstrap.php            ← (existing — loads all sections)
+│       ├── bootstrap.php
 │       ├── config.php
 │       ├── helpers.php
 │       ├── panels.php
 │       └── sections/
-│           ├── general.php          ← (existing — expand)
-│           ├── header.php           ← (existing — expand)
-│           ├── footer.php           ← (existing — expand)
-│           ├── typography.php       ← (existing — expand)
-│           ├── blog.php             ← (existing — expand)
-│           ├── performance.php      ← (existing — expand)
-│           ├── social.php           ← NEW
-│           ├── page-header.php      ← NEW
-│           └── cpts.php             ← NEW
+│           ├── general.php
+│           ├── header.php
+│           ├── footer.php
+│           ├── typography.php
+│           ├── blog.php
+│           ├── performance.php
+│           ├── social.php
+│           ├── page-header.php
+│           └── cpts.php
 │
-├── sass/
-│   ├── style.scss                   ← Main entry: @forward all partials
-│   │
-│   ├── abstracts/
-│   │   ├── _variables.scss          ← CSS custom props + SCSS vars
-│   │   ├── _mixins.scss             ← respond-to(), flex-center(), etc.
-│   │   ├── _functions.scss          ← rem(), em(), strip-unit()
-│   │   └── _placeholders.scss       ← %clearfix, %visually-hidden
-│   │
-│   ├── base/
-│   │   ├── _reset.scss              ← Normalize / modern reset
-│   │   ├── _typography.scss         ← Body, headings, links base styles
-│   │   ├── _utilities.scss          ← .u-text-center, .u-hidden, etc.
-│   │   └── _animations.scss         ← @keyframes: fadeIn, slideUp, countUp
-│   │
-│   ├── layout/
-│   │   ├── _grid.scss               ← .container, .row, col utilities
-│   │   ├── _header.scss             ← Top bar, main header, sticky states
-│   │   ├── _footer.scss             ← All 3 footer zones
-│   │   ├── _sidebar.scss            ← Widget sidebar styles
-│   │   └── _page-header.scss        ← Breadcrumb band + page title
-│   │
-│   ├── components/
-│   │   ├── _buttons.scss            ← .btn-primary, .btn-outline, .btn-ghost
-│   │   ├── _cards.scss              ← Generic card shell
-│   │   ├── _navigation.scss         ← Desktop nav links, dropdowns
-│   │   ├── _mega-menu.scss          ← Mega menu panel + thumbnail cards
-│   │   ├── _mobile-menu.scss        ← Off-canvas overlay + slide panel
-│   │   ├── _hero-slider.scss        ← Swiper hero, slide content, arrows
-│   │   ├── _testimonials.scss       ← Testimonial cards + carousel
-│   │   ├── _counters.scss           ← Stat counter blocks
-│   │   ├── _team.scss               ← Team cards, hover reveal, socials
-│   │   ├── _forms.scss              ← Inputs, labels, contact form
-│   │   ├── _accordion.scss          ← FAQ accordion
-│   │   ├── _pagination.scss         ← Numbered + prev/next
-│   │   ├── _breadcrumb.scss
-│   │   ├── _back-to-top.scss
-│   │   ├── _preloader.scss
-│   │   └── _marquee.scss            ← Infinite scrolling strip
-│   │
-│   ├── pages/
-│   │   ├── _home.scss               ← Homepage-specific section spacing
-│   │   ├── _about.scss
-│   │   ├── _services.scss
-│   │   ├── _portfolio.scss          ← Isotope grid + filter tabs
-│   │   ├── _blog.scss
-│   │   ├── _contact.scss            ← Map embed + form layout
-│   │   └── _404.scss
-│   │
-│   ├── elementor/
-│   │   └── _overrides.scss          ← Fix Elementor specificity conflicts
-│   │
-│   └── _rtl.scss                    ← RTL direction overrides
-│
+├── sass/                            ← Full SCSS architecture (unchanged)
 ├── js/
-│   ├── customizer.js                ← (existing)
-│   ├── navigation.js                ← (existing)
-│   └── src/                         ← Source files (concat/minify via wp-scripts)
+│   └── src/
 │       ├── preloader.js
-│       ├── sticky-header.js         ← classList add/remove on scroll
-│       ├── mega-menu.js             ← Keyboard + mouse events
-│       ├── mobile-menu.js           ← Off-canvas open/close/trap focus
-│       ├── back-to-top.js           ← Show after 300px scroll, smooth scroll
-│       ├── counter.js               ← IntersectionObserver + CountUp.js
-│       ├── hero-slider.js           ← Swiper init + config
-│       ├── testimonial-carousel.js  ← Swiper init + config
-│       ├── portfolio-filter.js      ← Isotope init + filter button events
-│       └── marquee.js               ← CSS animation fallback JS
+│       ├── sticky-header.js
+│       ├── mega-menu.js
+│       ├── mobile-menu.js
+│       ├── back-to-top.js
+│       ├── counter.js
+│       ├── hero-slider.js
+│       ├── testimonial-carousel.js
+│       ├── portfolio-filter.js      ← Reused for projects Isotope
+│       ├── gallery-filter.js        ← Gallery page lightbox + filter
+│       └── marquee.js
 │
 ├── assets/
 │   ├── images/
 │   │   ├── logo.png
-│   │   ├── logo-white.png           ← Used on transparent/dark headers
-│   │   └── placeholder/             ← Demo placeholder images
+│   │   └── logo-white.png
 │   └── demo/
-│       ├── demo-content.xml         ← WordPress export for demo import
-│       └── customizer-settings.dat  ← Theme options export file
+│       ├── demo-content.xml
+│       └── customizer-settings.dat
 │
 └── languages/
     ├── marbure.pot
@@ -419,11 +362,11 @@ marbure/
 | ID | Name | Used In |
 |---|---|---|
 | `sidebar-main` | Main Sidebar | Blog archive + single |
-| `sidebar-service` | Service Sidebar | Practice area single |
-| `footer-col-1` | Footer Column 1 | Footer (logo + about + socials) |
-| `footer-col-2` | Footer Column 2 | Footer (quick links) |
-| `footer-col-3` | Footer Column 3 | Footer (practice areas) |
-| `footer-col-4` | Footer Column 4 | Footer (newsletter + contact) |
+| `sidebar-product` | Product Sidebar | Product archive / single (filter widget) |
+| `footer-col-1` | Footer Column 1 | Footer logo + about + socials |
+| `footer-col-2` | Footer Column 2 | Footer quick links |
+| `footer-col-3` | Footer Column 3 | Footer products / pages |
+| `footer-col-4` | Footer Column 4 | Footer newsletter + contact |
 
 ---
 
@@ -431,10 +374,10 @@ marbure/
 
 | Location Slug | Label | Purpose |
 |---|---|---|
-| `primary` | Primary Menu | Main desktop navigation (mega menu enabled) |
+| `primary` | Primary Menu | Main desktop navigation (mega menu) |
 | `mobile` | Mobile Menu | Off-canvas slide panel |
-| `footer-links` | Footer Links | Bottom bar left side |
-| `footer-services` | Footer Services | Footer column 3 quick list |
+| `footer-links` | Footer Links | Bottom bar |
+| `footer-products` | Footer Products | Footer column 3 quick list |
 
 ---
 
@@ -443,110 +386,85 @@ marbure/
 | Library | Version | Purpose | Load Strategy |
 |---|---|---|---|
 | [Swiper.js](https://swiperjs.com/) | 11.x | Hero slider, testimonials carousel | `defer` |
-| [Isotope](https://isotope.metafizzy.co/) | 3.x | Portfolio grid filtering + sorting | `defer` |
-| [CountUp.js](https://github.com/inorganik/countUp.js) | 2.x | Animated stat counters | `defer` |
-| [GLightbox](https://biati-digital.github.io/glightbox/) | 3.x | Video lightbox popup | `defer` |
+| [Isotope](https://isotope.metafizzy.co/) | 3.x | Projects grid filtering | `defer` |
+| [GLightbox](https://biati-digital.github.io/glightbox/) | 3.x | Gallery lightbox | `defer` |
 | [AOS](https://michalsnik.github.io/aos/) | 2.x | Scroll-triggered reveal animations | `defer` |
+| [CountUp.js](https://github.com/inorganik/countUp.js) | 2.x | Animated stat counters | `defer` |
 | Font Awesome | 6.x | Icons throughout UI | `async` |
-| Google Fonts | — | Playfair Display (headings) + Inter (body) | `preconnect` + `display=swap` |
+| Google Fonts | — | Heading + body fonts | `preconnect` + `display=swap` |
 
 ---
 
 ## 10. Elementor & Gutenberg Requirements
-
-### Elementor
-
-- **Minimum:** Elementor Free 3.x (Elementor Pro optional — used for Theme Builder)
-- Register theme locations via `elementor/theme/register_locations` hook
-- 9 custom Elementor widgets registered under **"Marbure"** category
-- Elementor Kit import to sync colors + typography with Kirki values
-- All page templates built as **Elementor Canvas** (no theme header/footer) or **Full Width**
 
 ### Custom Elementor Widgets
 
 | Widget | Panel Controls |
 |---|---|
 | Hero Slider | Slides repeater, button text/URL, overlay color |
-| Service Card | Icon, title, excerpt, link, layout style |
+| Product Card | Image, title, meta (size, material, finish), link, layout style |
+| Project Card | Image, location, type, area covered, hover style |
 | Stat Counter | Number, suffix, label, icon, animation duration |
-| Team Card | Photo, name, role, social URLs, hover style |
 | Testimonial Carousel | Repeater: quote, name, title, rating, photo |
-| Case Result Card | Image, category, outcome badge, settlement |
 | FAQ Accordion | Repeater: question + answer, open first on/off |
 | CTA Band | BG image/color, heading, text, primary + ghost buttons |
-| Marquee Strip | Items repeater, speed, direction, pause on hover |
+| Gallery Grid | Images repeater, columns, lightbox on/off, filter on/off |
+| Marquee Strip | Items repeater (logos/text), speed, direction, pause on hover |
 
 ### Gutenberg
 
-- `theme.json` — color palette, font sizes, spacing scale, border radius
-- 8 block patterns (one per homepage section)
-- Block styles: `outline` button variant, `bordered` card style
-- `editor-style.css` — mirrors front-end typography inside block editor
+- `theme.json` — color palette, font sizes, spacing scale
+- Block patterns (one per homepage section)
+- `editor-style.css`
 
 ---
 
 ## 11. SCSS Architecture
 
-### CSS Custom Properties Strategy
-
-All design tokens are declared as CSS custom properties so Kirki can override them at runtime via inline `<style>` in `<head>`:
+### CSS Custom Properties
 
 ```scss
-/* sass/abstracts/_variables.scss */
 :root {
-  /* Colors */
-  --color-primary:     #0A1E3F;   /* deep navy */
-  --color-secondary:   #CF9776;   /* gold */
-  --color-accent:      #1A3A6B;   /* mid navy */
-  --color-text:        #3D3D3D;
-  --color-heading:     #0A1E3F;
+  --color-primary:     #1A1A2E;   /* deep charcoal / dark navy */
+  --color-secondary:   #C8A96E;   /* warm gold */
+  --color-accent:      #E8E0D5;   /* warm off-white / stone */
+  --color-text:        #4A4A4A;
+  --color-heading:     #1A1A2E;
   --color-bg:          #FFFFFF;
-  --color-bg-alt:      #F8F8F8;
+  --color-bg-alt:      #F7F5F2;   /* warm stone background */
 
-  /* Typography */
-  --font-heading:      'Playfair Display', Georgia, serif;
-  --font-body:         'Inter', system-ui, sans-serif;
+  --font-heading:      'Cormorant Garamond', Georgia, serif;
+  --font-body:         'Jost', system-ui, sans-serif;
   --font-size-base:    16px;
-  --line-height-base:  1.7;
+  --line-height-base:  1.75;
 
-  /* Layout */
   --container-width:   1200px;
   --gutter:            30px;
+  --section-padding-y: 100px;
 
-  /* Header */
   --header-height:     90px;
   --header-shrunk:     70px;
   --topbar-height:     44px;
 
-  /* Misc */
-  --radius:            4px;
-  --radius-lg:         8px;
-  --shadow:            0 4px 24px rgba(0,0,0,.08);
+  --radius:            2px;        /* tiles theme: sharper corners */
+  --radius-lg:         4px;
+  --shadow:            0 4px 24px rgba(0,0,0,.07);
   --transition:        0.3s ease;
-  --transition-slow:   0.6s ease;
 }
 ```
 
 ### Breakpoints
 
-| Name | Value | Usage |
-|---|---|---|
-| `xs` | 480px | Very small phones |
-| `sm` | 576px | Small phones |
-| `md` | 768px | Tablets portrait |
-| `lg` | 992px | Tablets landscape / small desktop |
-| `xl` | 1200px | Desktop |
-| `xxl` | 1400px | Wide desktop |
+| Name | Value |
+|---|---|
+| `xs` | 480px |
+| `sm` | 576px |
+| `md` | 768px |
+| `lg` | 992px |
+| `xl` | 1200px |
+| `xxl` | 1400px |
 
-### Naming Convention
-
-**BEM** throughout: `.block__element--modifier`
-
-Examples:
-- `.site-header__topbar`
-- `.service-card__icon--large`
-- `.btn--outline`
-- `.hero-slider__slide-title`
+**Naming:** BEM throughout — `.block__element--modifier`
 
 ---
 
@@ -554,124 +472,109 @@ Examples:
 
 | Area | Action |
 |---|---|
-| **Fonts** | `preconnect` to `fonts.googleapis.com` + `fonts.gstatic.com`; `font-display: swap` on all face declarations |
-| **Images** | Native `loading="lazy"` on all non-LCP images; always output `width` + `height` to prevent CLS; register multiple `add_image_size()` to avoid oversized delivery |
-| **Critical CSS** | Inline above-the-fold CSS (header + hero) via `wp_add_inline_style`; defer remaining stylesheet |
-| **JavaScript** | All theme JS enqueued with `defer`; split into page-specific files — Isotope only loads on portfolio pages, Swiper only where sliders exist |
-| **WP Queries** | CPT archive queries set `no_found_rows => true` on pages without pagination; `update_post_meta_cache => false` when meta not needed |
-| **Kirki Caching** | All `get_theme_mod()` calls in template files wrapped in static-var helper to avoid repeated DB reads |
-| **Third-party** | All vendor libs loaded conditionally; no global jQuery dependency — write vanilla JS |
-| **Production** | Use `wp-scripts build` to minify JS; version assets with `filemtime()` during dev, fixed version string for releases |
+| **Fonts** | `preconnect` to Google Fonts; `font-display: swap` |
+| **Images** | Native `loading="lazy"` on non-hero images; `width` + `height` always output; `srcset` via `wp_get_attachment_image` |
+| **Gallery** | GLightbox loaded only on gallery / project single templates |
+| **Isotope** | Loaded only on project archive pages |
+| **Critical CSS** | Inline above-fold CSS (header + hero) via `wp_add_inline_style` |
+| **JavaScript** | All JS enqueued with `defer`; split per page type |
+| **Kirki** | All `get_theme_mod()` calls wrapped in static-var `marbure_get_option()` helper |
 
 ---
 
 ## 13. SEO & Schema Recommendations
 
-### JSON-LD Structured Data
-
 | Schema Type | Output On |
 |---|---|
-| `LegalService` + `LocalBusiness` | Site-wide in `<head>` (from Kirki contact fields) |
-| `Attorney` / `Person` | `single-marbure_team.php` |
-| `Service` | `single-marbure_service.php` |
+| `LocalBusiness` + `HomeAndConstructionBusiness` | Site-wide `<head>` |
+| `Product` | `single-marbure_product.php` |
+| `CreativeWork` / `Project` | `single-marbure_project.php` |
 | `FAQPage` | `page-templates/page-faq.php` |
 | `BreadcrumbList` | All inner pages |
 | `Article` | `single.php` (blog) |
-| `AggregateRating` + `Review` | Testimonials section / page |
-
-### General SEO
-
-- Semantic HTML5 landmarks: `<header>`, `<main>`, `<nav>`, `<aside>`, `<footer>`, `<article>`, `<section>`
-- One `<h1>` per page; logical `<h2>` → `<h4>` hierarchy
-- All images include `alt`, `width`, `height` attributes
-- Open Graph + Twitter Card meta tags output via `wp_head` hook
-- Canonical URLs via `rel="canonical"` in `<head>`
-- Skip-to-content link for accessibility and crawlability
-- Yoast SEO / RankMath compatible — no hardcoded `<title>` tags
-- All CPTs set `public => true` and `has_archive => true` for sitemap inclusion
+| `AggregateRating` + `Review` | Testimonials page |
 
 ---
 
 ## 14. Development Phases
 
-### Phase 1 — Foundation (Week 1)
+### Phase 1 — Foundation (Week 1) ✅ COMPLETE
 
-- [ ] Refactor `functions.php` → modular `inc/bootstrap.php` system
-- [ ] Create `inc/setup.php` with all theme supports + image sizes
-- [ ] Create `inc/cpts.php` — register all 5 CPTs
-- [ ] Create `inc/taxonomies.php` — register all 4 taxonomies
-- [ ] Create `inc/meta-boxes.php` — all CPT custom fields
-- [ ] Create `inc/nav-menus.php` — 4 menu locations
-- [ ] Create `inc/sidebars.php` — 6 widget areas
-- [ ] Expand all Kirki sections with full option fields
-- [ ] Add `sections/social.php`, `sections/page-header.php`, `sections/cpts.php` to Kirki
-- [ ] Set up SCSS folder structure + `sass/style.scss` entry
-- [ ] Verify `npm run watch` compiles correctly
+> CPTs, taxonomies, and meta-boxes are in the `pt-theme-addon` plugin.
 
-### Phase 2 — Core Layout (Week 2)
+- [x] Modular `inc/bootstrap.php` system
+- [x] `inc/setup.php` — theme supports + image sizes
+- [x] `inc/nav-menus.php` — 4 menu locations
+- [x] `inc/sidebars.php` — 6 widget areas
+- [x] All Kirki sections with full option fields
+- [x] SCSS folder structure + `sass/style.scss` entry
 
-- [ ] Build `template-parts/header/top-bar.php`
-- [ ] Build `template-parts/header/header-main.php` (logo + mega menu nav + CTA)
-- [ ] Build `template-parts/header/mobile-off-canvas.php`
-- [ ] Build `header.php` to conditionally include above partials
-- [ ] Build `template-parts/footer/pre-footer-cta.php`
-- [ ] Build `template-parts/footer/footer-widgets.php`
-- [ ] Build `template-parts/footer/footer-bottom.php`
-- [ ] Build `template-parts/page-header/breadcrumb-band.php`
-- [ ] Implement sticky header + shrink effect (`js/src/sticky-header.js`)
-- [ ] Implement off-canvas mobile menu (`js/src/mobile-menu.js`)
-- [ ] SCSS: `_header.scss`, `_footer.scss`, `_navigation.scss`, `_mega-menu.scss`, `_mobile-menu.scss`
+### Phase 2 — Core Layout (Week 2) ✅ COMPLETE
 
-### Phase 3 — Homepage (Week 3)
+- [x] Header partials (top-bar, header-main, mobile-off-canvas)
+- [x] Footer partials (pre-footer-cta, footer-widgets, footer-bottom)
+- [x] Breadcrumb band
+- [x] Sticky header + mobile menu JS
+- [x] Layout SCSS (_header, _footer, _navigation, _mega-menu, _mobile-menu)
 
-- [ ] `template-parts/sections/hero-slider.php` + Swiper JS + SCSS
-- [ ] `template-parts/sections/about-intro.php`
-- [ ] `template-parts/sections/services-grid.php`
-- [ ] `template-parts/sections/stats-counter.php` + CountUp.js
-- [ ] `template-parts/sections/portfolio-preview.php`
-- [ ] `template-parts/sections/team-grid.php`
-- [ ] `template-parts/sections/testimonials-carousel.php` + Swiper
-- [ ] `template-parts/sections/blog-grid.php`
-- [ ] `template-parts/sections/cta-band.php`
-- [ ] `template-parts/sections/marquee-strip.php`
-- [ ] `page-templates/page-home.php` assembling all sections
-- [ ] AOS scroll animations wired to all sections
+### Phase 3 — Homepage (Week 3) ✅ COMPLETE
 
-### Phase 4 — Inner Pages (Week 4)
+- [x] `hero-slider.php` + Swiper JS
+- [x] Renamed / rewrote `about-intro.php` → `why-choose-us.php`
+- [x] Renamed / rewrote `services-grid.php` → `services-overview.php`
+- [x] Renamed / rewrote `portfolio-preview.php` → `projects-preview.php`
+- [x] New `featured-collections.php` (queries `marbure_product` CPT)
+- [x] `stats-counter.php` + CountUp.js
+- [x] `testimonials-carousel.php` + Swiper
+- [x] `blog-grid.php`
+- [x] `cta-band.php`
+- [x] `marquee-strip.php`
+- [x] Updated `page-home.php` section order to Tiles & Flooring layout
 
-- [ ] `archive-marbure_service.php` + `template-parts/service/card.php`
-- [ ] `single-marbure_service.php` + `template-parts/service/single-content.php`
-- [ ] `archive-marbure_portfolio.php` + Isotope filter + `template-parts/portfolio/card.php`
-- [ ] `single-marbure_portfolio.php`
-- [ ] `archive-marbure_team.php` + `template-parts/team/card.php`
-- [ ] `single-marbure_team.php`
-- [ ] `page-templates/page-about.php`
-- [ ] `page-templates/page-contact.php` (map embed + CF7/WPForms form)
-- [ ] `page-templates/page-faq.php` + FAQPage schema
-- [ ] `archive.php` + `single.php` blog with author box + related posts
-- [ ] `404.php`
-- [ ] `search.php`
+### Phase 4 — Inner Pages (Week 4) ✅ COMPLETE
 
-### Phase 5 — Elementor Widgets (Week 5)
+- [x] `archive-marbure_product.php` + taxonomy filter bar + `content-product.php`
+- [x] `single-marbure_product.php` — specs table, taxonomy chips, related products, datasheet CTA
+- [x] `archive-marbure_project.php` + Isotope + `content-project.php`
+- [x] `single-marbure_project.php` — meta band, tiles used sidebar, related projects
+- [x] `page-templates/page-about.php`
+- [x] `page-templates/page-services.php` — 4 alternating service layout
+- [x] `page-templates/page-gallery.php` — GLightbox + Isotope project filter
+- [x] `page-templates/page-quote.php` — quote form + 3-step info + contact card
+- [x] `page-templates/page-contact.php`
+- [x] `page-templates/page-faq.php`
+- [x] `page-templates/page-testimonials.php`
+- [x] `archive.php` + `single.php`
+- [x] `404.php` + `search.php`
 
-- [ ] `inc/elementor/elementor-support.php` (location API, widget registration)
-- [ ] Build all 9 custom Elementor widgets
-- [ ] Create Elementor Kit with theme colors + fonts
-- [ ] `theme.json` for Gutenberg
-- [ ] 8 block patterns (one per homepage section)
-- [ ] `editor-style.css`
+### Phase 5 — Elementor Widgets (Week 5) ✅ COMPLETE
 
-### Phase 6 — ThemeForest Polish (Week 6)
+- [x] `inc/elementor/elementor-support.php` — updated to 10 widgets
+- [x] `widget-product-card.php` — product grid with material/size/finish repeater
+- [x] `widget-project-card.php` — project grid with location/type/area repeater
+- [x] `widget-gallery-grid.php` — GLightbox gallery with Isotope filter
+- [x] `widget-hero-slider.php`
+- [x] `widget-stat-counter.php`
+- [x] `widget-testimonial-carousel.php`
+- [x] `widget-faq-accordion.php`
+- [x] `widget-cta-band.php`
+- [x] `widget-marquee-strip.php`
+- [x] `theme.json`
+- [x] Block patterns
+- [x] `editor-style.css`
+- [x] `inc/kirki/sections/cpts.php` — updated to `product_*` / `project_*` keys
 
-- [ ] `_rtl.scss` + generate `style-rtl.css`
-- [ ] WCAG 2.1 AA audit (focus states, color contrast, ARIA labels)
-- [ ] `inc/schema.php` — all JSON-LD outputs
-- [ ] Open Graph + Twitter Card meta
-- [ ] Demo content XML (`assets/demo/demo-content.xml`)
-- [ ] Customizer settings export (`assets/demo/customizer-settings.dat`)
-- [ ] Child theme folder + `style.css` + `functions.php`
-- [ ] `screenshot.png` at 1200×900px
-- [ ] Run Theme Check plugin — fix all errors/warnings
+### Phase 6 — ThemeForest Polish (Week 6) ✅ COMPLETE
+
+- [x] `_rtl.scss` + `style-rtl.css`
+- [x] WCAG 2.1 AA — focus states, reduced-motion, high-contrast
+- [x] `inc/schema.php` — `HomeAndConstructionBusiness`, `Product`, `CreativeWork`, `FAQPage`, `Article`, `AggregateRating`
+- [x] `inc/og-meta.php` — Open Graph + Twitter Card
+- [x] Demo content XML (`assets/demo/demo-content.xml`)
+- [x] Customizer settings export (`assets/demo/customizer-settings.dat`)
+- [x] Child theme (`themes/marbure-child/`)
+- [x] `screenshot.png`
+- [ ] Run Theme Check plugin *(WP Admin → Appearance → Theme Check)*
 - [ ] HTML documentation
 
 ---
@@ -679,39 +582,37 @@ Examples:
 ## 15. ThemeForest Compliance Checklist
 
 ### Code Quality
-- [ ] GPL 2.0+ license declared in `style.css`
-- [ ] All strings wrapped in `__()`, `esc_html__()`, `esc_attr__()`
-- [ ] No PHP errors/warnings with `WP_DEBUG true`
-- [ ] No direct `$_GET`/`$_POST` without sanitization
-- [ ] Passes [Theme Check plugin](https://wordpress.org/plugins/theme-check/) with zero errors
+- [ ] GPL 2.0+ license in `style.css`
+- [ ] All strings in `__()`, `esc_html__()`, `esc_attr__()`
+- [ ] No PHP errors with `WP_DEBUG true`
+- [ ] Passes Theme Check plugin with zero errors
 
 ### Compatibility
 - [ ] WordPress 6.5+ tested
 - [ ] PHP 8.1+ tested
 - [ ] Elementor 3.x compatible
-- [ ] WooCommerce basic compatibility (if shop page used)
+- [ ] WooCommerce basic compatibility
 - [ ] Jetpack compatible
 
 ### Accessibility
-- [ ] WCAG 2.1 AA color contrast (4.5:1 normal, 3:1 large text)
-- [ ] All interactive elements have visible focus states
-- [ ] Skip-to-content link present
+- [ ] WCAG 2.1 AA color contrast
+- [ ] Visible focus states on all interactive elements
+- [ ] Skip-to-content link
 - [ ] ARIA labels on icon-only buttons
-- [ ] Keyboard navigable mega menu + mobile off-canvas
+- [ ] Keyboard navigable mega menu + mobile menu
 
 ### Internationalisation
-- [ ] `.pot` file up-to-date with all translatable strings
-- [ ] RTL stylesheet (`style-rtl.css`)
+- [ ] `.pot` file up-to-date
+- [ ] `style-rtl.css` present
 - [ ] `load_theme_textdomain()` called correctly
 
 ### Packaging
-- [ ] Child theme included in ZIP
+- [ ] Child theme included
 - [ ] Demo content XML included
 - [ ] Customizer export `.dat` included
-- [ ] One-click demo importer (via `wp-cli` instructions or plugin)
-- [ ] Screenshot at exactly **1200×900px**
-- [ ] HTML documentation (setup, customizer options, CPT usage, FAQ)
+- [ ] Screenshot at 1200×900px
+- [ ] HTML documentation
 
 ---
 
-*Ready to start? Say **"Start Phase 1"** to begin coding the foundation.*
+*Next: Start Phase 3 updates — rename homepage sections from Law Firm to Tiles & Flooring.*
