@@ -1,40 +1,39 @@
 <?php
 /**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * Template: single post.
  *
  * @package marbure
  */
 
 get_header();
 ?>
+<div class="container">
+	<div class="content-row content-row--sidebar">
 
-	<main id="primary" class="site-main">
+		<main id="main" class="site-main content-area" role="main">
+			<?php
+			while ( have_posts() ) :
+				the_post();
+				get_template_part( 'template-parts/content', 'single' );
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+				the_post_navigation(
+					array(
+						'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous', 'marbure' ) . '</span><span class="nav-title">%title</span>',
+						'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next', 'marbure' ) . '</span><span class="nav-title">%title</span>',
+					)
+				);
 
-			get_template_part( 'template-parts/content', get_post_type() );
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'marbure' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'marbure' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+			endwhile;
+			?>
+		</main>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+		<?php get_sidebar(); ?>
 
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
-
+	</div>
+</div>
 <?php
-get_sidebar();
 get_footer();

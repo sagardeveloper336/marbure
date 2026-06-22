@@ -1,0 +1,84 @@
+@use '../abstracts' as *;
+
+// Breadcrumb band — inner page title area shown below the header.
+
+.page-header-band {
+  position: relative;
+  min-height: var(--page-header-min-height);
+  background-color: var(--color-primary);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+
+  // Overlay applied via inline style or ::after.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--page-header-overlay);
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.page-header-band__inner {
+  padding-block: 3rem;
+}
+
+// Center variant.
+.page-header-band--center {
+  .page-header-band__inner { text-align: center; }
+  .breadcrumb { justify-content: center; }
+}
+
+.page-header-band__title {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+// Breadcrumb nav inside page header.
+.page-header-band .breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.page-header-band .breadcrumb__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.page-header-band .breadcrumb__item {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color var(--transition);
+
+    &:hover { color: var(--color-secondary); }
+  }
+
+  &:last-child { color: var(--color-secondary); }
+}
+
+.page-header-band .breadcrumb__sep {
+  margin-inline: 0.4rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+}

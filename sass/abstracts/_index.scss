@@ -1,0 +1,3 @@
+// Single forward point — each component does: @use '../abstracts' as *;
+@forward 'variables';
+@forward 'mixins';

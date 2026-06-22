@@ -1,0 +1,84 @@
+// Portfolio — single case result
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.portfolio-archive { padding: 4rem 0; }
+
+.portfolio-single {
+	&__hero {
+		margin-bottom: 2rem;
+		img { width: 100%; border-radius: 8px; max-height: 500px; object-fit: cover; }
+	}
+
+	&__meta-band {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0;
+		background: var(--color-primary);
+		border-radius: 8px;
+		margin-bottom: 2rem;
+		overflow: hidden;
+	}
+
+	&__meta-item {
+		flex: 1 1 150px;
+		padding: 1.25rem 1.5rem;
+		border-right: 1px solid rgba(255,255,255,0.1);
+		text-align: center;
+
+		&:last-child { border-right: none; }
+
+		@include respond-to(sm) {
+			border-right: none;
+			border-bottom: 1px solid rgba(255,255,255,0.1);
+			&:last-child { border-bottom: none; }
+		}
+	}
+
+	&__meta-label {
+		display: block;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: rgba(255,255,255,0.6);
+		margin-bottom: 0.35rem;
+	}
+
+	&__meta-value {
+		display: block;
+		font-family: var(--font-heading);
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #fff;
+
+		&--accent { color: var(--color-secondary); }
+	}
+
+	&__title {
+		font-family: var(--font-heading);
+		font-size: clamp(1.5rem, 3vw, 2.25rem);
+		font-weight: 700;
+		color: var(--color-primary);
+		margin: 0 0 1.5rem;
+	}
+
+	&__content { font-size: 1.0625rem; line-height: 1.8; }
+}
+
+.related-cases {
+	margin-top: 3rem;
+	padding-top: 3rem;
+	border-top: 1px solid #eef0f3;
+
+	&__title { font-size: 1.25rem; font-weight: 700; color: var(--color-primary); margin: 0 0 1.5rem; }
+}
+
+.portfolio-grid--related {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.25rem;
+
+	@include respond-to(md) { grid-template-columns: repeat(2, 1fr); }
+	@include respond-to(xs) { grid-template-columns: 1fr; }
+}

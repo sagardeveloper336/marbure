@@ -1,0 +1,126 @@
+@use '../abstracts' as *;
+
+// =============================================================================
+// Desktop Primary Navigation
+// =============================================================================
+
+.site-header__nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-inline: 2rem;
+
+  @include respond-to('lg') { display: none; }
+}
+
+// Top-level list.
+#primary-menu,
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+
+// Every menu item.
+.nav-menu .menu-item {
+  position: relative;
+
+  // Show submenu / mega panel on hover.
+  &:hover > .sub-menu,
+  &:focus-within > .sub-menu,
+  &:hover > .mega-panel,
+  &:focus-within > .mega-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+// Nav link (top-level anchor).
+.nav-menu > .menu-item > a,
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--transition);
+  position: relative;
+
+  // Animated underline.
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: var(--color-secondary);
+    transform: scaleX(0);
+    transition: transform var(--transition);
+    transform-origin: left;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--color-secondary);
+
+    &::after { transform: scaleX(1); }
+  }
+}
+
+// Dropdown arrow on items with children.
+.nav-menu > .menu-item-has-children > a::before {
+  content: '\f107';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.7rem;
+  margin-left: 0.25rem;
+  order: 1;
+}
+
+// ── Standard Dropdown ─────────────────────────────────────────────────────────
+
+.nav-menu .sub-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border-top: 3px solid var(--color-secondary);
+  list-style: none;
+  z-index: var(--z-dropdown);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition);
+  pointer-events: none;
+  padding: 0.5rem 0;
+
+  .menu-item a {
+    display: block;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.88rem;
+    color: var(--color-text);
+    transition: all var(--transition);
+
+    &:hover {
+      color: var(--color-secondary);
+      padding-left: 1.75rem;
+    }
+  }
+
+  // Nested second-level.
+  .sub-menu {
+    top: 0;
+    left: 100%;
+  }
+}

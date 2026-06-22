@@ -1,42 +1,76 @@
-/* global wp, jQuery */
 /**
- * File customizer.js.
+ * Theme Customizer live-preview handlers.
+ * Vanilla JS — no jQuery dependency.
  *
- * Theme Customizer enhancements for a better user experience.
- *
- * Contains handlers to make Theme Customizer preview reload changes asynchronously.
+ * @package marbure
  */
 
-( function( $ ) {
-	// Site title and description.
-	wp.customize( 'blogname', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-title a' ).text( to );
-		} );
-	} );
-	wp.customize( 'blogdescription', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-description' ).text( to );
+/* global wp */
+( function () {
+	'use strict';
+
+	const api = wp.customize;
+
+	// ── Site title ───────────────────────────────────────────────────────────
+	api( 'blogname', function ( value ) {
+		value.bind( function ( to ) {
+			document.querySelectorAll( '.site-title a' ).forEach( function ( el ) {
+				el.textContent = to;
+			} );
 		} );
 	} );
 
-	// Header text color.
-	wp.customize( 'header_textcolor', function( value ) {
-		value.bind( function( to ) {
-			if ( 'blank' === to ) {
-				$( '.site-title, .site-description' ).css( {
-					clip: 'rect(1px, 1px, 1px, 1px)',
-					position: 'absolute',
-				} );
-			} else {
-				$( '.site-title, .site-description' ).css( {
-					clip: 'auto',
-					position: 'relative',
-				} );
-				$( '.site-title a, .site-description' ).css( {
-					color: to,
-				} );
-			}
+	// ── Site tagline ─────────────────────────────────────────────────────────
+	api( 'blogdescription', function ( value ) {
+		value.bind( function ( to ) {
+			document.querySelectorAll( '.site-description' ).forEach( function ( el ) {
+				el.textContent = to;
+			} );
 		} );
 	} );
-}( jQuery ) );
+
+	// ── Primary color → CSS var ───────────────────────────────────────────────
+	api( 'marbure_theme_options[color_primary]', function ( value ) {
+		value.bind( function ( to ) {
+			document.documentElement.style.setProperty( '--color-primary', to );
+		} );
+	} );
+
+	// ── Secondary / accent color ─────────────────────────────────────────────
+	api( 'marbure_theme_options[color_secondary]', function ( value ) {
+		value.bind( function ( to ) {
+			document.documentElement.style.setProperty( '--color-secondary', to );
+		} );
+	} );
+
+	// ── Header background color ───────────────────────────────────────────────
+	api( 'marbure_theme_options[header_background_color]', function ( value ) {
+		value.bind( function ( to ) {
+			document.documentElement.style.setProperty( '--header-bg', to );
+		} );
+	} );
+
+	// ── Container width ───────────────────────────────────────────────────────
+	api( 'marbure_theme_options[container_width]', function ( value ) {
+		value.bind( function ( to ) {
+			document.documentElement.style.setProperty( '--container-width', to + 'px' );
+		} );
+	} );
+
+	// ── Footer copyright text ─────────────────────────────────────────────────
+	api( 'marbure_theme_options[footer_copyright_text]', function ( value ) {
+		value.bind( function ( to ) {
+			const el = document.querySelector( '.footer-bottom__copyright' );
+			if ( el ) el.innerHTML = to;
+		} );
+	} );
+
+	// ── CTA button label ──────────────────────────────────────────────────────
+	api( 'marbure_theme_options[header_cta_label]', function ( value ) {
+		value.bind( function ( to ) {
+			document.querySelectorAll( '.header-cta' ).forEach( function ( el ) {
+				el.textContent = to;
+			} );
+		} );
+	} );
+}() );

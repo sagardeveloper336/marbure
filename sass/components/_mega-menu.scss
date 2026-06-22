@@ -1,0 +1,110 @@
+@use '../abstracts' as *;
+
+// =============================================================================
+// Mega Menu — full-width dropdown panel.
+// Applied by adding class "menu-item-mega" to a top-level WP menu item.
+// =============================================================================
+
+.menu-item-mega {
+  position: static !important;
+
+  &:hover .mega-panel,
+  &:focus-within .mega-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.mega-panel {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+  border-top: 3px solid var(--color-secondary);
+  z-index: var(--z-dropdown);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition);
+  pointer-events: none;
+  padding-block: 2rem;
+
+  .site-header.is-scrolled & { top: var(--header-shrunk); }
+}
+
+.mega-panel__inner {
+  @include container;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+
+  @include respond-to('xl') { grid-template-columns: repeat(3, 1fr); }
+}
+
+.mega-panel__col {
+  .mega-col-title {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+
+  a {
+    font-size: 0.88rem;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0;
+    transition: all var(--transition);
+
+    i {
+      width: 16px;
+      color: var(--color-secondary);
+      font-size: 0.8rem;
+    }
+
+    &:hover {
+      color: var(--color-secondary);
+      transform: translateX(4px);
+    }
+  }
+}
+
+// Featured card inside mega menu (e.g. homepage demo previews).
+.mega-panel__card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition);
+
+  &:hover {
+    box-shadow: var(--shadow);
+    border-color: var(--color-secondary);
+    transform: translateY(-3px);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .mega-card__label {
+    padding: 0.6rem 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+}

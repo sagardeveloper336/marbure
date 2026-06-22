@@ -38,17 +38,24 @@ Kirki::add_field(
 Kirki::add_field(
 	'marbure_theme_options',
 	array(
-		'type'            => 'slider',
-		'settings'        => 'container_width',
-		'label'           => esc_html__( 'Container Width', 'marbure' ),
-		'description'     => esc_html__( 'Max width of the page container, in pixels.', 'marbure' ),
-		'section'         => 'marbure_section_general',
-		'default'         => 1200,
-		'priority'        => 20,
-		'choices'         => array(
+		'type'        => 'slider',
+		'settings'    => 'container_width',
+		'label'       => esc_html__( 'Container Width', 'marbure' ),
+		'description' => esc_html__( 'Max width of the page container, in pixels.', 'marbure' ),
+		'section'     => 'marbure_section_general',
+		'default'     => 1200,
+		'priority'    => 20,
+		'choices'     => array(
 			'min'  => 960,
 			'max'  => 1600,
 			'step' => 10,
+		),
+		'output'      => array(
+			array(
+				'element'  => ':root',
+				'property' => '--container-width',
+				'units'    => 'px',
+			),
 		),
 	)
 );

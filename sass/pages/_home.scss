@@ -1,0 +1,88 @@
+// Home page — section-level spacing and the CTA band
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Remove top padding on the first section after the full-height hero
+.page-template-page-home {
+	.hero-slider + .about-section { margin-top: 0; }
+}
+
+// Generic section padding
+.section {
+	@include section-pad;
+}
+
+// Eyebrow label used across multiple sections
+.eyebrow {
+	display: inline-block;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-secondary);
+	margin-bottom: 0.75rem;
+}
+
+// Section headings
+.section-heading {
+	font-family: var(--font-heading);
+	font-size: clamp(1.75rem, 3vw, 2.5rem);
+	font-weight: 700;
+	color: var(--color-primary);
+	margin: 0 0 1rem;
+	line-height: 1.2;
+}
+
+.section-subheading {
+	font-size: 1.0625rem;
+	color: var(--color-text-muted, #6b7280);
+	line-height: 1.75;
+	margin: 0;
+}
+
+// CTA Band
+.cta-band {
+	background: var(--color-primary);
+	padding: 4rem 0;
+}
+
+.cta-band__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+
+	@include respond-to(md) {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+.cta-band__text { flex: 1; }
+
+.cta-band__heading {
+	font-family: var(--font-heading);
+	font-size: clamp(1.5rem, 2.5vw, 2rem);
+	font-weight: 700;
+	color: #fff;
+	margin: 0 0 0.5rem;
+}
+
+.cta-band__subtext {
+	font-size: 1rem;
+	color: rgba(255, 255, 255, 0.72);
+	margin: 0;
+	max-width: 500px;
+	line-height: 1.7;
+
+	@include respond-to(md) { max-width: none; }
+}
+
+.cta-band__actions {
+	display: flex;
+	gap: 1rem;
+	flex-shrink: 0;
+	flex-wrap: wrap;
+
+	@include respond-to(md) { justify-content: center; }
+}

@@ -1,51 +1,48 @@
 <?php
 /**
- * The template for displaying archive pages
+ * Template: date / author / category / tag archive.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * CPT archives use their own archive-{cpt}.php files.
  *
  * @package marbure
  */
 
 get_header();
 ?>
+<div class="container">
+	<div class="content-row content-row--sidebar">
 
-	<main id="primary" class="site-main">
+		<main id="main" class="site-main content-area" role="main">
 
-		<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+				<header class="archive-header">
+					<?php
+					the_archive_title( '<h1 class="archive-header__title">', '</h1>' );
+					the_archive_description( '<div class="archive-header__description">', '</div>' );
+					?>
+				</header>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+				<div class="blog-grid blog-grid--archive">
+					<?php
+					while ( have_posts() ) :
+						the_post();
+						get_template_part( 'template-parts/content', 'post' );
+					endwhile;
+					?>
+				</div>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				<?php marbure_pagination(); ?>
 
-			endwhile;
+			<?php else : ?>
+				<?php get_template_part( 'template-parts/content', 'none' ); ?>
+			<?php endif; ?>
 
-			the_posts_navigation();
+		</main>
 
-		else :
+		<?php get_sidebar(); ?>
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
-
+	</div>
+</div>
 <?php
-get_sidebar();
 get_footer();

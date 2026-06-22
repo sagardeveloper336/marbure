@@ -1,0 +1,130 @@
+// Team Grid
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.team-section {
+	background: var(--color-bg-alt, #f8f9fb);
+}
+
+.team-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.5rem;
+
+	@include respond-to(lg) { grid-template-columns: repeat(3, 1fr); }
+	@include respond-to(md) { grid-template-columns: repeat(2, 1fr); }
+	@include respond-to(xs) { grid-template-columns: 1fr; }
+}
+
+.team-card {
+	background: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+	@include hover-transition(transform, box-shadow);
+
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+
+		.team-card__socials { opacity: 1; transform: translateY(0); }
+	}
+}
+
+.team-card__image-wrap {
+	position: relative;
+	overflow: hidden;
+}
+
+.team-card__image {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	object-position: top center;
+	display: block;
+	@include hover-transition(transform);
+
+	.team-card:hover & { transform: scale(1.04); }
+
+	&--placeholder {
+		background: linear-gradient(135deg, var(--color-primary) 0%, #1e3a6e 100%);
+	}
+}
+
+.team-card__socials {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.875rem;
+	background: linear-gradient(to top, rgba(10, 30, 63, 0.9) 0%, transparent 100%);
+	opacity: 0;
+	transform: translateY(8px);
+	@include hover-transition(opacity, transform);
+
+	a {
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.15);
+		border: 1px solid rgba(255, 255, 255, 0.25);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+		font-size: 0.8125rem;
+		@include hover-transition(background);
+
+		&:hover { background: var(--color-secondary); border-color: var(--color-secondary); }
+	}
+}
+
+.team-card__body {
+	padding: 1.25rem 1.5rem;
+}
+
+.team-card__name {
+	font-size: 1.0625rem;
+	font-weight: 600;
+	margin: 0 0 0.25rem;
+
+	a { color: var(--color-primary); text-decoration: none;
+		&:hover { color: var(--color-secondary); }
+	}
+}
+
+.team-card__position {
+	font-size: 0.875rem;
+	color: var(--color-secondary);
+	font-weight: 500;
+	margin: 0 0 0.25rem;
+}
+
+.team-card__bar {
+	font-size: 0.8125rem;
+	color: var(--color-text-muted, #6b7280);
+	margin: 0 0 0.875rem;
+}
+
+.team-card__contact {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.team-card__contact-link {
+	font-size: 0.8125rem;
+	color: var(--color-text-muted, #6b7280);
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	@include hover-transition(color);
+
+	i { color: var(--color-secondary); font-size: 0.75rem; }
+
+	&:hover { color: var(--color-secondary); }
+}

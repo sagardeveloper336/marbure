@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.container {
+  @include container;
+}
+
+.container--narrow {
+  @include container;
+  max-width: 860px;
+}
+
+// Simple 12-column utility grid.
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: calc(var(--gutter) / -2);
+
+  > [class^='col-'] {
+    padding-inline: calc(var(--gutter) / 2);
+  }
+}
+
+// Column classes generated for 1–12.
+@for $i from 1 through 12 {
+  .col-#{$i}    { flex: 0 0 percentage(calc($i / 12)); max-width: percentage(calc($i / 12)); }
+  .col-md-#{$i} {
+    @include respond-above('md') {
+      flex: 0 0 percentage(calc($i / 12)); max-width: percentage(calc($i / 12));
+    }
+  }
+}
+
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+
+// Mobile: stack all columns below lg.
+@include respond-to('lg') {
+  [class^='col-md-'] { flex: 0 0 50%; max-width: 50%; }
+}
+
+@include respond-to('md') {
+  [class^='col-md-'] { flex: 0 0 100%; max-width: 100%; }
+}

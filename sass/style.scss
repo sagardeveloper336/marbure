@@ -1,0 +1,67 @@
+/*!
+Theme Name:  Marbure
+Theme URI:   https://example.com/marbure
+Author:      Sagar Patel
+Author URI:  https://example.com
+Description: ThemeForest-quality Law Firm WordPress theme. Built on Underscores (_s) with Kirki Customizer, Elementor compatibility, custom CPTs, and full SCSS architecture.
+Version:     1.0.0
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: marbure
+Tags:        law-firm, legal, attorney, one-column, two-columns, custom-colors, custom-logo, custom-menu, featured-images, full-width-template, rtl-language-support, sticky-post, threaded-comments, translation-ready
+*/
+
+// =============================================================================
+// Abstracts (tokens + mixins — no CSS output)
+// =============================================================================
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
+// =============================================================================
+// Base
+// =============================================================================
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/animations';
+@use 'base/utilities';
+
+// =============================================================================
+// Layout
+// =============================================================================
+@use 'layout/grid';
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/sidebar';
+@use 'layout/page-header';
+
+// =============================================================================
+// Components
+// =============================================================================
+@use 'components/buttons';
+@use 'components/navigation';
+@use 'components/mega-menu';
+@use 'components/mobile-menu';
+@use 'components/back-to-top';
+@use 'components/hero-slider';
+@use 'components/cards';
+@use 'components/team';
+@use 'components/testimonials';
+@use 'components/counters';
+@use 'components/marquee';
+
+// =============================================================================
+// Pages
+// =============================================================================
+@use 'pages/home';
+@use 'pages/blog';
+@use 'pages/services';
+@use 'pages/portfolio';
+@use 'pages/team';
+@use 'pages/contact';
+@use 'pages/faq';
+@use 'pages/404';
+
+// =============================================================================
+// Elementor overrides (added in Phase 5)
+// =============================================================================
+// @use 'elementor/overrides';

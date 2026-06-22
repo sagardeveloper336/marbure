@@ -1,0 +1,70 @@
+// =============================================================================
+// Design Tokens — CSS custom properties (overridden at runtime by Kirki).
+// SCSS vars reference the CSS vars; only the CSS vars are in the cascade.
+// =============================================================================
+
+:root {
+  // Colors
+  --color-primary:          #0A1E3F;
+  --color-secondary:        #CF9776;
+  --color-accent:           #1A3A6B;
+  --color-text:             #3D3D3D;
+  --color-heading:          #0A1E3F;
+  --color-bg:               #FFFFFF;
+  --color-bg-alt:           #F8F8F8;
+  --color-border:           #E8E8E8;
+  --color-white:            #FFFFFF;
+
+  // Typography
+  --font-heading:           'Playfair Display', Georgia, serif;
+  --font-body:              'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-base:         16px;
+  --line-height-base:       1.75;
+
+  // Layout
+  --container-width:        1200px;
+  --gutter:                 30px;
+  --section-padding-y:      100px;
+
+  // Header
+  --header-bg:              #FFFFFF;
+  --header-height:          90px;
+  --header-shrunk:          70px;
+  --topbar-height:          44px;
+  --topbar-bg:              #0A1E3F;
+  --topbar-text:            rgba(255, 255, 255, 0.85);
+
+  // Footer
+  --footer-bg:              #0A1E3F;
+  --footer-bg-deep:         #061428;
+  --footer-text:            rgba(255, 255, 255, 0.75);
+  --footer-heading:         #FFFFFF;
+
+  // Page header / breadcrumb band
+  --page-header-min-height: 300px;
+  --page-header-overlay:    rgba(10, 30, 63, 0.75);
+
+  // Misc
+  --radius:                 4px;
+  --radius-lg:              8px;
+  --shadow:                 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg:              0 12px 48px rgba(0, 0, 0, 0.14);
+  --transition:             0.3s ease;
+  --transition-slow:        0.55s ease;
+
+  // Z-index layers
+  --z-header:               1000;
+  --z-overlay:              1050;
+  --z-mobile-menu:          1100;
+  --z-dropdown:             900;
+}
+
+// SCSS-only breakpoints (used inside respond-to() mixin).
+$breakpoints: (
+  'xs':  480px,
+  'sm':  576px,
+  'md':  768px,
+  'lg':  992px,
+  'xl':  1200px,
+  'xxl': 1400px,
+) !default;

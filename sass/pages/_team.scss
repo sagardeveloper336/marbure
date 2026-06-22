@@ -1,0 +1,100 @@
+// Team — attorney profile single
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.team-archive { padding: 4rem 0; }
+
+.attorney-profile {
+	padding: 4rem 0;
+
+	&__header {
+		display: grid;
+		grid-template-columns: 340px 1fr;
+		gap: 3rem;
+		align-items: start;
+		margin-bottom: 3rem;
+		padding-bottom: 3rem;
+		border-bottom: 1px solid #eef0f3;
+
+		@include respond-to(md) { grid-template-columns: 1fr; }
+	}
+
+	&__photo {
+		img {
+			width: 100%;
+			border-radius: 8px;
+			box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+		}
+	}
+
+	&__position {
+		font-size: 0.875rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--color-secondary);
+		margin: 0 0 0.4rem;
+	}
+
+	&__name {
+		font-family: var(--font-heading);
+		font-size: clamp(1.75rem, 4vw, 2.75rem);
+		font-weight: 700;
+		color: var(--color-primary);
+		margin: 0 0 0.5rem;
+	}
+
+	&__bar {
+		font-size: 0.875rem;
+		color: var(--color-text-muted, #6b7280);
+		margin: 0 0 1.25rem;
+	}
+
+	&__contact {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-bottom: 1.25rem;
+	}
+
+	&__contact-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--color-text, #374151);
+		text-decoration: none;
+		font-size: 0.9375rem;
+		@include hover-transition(color);
+
+		i { color: var(--color-secondary); }
+		&:hover { color: var(--color-secondary); }
+	}
+
+	&__socials {
+		display: flex;
+		gap: 0.5rem;
+		margin-bottom: 1.5rem;
+
+		a {
+			width: 38px;
+			height: 38px;
+			border-radius: 50%;
+			background: var(--color-primary);
+			color: #fff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.875rem;
+			@include hover-transition(background);
+			&:hover { background: var(--color-secondary); }
+		}
+	}
+
+	&__content { font-size: 1.0625rem; line-height: 1.8; margin-bottom: 3rem; }
+
+	&__services {
+		margin-top: 3rem;
+
+		h2 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--color-primary); margin: 0 0 1.5rem; }
+	}
+}

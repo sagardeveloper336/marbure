@@ -1,0 +1,253 @@
+/**
+ * editor-style.css — Gutenberg block editor styles.
+ * Mirrors front-end typography and spacing so the editor
+ * closely resembles the published page.
+ *
+ * @package marbure
+ */
+
+/* ── Reset & box model ─────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper {
+	font-family: 'Inter', system-ui, sans-serif;
+	font-size: 16px;
+	line-height: 1.7;
+	color: #3D3D3D;
+	background-color: #ffffff;
+}
+
+/* ── Content width ─────────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper .wp-block {
+	max-width: 1200px;
+}
+
+.editor-styles-wrapper .wp-block[data-align="wide"] {
+	max-width: 1400px;
+}
+
+.editor-styles-wrapper .wp-block[data-align="full"] {
+	max-width: none;
+}
+
+/* ── Headings ──────────────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+	font-family: 'Playfair Display', Georgia, serif;
+	color: #0A1E3F;
+	line-height: 1.2;
+	font-weight: 700;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+.editor-styles-wrapper h1 { font-size: 2.5rem; }
+.editor-styles-wrapper h2 { font-size: 2rem; }
+.editor-styles-wrapper h3 { font-size: 1.75rem; font-weight: 600; }
+.editor-styles-wrapper h4 { font-size: 1.5rem; font-weight: 600; }
+.editor-styles-wrapper h5 { font-size: 1.25rem; font-weight: 600; }
+.editor-styles-wrapper h6 { font-size: 1rem; font-weight: 600; }
+
+/* ── Paragraphs & links ────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper p {
+	margin-top: 0;
+	margin-bottom: 1.25rem;
+}
+
+.editor-styles-wrapper a {
+	color: #0A1E3F;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.editor-styles-wrapper a:hover {
+	color: #CF9776;
+}
+
+/* ── Lists ─────────────────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper ul,
+.editor-styles-wrapper ol {
+	padding-left: 1.5rem;
+	margin-bottom: 1.25rem;
+}
+
+.editor-styles-wrapper li {
+	margin-bottom: 0.5rem;
+}
+
+/* ── Blockquote ────────────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper blockquote,
+.editor-styles-wrapper .wp-block-quote {
+	border-left: 4px solid #CF9776;
+	padding: 1rem 1.5rem;
+	margin: 1.5rem 0;
+	background: #F8F8F8;
+	font-style: italic;
+	color: #0A1E3F;
+}
+
+.editor-styles-wrapper .wp-block-quote cite,
+.editor-styles-wrapper .wp-block-quote footer {
+	font-size: 0.875rem;
+	font-style: normal;
+	color: #3D3D3D;
+	display: block;
+	margin-top: 0.5rem;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper .wp-block-button__link,
+.editor-styles-wrapper .btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1.75rem;
+	font-family: 'Inter', system-ui, sans-serif;
+	font-weight: 600;
+	font-size: 0.9375rem;
+	letter-spacing: 0.02em;
+	border-radius: 4px;
+	text-decoration: none;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	cursor: pointer;
+}
+
+.editor-styles-wrapper .wp-block-button:not(.is-style-outline) .wp-block-button__link {
+	background-color: #CF9776;
+	color: #ffffff;
+}
+
+.editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link {
+	background-color: transparent;
+	color: #0A1E3F;
+	border: 2px solid #0A1E3F;
+}
+
+/* ── Tables ────────────────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper table,
+.editor-styles-wrapper .wp-block-table table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1.5rem;
+}
+
+.editor-styles-wrapper th,
+.editor-styles-wrapper td {
+	padding: 0.75rem 1rem;
+	border: 1px solid #e5e7eb;
+	text-align: left;
+}
+
+.editor-styles-wrapper th {
+	background-color: #0A1E3F;
+	color: #ffffff;
+	font-family: 'Inter', system-ui, sans-serif;
+	font-weight: 600;
+}
+
+.editor-styles-wrapper tr:nth-child(even) td {
+	background-color: #F8F8F8;
+}
+
+/* ── Code & pre ────────────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper code,
+.editor-styles-wrapper kbd,
+.editor-styles-wrapper samp {
+	font-family: ui-monospace, 'Fira Code', Consolas, monospace;
+	font-size: 0.875em;
+	background-color: #F8F8F8;
+	border: 1px solid #e5e7eb;
+	border-radius: 3px;
+	padding: 0.1em 0.4em;
+}
+
+.editor-styles-wrapper pre {
+	background-color: #0A1E3F;
+	color: #e2e8f0;
+	padding: 1.25rem 1.5rem;
+	border-radius: 4px;
+	overflow-x: auto;
+	margin-bottom: 1.5rem;
+	font-size: 0.875rem;
+	line-height: 1.6;
+}
+
+.editor-styles-wrapper pre code {
+	background: none;
+	border: none;
+	padding: 0;
+	color: inherit;
+}
+
+/* ── Images & media ────────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper img {
+	max-width: 100%;
+	height: auto;
+}
+
+.editor-styles-wrapper figure {
+	margin: 0 0 1.5rem;
+}
+
+.editor-styles-wrapper figcaption {
+	font-size: 0.875rem;
+	color: #6b7280;
+	text-align: center;
+	margin-top: 0.5rem;
+}
+
+/* ── Separator ─────────────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper hr,
+.editor-styles-wrapper .wp-block-separator {
+	border: none;
+	border-top: 2px solid #CF9776;
+	margin: 2rem auto;
+	width: 60px;
+}
+
+/* ── Pullquote ─────────────────────────────────────────────────────────────── */
+
+.editor-styles-wrapper .wp-block-pullquote {
+	border-top: 4px solid #0A1E3F;
+	border-bottom: 4px solid #0A1E3F;
+	padding: 2rem 1.5rem;
+	text-align: center;
+}
+
+.editor-styles-wrapper .wp-block-pullquote blockquote {
+	border: none;
+	background: none;
+	padding: 0;
+}
+
+.editor-styles-wrapper .wp-block-pullquote p {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: 1.5rem;
+	color: #0A1E3F;
+}
+
+/* ── Section eyebrow class ─────────────────────────────────────────────────── */
+
+.editor-styles-wrapper .eyebrow {
+	display: inline-block;
+	font-family: 'Inter', system-ui, sans-serif;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: #CF9776;
+	margin-bottom: 0.75rem;
+}

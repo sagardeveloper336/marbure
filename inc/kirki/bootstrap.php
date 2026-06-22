@@ -28,10 +28,14 @@ require_once MARBURE_KIRKI_DIR . 'panels.php';
 $marbure_kirki_sections = array(
 	'sections/general.php',
 	'sections/header.php',
+	'sections/homepage.php',
 	'sections/footer.php',
 	'sections/typography.php',
 	'sections/blog.php',
 	'sections/performance.php',
+	'sections/social.php',
+	'sections/page-header.php',
+	'sections/cpts.php',
 );
 
 foreach ( $marbure_kirki_sections as $marbure_kirki_section ) {

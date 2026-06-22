@@ -1,14 +1,12 @@
 <?php
 /**
- * The header for our theme
+ * The site header.
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * Outputs <html>, <head>, wp_head(), the topbar, main header, and mobile menu.
+ * The #content div is opened here and closed in footer.php.
  *
  * @package marbure
  */
-
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -16,44 +14,33 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'marbure' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#main">
+		<?php esc_html_e( 'Skip to content', 'marbure' ); ?>
+	</a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$marbure_description = get_bloginfo( 'description', 'display' );
-			if ( $marbure_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $marbure_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+	<header id="masthead" class="<?php echo esc_attr( marbure_header_classes() ); ?>">
+		<?php if ( marbure_option( 'show_top_bar', true ) ) : ?>
+			<?php get_template_part( 'template-parts/header/top-bar' ); ?>
+		<?php endif; ?>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'marbure' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+		<?php get_template_part( 'template-parts/header/header-main' ); ?>
 	</header><!-- #masthead -->
+
+	<?php get_template_part( 'template-parts/header/mobile-off-canvas' ); ?>
+	<div class="mobile-overlay" id="marbure-overlay" aria-hidden="true"></div>
+
+	<?php
+	// Show page header / breadcrumb band on all inner pages.
+	if ( ! is_front_page() && marbure_option( 'show_page_header', true ) ) :
+		get_template_part( 'template-parts/page-header/breadcrumb-band' );
+	endif;
+	?>
+
+	<div id="content" class="site-content">

@@ -54,8 +54,77 @@ Kirki::add_field(
 		'section'  => 'marbure_section_header',
 		'default'  => '#ffffff',
 		'priority' => 30,
-		'choices'  => array(
-			'alpha' => true,
+		'choices'  => array( 'alpha' => true ),
+		'output'   => array(
+			array(
+				'element'  => ':root',
+				'property' => '--header-bg',
+			),
 		),
+	)
+);
+
+Kirki::add_field(
+	'marbure_theme_options',
+	array(
+		'type'     => 'select',
+		'settings' => 'header_variant',
+		'label'    => esc_html__( 'Header Variant', 'marbure' ),
+		'section'  => 'marbure_section_header',
+		'default'  => 'default',
+		'priority' => 40,
+		'choices'  => array(
+			'default'     => esc_html__( 'Default (white bg)', 'marbure' ),
+			'transparent' => esc_html__( 'Transparent (over hero)', 'marbure' ),
+			'centered'    => esc_html__( 'Centered', 'marbure' ),
+		),
+	)
+);
+
+Kirki::add_field(
+	'marbure_theme_options',
+	array(
+		'type'     => 'text',
+		'settings' => 'header_cta_label',
+		'label'    => esc_html__( 'CTA Button Label', 'marbure' ),
+		'section'  => 'marbure_section_header',
+		'default'  => esc_html__( 'Free Consultation', 'marbure' ),
+		'priority' => 50,
+	)
+);
+
+Kirki::add_field(
+	'marbure_theme_options',
+	array(
+		'type'     => 'link',
+		'settings' => 'header_cta_url',
+		'label'    => esc_html__( 'CTA Button URL', 'marbure' ),
+		'section'  => 'marbure_section_header',
+		'default'  => '/contact',
+		'priority' => 60,
+	)
+);
+
+Kirki::add_field(
+	'marbure_theme_options',
+	array(
+		'type'     => 'text',
+		'settings' => 'topbar_phone',
+		'label'    => esc_html__( 'Top Bar Phone Number', 'marbure' ),
+		'section'  => 'marbure_section_header',
+		'default'  => '',
+		'priority' => 70,
+	)
+);
+
+Kirki::add_field(
+	'marbure_theme_options',
+	array(
+		'type'     => 'text',
+		'settings' => 'topbar_email',
+		'label'    => esc_html__( 'Top Bar Email', 'marbure' ),
+		'section'  => 'marbure_section_header',
+		'default'  => '',
+		'priority' => 80,
 	)
 );
