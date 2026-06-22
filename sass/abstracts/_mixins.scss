@@ -1,8 +1,10 @@
+@use 'sass:map';
+@use 'sass:list';
 @use 'variables' as *;
 
 // Max-width breakpoint (mobile-first supplement).
 @mixin respond-to($bp) {
-  $value: map-get($breakpoints, $bp);
+  $value: map.get($breakpoints, $bp);
   @if $value {
     @media (max-width: #{$value}) { @content; }
   }
@@ -10,7 +12,7 @@
 
 // Min-width breakpoint.
 @mixin respond-above($bp) {
-  $value: map-get($breakpoints, $bp);
+  $value: map.get($breakpoints, $bp);
   @if $value {
     @media (min-width: calc(#{$value} + 1px)) { @content; }
   }
@@ -34,9 +36,15 @@
   padding-block: $y;
 }
 
-// Hover transition shortcut.
-@mixin hover-transition($props: all) {
-  transition: $props var(--transition);
+// Hover transition shortcut — accepts one or more property names.
+@mixin hover-transition($props...) {
+  @if list.length($props) == 0 or (list.length($props) == 1 and list.nth($props, 1) == all) {
+    transition: all var(--transition);
+  } @else {
+    $t: ();
+    @each $p in $props { $t: list.append($t, #{$p} var(--transition), comma); }
+    transition: $t;
+  }
   &:hover { @content; }
 }
 

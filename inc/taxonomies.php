@@ -81,6 +81,30 @@ function marbure_register_taxonomies() {
 		)
 	);
 
+	// ── Client Group → Clients ────────────────────────────────────────────────
+	register_taxonomy(
+		'client_group',
+		'marbure_client',
+		array(
+			'labels'        => array(
+				'name'              => esc_html__( 'Client Groups', 'marbure' ),
+				'singular_name'     => esc_html__( 'Client Group', 'marbure' ),
+				'all_items'         => esc_html__( 'All Client Groups', 'marbure' ),
+				'edit_item'         => esc_html__( 'Edit Client Group', 'marbure' ),
+				'update_item'       => esc_html__( 'Update Client Group', 'marbure' ),
+				'add_new_item'      => esc_html__( 'Add New Client Group', 'marbure' ),
+				'new_item_name'     => esc_html__( 'New Client Group Name', 'marbure' ),
+				'search_items'      => esc_html__( 'Search Client Groups', 'marbure' ),
+				'not_found'         => esc_html__( 'No client groups found.', 'marbure' ),
+				'menu_name'         => esc_html__( 'Client Group', 'marbure' ),
+			),
+			'hierarchical'  => true,
+			'public'        => false,
+			'show_ui'       => true,
+			'show_in_rest'  => true,
+		)
+	);
+
 	// ── Testimonial Type → Testimonials ───────────────────────────────────────
 	register_taxonomy(
 		'testimonial_type',

@@ -9,22 +9,22 @@ defined( 'ABSPATH' ) || exit;
 
 function marbure_register_cpts() {
 
-	// ── Practice Areas ────────────────────────────────────────────────────────
+	// ── Services (Practice Areas) ─────────────────────────────────────────────
 	register_post_type(
 		'marbure_service',
 		array(
 			'labels'        => array(
-				'name'               => esc_html__( 'Practice Areas', 'marbure' ),
-				'singular_name'      => esc_html__( 'Practice Area', 'marbure' ),
+				'name'               => esc_html__( 'Services', 'marbure' ),
+				'singular_name'      => esc_html__( 'Service', 'marbure' ),
 				'add_new'            => esc_html__( 'Add New', 'marbure' ),
-				'add_new_item'       => esc_html__( 'Add New Practice Area', 'marbure' ),
-				'edit_item'          => esc_html__( 'Edit Practice Area', 'marbure' ),
-				'new_item'           => esc_html__( 'New Practice Area', 'marbure' ),
-				'view_item'          => esc_html__( 'View Practice Area', 'marbure' ),
-				'search_items'       => esc_html__( 'Search Practice Areas', 'marbure' ),
-				'not_found'          => esc_html__( 'No practice areas found.', 'marbure' ),
-				'not_found_in_trash' => esc_html__( 'No practice areas found in trash.', 'marbure' ),
-				'menu_name'          => esc_html__( 'Practice Areas', 'marbure' ),
+				'add_new_item'       => esc_html__( 'Add New Service', 'marbure' ),
+				'edit_item'          => esc_html__( 'Edit Service', 'marbure' ),
+				'new_item'           => esc_html__( 'New Service', 'marbure' ),
+				'view_item'          => esc_html__( 'View Service', 'marbure' ),
+				'search_items'       => esc_html__( 'Search Services', 'marbure' ),
+				'not_found'          => esc_html__( 'No services found.', 'marbure' ),
+				'not_found_in_trash' => esc_html__( 'No services found in trash.', 'marbure' ),
+				'menu_name'          => esc_html__( 'Services', 'marbure' ),
 			),
 			'public'        => true,
 			'has_archive'   => true,
@@ -36,22 +36,22 @@ function marbure_register_cpts() {
 		)
 	);
 
-	// ── Case Results (Portfolio) ───────────────────────────────────────────────
+	// ── Portfolio (Case Results) ───────────────────────────────────────────────
 	register_post_type(
 		'marbure_portfolio',
 		array(
 			'labels'        => array(
-				'name'               => esc_html__( 'Case Results', 'marbure' ),
-				'singular_name'      => esc_html__( 'Case Result', 'marbure' ),
+				'name'               => esc_html__( 'Portfolio', 'marbure' ),
+				'singular_name'      => esc_html__( 'Portfolio Item', 'marbure' ),
 				'add_new'            => esc_html__( 'Add New', 'marbure' ),
-				'add_new_item'       => esc_html__( 'Add New Case Result', 'marbure' ),
-				'edit_item'          => esc_html__( 'Edit Case Result', 'marbure' ),
-				'new_item'           => esc_html__( 'New Case Result', 'marbure' ),
-				'view_item'          => esc_html__( 'View Case Result', 'marbure' ),
-				'search_items'       => esc_html__( 'Search Case Results', 'marbure' ),
-				'not_found'          => esc_html__( 'No case results found.', 'marbure' ),
-				'not_found_in_trash' => esc_html__( 'No case results found in trash.', 'marbure' ),
-				'menu_name'          => esc_html__( 'Case Results', 'marbure' ),
+				'add_new_item'       => esc_html__( 'Add New Portfolio Item', 'marbure' ),
+				'edit_item'          => esc_html__( 'Edit Portfolio Item', 'marbure' ),
+				'new_item'           => esc_html__( 'New Portfolio Item', 'marbure' ),
+				'view_item'          => esc_html__( 'View Portfolio Item', 'marbure' ),
+				'search_items'       => esc_html__( 'Search Portfolio', 'marbure' ),
+				'not_found'          => esc_html__( 'No portfolio items found.', 'marbure' ),
+				'not_found_in_trash' => esc_html__( 'No portfolio items found in trash.', 'marbure' ),
+				'menu_name'          => esc_html__( 'Portfolio', 'marbure' ),
 			),
 			'public'        => true,
 			'has_archive'   => true,
@@ -63,22 +63,22 @@ function marbure_register_cpts() {
 		)
 	);
 
-	// ── Attorneys (Team) ──────────────────────────────────────────────────────
+	// ── Team (Attorneys) ──────────────────────────────────────────────────────
 	register_post_type(
 		'marbure_team',
 		array(
 			'labels'        => array(
-				'name'               => esc_html__( 'Attorneys', 'marbure' ),
-				'singular_name'      => esc_html__( 'Attorney', 'marbure' ),
+				'name'               => esc_html__( 'Team', 'marbure' ),
+				'singular_name'      => esc_html__( 'Team Member', 'marbure' ),
 				'add_new'            => esc_html__( 'Add New', 'marbure' ),
-				'add_new_item'       => esc_html__( 'Add New Attorney', 'marbure' ),
-				'edit_item'          => esc_html__( 'Edit Attorney', 'marbure' ),
-				'new_item'           => esc_html__( 'New Attorney', 'marbure' ),
-				'view_item'          => esc_html__( 'View Attorney', 'marbure' ),
-				'search_items'       => esc_html__( 'Search Attorneys', 'marbure' ),
-				'not_found'          => esc_html__( 'No attorneys found.', 'marbure' ),
-				'not_found_in_trash' => esc_html__( 'No attorneys found in trash.', 'marbure' ),
-				'menu_name'          => esc_html__( 'Attorneys', 'marbure' ),
+				'add_new_item'       => esc_html__( 'Add New Team Member', 'marbure' ),
+				'edit_item'          => esc_html__( 'Edit Team Member', 'marbure' ),
+				'new_item'           => esc_html__( 'New Team Member', 'marbure' ),
+				'view_item'          => esc_html__( 'View Team Member', 'marbure' ),
+				'search_items'       => esc_html__( 'Search Team', 'marbure' ),
+				'not_found'          => esc_html__( 'No team members found.', 'marbure' ),
+				'not_found_in_trash' => esc_html__( 'No team members found in trash.', 'marbure' ),
+				'menu_name'          => esc_html__( 'Team', 'marbure' ),
 			),
 			'public'        => true,
 			'has_archive'   => true,
@@ -114,26 +114,29 @@ function marbure_register_cpts() {
 		)
 	);
 
-	// ── FAQ Items ─────────────────────────────────────────────────────────────
+	// ── Clients ───────────────────────────────────────────────────────────────
 	register_post_type(
-		'marbure_faq',
+		'marbure_client',
 		array(
 			'labels'        => array(
-				'name'               => esc_html__( 'FAQs', 'marbure' ),
-				'singular_name'      => esc_html__( 'FAQ', 'marbure' ),
+				'name'               => esc_html__( 'Clients', 'marbure' ),
+				'singular_name'      => esc_html__( 'Client', 'marbure' ),
 				'add_new'            => esc_html__( 'Add New', 'marbure' ),
-				'add_new_item'       => esc_html__( 'Add New FAQ', 'marbure' ),
-				'edit_item'          => esc_html__( 'Edit FAQ', 'marbure' ),
-				'not_found'          => esc_html__( 'No FAQs found.', 'marbure' ),
-				'not_found_in_trash' => esc_html__( 'No FAQs found in trash.', 'marbure' ),
-				'menu_name'          => esc_html__( 'FAQs', 'marbure' ),
+				'add_new_item'       => esc_html__( 'Add New Client', 'marbure' ),
+				'edit_item'          => esc_html__( 'Edit Client', 'marbure' ),
+				'new_item'           => esc_html__( 'New Client', 'marbure' ),
+				'view_item'          => esc_html__( 'View Client', 'marbure' ),
+				'search_items'       => esc_html__( 'Search Clients', 'marbure' ),
+				'not_found'          => esc_html__( 'No clients found.', 'marbure' ),
+				'not_found_in_trash' => esc_html__( 'No clients found in trash.', 'marbure' ),
+				'menu_name'          => esc_html__( 'Clients', 'marbure' ),
 			),
 			'public'        => false,
 			'show_ui'       => true,
 			'show_in_menu'  => true,
-			'menu_icon'     => 'dashicons-editor-help',
+			'menu_icon'     => 'dashicons-id-alt',
 			'menu_position' => 9,
-			'supports'      => array( 'title', 'editor' ),
+			'supports'      => array( 'title' ),
 			'show_in_rest'  => true,
 		)
 	);

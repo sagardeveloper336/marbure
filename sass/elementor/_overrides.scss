@@ -1,0 +1,48 @@
+@use '../abstracts' as *;
+
+// =============================================================================
+// Elementor overrides — corrects specificity conflicts with theme styles
+// =============================================================================
+
+// Respect theme container width inside boxed sections.
+.elementor-section.elementor-section-boxed > .elementor-container {
+  max-width: var(--container-width);
+}
+
+// Heading colors inherit from theme tokens, not Elementor inline styles.
+.elementor-widget-heading .elementor-heading-title {
+  color: inherit;
+  font-family: inherit;
+}
+
+// Theme .btn classes work inside Elementor button widget.
+.elementor-button-wrapper .btn,
+.elementor-button-wrapper .btn--primary {
+  display: inline-flex;
+}
+
+// Remove double padding on Elementor widget wrap.
+.elementor-row > .elementor-column > .elementor-column-wrap > .elementor-widget-wrap {
+  padding: 0;
+}
+
+// Canvas template hides theme header + footer.
+body.elementor-template-canvas {
+  .site-header,
+  .site-footer { display: none; }
+}
+
+// Body copy inside Elementor uses theme line-height + color.
+.elementor-widget-text-editor p,
+.elementor-widget-text-editor li {
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+}
+
+// Map Elementor kit global colors to theme CSS custom properties.
+:root {
+  --e-global-color-primary:   var(--color-primary);
+  --e-global-color-secondary: var(--color-secondary);
+  --e-global-color-text:      var(--color-text);
+  --e-global-color-accent:    var(--color-accent);
+}

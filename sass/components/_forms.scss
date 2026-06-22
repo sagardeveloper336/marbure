@@ -1,0 +1,109 @@
+@use '../abstracts' as *;
+
+// =============================================================================
+// Forms — inputs, labels, textarea, select, CF7 / WPForms states
+// =============================================================================
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  letter-spacing: 0.02em;
+}
+
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  appearance: none;
+
+  &::placeholder {
+    color: #aaa;
+    opacity: 1;
+  }
+
+  &:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(207, 151, 118, 0.15);
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230A1E3F' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+// Two-column input row.
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+
+  @include respond-to('sm') { grid-template-columns: 1fr; }
+}
+
+// Error state.
+.form-control.is-invalid,
+.wpcf7-not-valid {
+  border-color: #e53e3e;
+
+  &:focus { box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.15); }
+}
+
+.form-error,
+.wpcf7-not-valid-tip {
+  font-size: 0.8rem;
+  color: #e53e3e;
+  margin-top: 0.25rem;
+}
+
+// CF7 / WPForms response messages.
+.wpcf7-response-output {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.wpcf7-mail-sent-ok {
+  background: #f0fff4;
+  border: 1px solid #68d391;
+  color: #276749;
+}
+
+.wpcf7-mail-sent-ng,
+.wpcf7-spam-blocked {
+  background: #fff5f5;
+  border: 1px solid #fc8181;
+  color: #9b2c2c;
+}

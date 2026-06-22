@@ -1,0 +1,57 @@
+@use '../abstracts' as *;
+
+// =============================================================================
+// Breadcrumb — trail rendered inside the page-header band (white-on-dark)
+// =============================================================================
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: rgba(255, 255, 255, 0.7);
+
+  &:last-child {
+    color: var(--color-secondary);
+    pointer-events: none;
+  }
+
+  &:not(:first-child)::before {
+    content: '/';
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.75rem;
+  }
+}
+
+.breadcrumb__link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color var(--transition);
+
+  &:hover { color: var(--color-secondary); }
+}
+
+// Light variant — used on white/light backgrounds.
+.breadcrumb--light {
+  .breadcrumb__item {
+    color: var(--color-text);
+
+    &:last-child { color: var(--color-secondary); }
+    &:not(:first-child)::before { color: var(--color-border); }
+  }
+
+  .breadcrumb__link {
+    color: var(--color-heading);
+    &:hover { color: var(--color-secondary); }
+  }
+}

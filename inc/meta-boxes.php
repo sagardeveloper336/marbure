@@ -12,9 +12,23 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 	class Marbure_Meta_Boxes {
 
 		public function __construct() {
-			add_action( 'add_meta_boxes', array( $this, 'register' ) );
-			add_action( 'save_post',      array( $this, 'save' ), 10, 2 );
-			add_action( 'admin_head',     array( $this, 'styles' ) );
+			add_action( 'add_meta_boxes',        array( $this, 'register' ) );
+			add_action( 'save_post',             array( $this, 'save' ), 10, 2 );
+			add_action( 'admin_head',            array( $this, 'styles' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_media' ) );
+		}
+
+		public function enqueue_media( $hook ) {
+			if ( in_array( $hook, array( 'post.php', 'post-new.php' ), true ) ) {
+				wp_enqueue_media();
+				wp_enqueue_script(
+					'marbure-client-logo',
+					get_template_directory_uri() . '/js/admin-client-logo.js',
+					array( 'jquery' ),
+					'1.0.0',
+					true
+				);
+			}
 		}
 
 		public function register() {
@@ -22,6 +36,8 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 			add_meta_box( 'marbure-service-details',     __( 'Service Details', 'marbure' ),     array( $this, 'render_service' ),     'marbure_service',     'normal', 'high' );
 			add_meta_box( 'marbure-portfolio-details',   __( 'Case Details', 'marbure' ),        array( $this, 'render_portfolio' ),   'marbure_portfolio',   'normal', 'high' );
 			add_meta_box( 'marbure-testimonial-details', __( 'Testimonial Details', 'marbure' ), array( $this, 'render_testimonial' ), 'marbure_testimonial', 'normal', 'high' );
+			add_meta_box( 'marbure-client-logo-hover',   __( 'Client Logo Hover', 'marbure' ),   array( $this, 'render_client_logo_hover' ), 'marbure_client', 'normal', 'high' );
+			add_meta_box( 'marbure-client-logo',         __( 'Select Client Logo', 'marbure' ),  array( $this, 'render_client_logo' ),       'marbure_client', 'normal', 'high' );
 		}
 
 		// ── Field renderers ───────────────────────────────────────────────────
@@ -81,6 +97,43 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 			echo '</select></p>';
 		}
 
+		public function render_client_logo_hover( $post ) {
+			wp_nonce_field( 'marbure_client_save', 'marbure_client_nonce' );
+			$image_id  = get_post_meta( $post->ID, '_client_logo_hover_id', true );
+			$image_url = $image_id ? wp_get_attachment_image_url( $image_id, 'medium' ) : '';
+			?>
+			<p><?php esc_html_e( 'Select Logo for Hover effect. This logo will appear on mouse over.', 'marbure' ); ?></p>
+			<div class="marbure-image-field" data-meta-key="_client_logo_hover_id">
+				<?php if ( $image_url ) : ?>
+					<img src="<?php echo esc_url( $image_url ); ?>" style="max-width:200px;display:block;margin-bottom:8px;">
+					<a href="#" class="marbure-remove-image button"><?php esc_html_e( 'Remove Logo', 'marbure' ); ?></a>
+				<?php else : ?>
+					<span class="marbure-no-image"><?php esc_html_e( 'No image selected', 'marbure' ); ?></span>
+					<a href="#" class="marbure-add-image button button-primary" style="margin-left:8px;"><?php esc_html_e( 'Add Image', 'marbure' ); ?></a>
+				<?php endif; ?>
+				<input type="hidden" name="_client_logo_hover_id" value="<?php echo esc_attr( $image_id ); ?>">
+			</div>
+			<?php
+		}
+
+		public function render_client_logo( $post ) {
+			$image_id  = get_post_meta( $post->ID, '_client_logo_id', true );
+			$image_url = $image_id ? wp_get_attachment_image_url( $image_id, 'medium' ) : '';
+			?>
+			<div class="marbure-image-field" data-meta-key="_client_logo_id">
+				<?php if ( $image_url ) : ?>
+					<img src="<?php echo esc_url( $image_url ); ?>" style="max-width:200px;display:block;margin-bottom:8px;">
+					<p><em><?php esc_html_e( 'Click the image to edit or update', 'marbure' ); ?></em></p>
+					<a href="#" class="marbure-add-image button"><?php esc_html_e( 'Edit or Update', 'marbure' ); ?></a>
+					<a href="#" class="marbure-remove-image" style="color:#a00;margin-left:8px;"><?php esc_html_e( 'Remove Client Logo', 'marbure' ); ?></a>
+				<?php else : ?>
+					<a href="#" class="marbure-add-image button button-primary"><?php esc_html_e( 'Select Client Logo', 'marbure' ); ?></a>
+				<?php endif; ?>
+				<input type="hidden" name="_client_logo_id" value="<?php echo esc_attr( $image_id ); ?>">
+			</div>
+			<?php
+		}
+
 		public function render_testimonial( $post ) {
 			wp_nonce_field( 'marbure_testimonial_save', 'marbure_testimonial_nonce' );
 			$fields = array(
@@ -110,6 +163,7 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 				'marbure_service'     => 'marbure_service_nonce',
 				'marbure_portfolio'   => 'marbure_portfolio_nonce',
 				'marbure_testimonial' => 'marbure_testimonial_nonce',
+				'marbure_client'      => 'marbure_client_nonce',
 			);
 
 			if ( ! isset( $nonces[ $post->post_type ] ) ) return;
@@ -140,6 +194,18 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 
 			// Service featured — checkbox.
 			update_post_meta( $post_id, '_service_featured', isset( $_POST['_service_featured'] ) ? '1' : '0' );
+
+			// Client logos — attachment IDs.
+			foreach ( array( '_client_logo_id', '_client_logo_hover_id' ) as $img_key ) {
+				if ( isset( $_POST[ $img_key ] ) ) {
+					$val = absint( $_POST[ $img_key ] );
+					if ( $val ) {
+						update_post_meta( $post_id, $img_key, $val );
+					} else {
+						delete_post_meta( $post_id, $img_key );
+					}
+				}
+			}
 		}
 
 		// ── Utility ───────────────────────────────────────────────────────────

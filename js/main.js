@@ -225,4 +225,41 @@
 		}
 	}() );
 
+	// ── Sticky Footer ────────────────────────────────────────────────────────
+	// Pins footer#colophon to the bottom when page content is shorter than
+	// the viewport. Skips when Elementor editor is active.
+
+	( function initStickyFooter() {
+		var footer = document.querySelector( 'footer#colophon' );
+		var page   = document.getElementById( 'page' );
+		if ( ! footer || ! page ) return;
+
+		function ptFooterPosition() {
+			if ( document.body.classList.contains( 'elementor-editor-active' ) ) return;
+
+			// Reset any previous inline styles.
+			footer.style.position      = '';
+			footer.style.width         = '';
+			footer.style.bottom        = '';
+			document.body.style.height = '';
+			page.style.height          = '';
+
+			if ( window.innerHeight > document.body.offsetHeight ) {
+				var windowHeight = window.innerHeight;
+				var adminBar     = document.getElementById( 'wpadminbar' );
+				if ( adminBar ) {
+					windowHeight -= adminBar.offsetHeight;
+				}
+				document.body.style.height = windowHeight + 'px';
+				page.style.height          = windowHeight + 'px';
+				footer.style.position      = 'absolute';
+				footer.style.width         = '100%';
+				footer.style.bottom        = '0';
+			}
+		}
+
+		ptFooterPosition();
+		window.addEventListener( 'resize', ptFooterPosition, { passive: true } );
+	}() );
+
 }() );

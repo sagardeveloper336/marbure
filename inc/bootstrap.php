@@ -8,6 +8,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+require_once get_template_directory() . '/inc/class/class-marbure-walker-nav-menu.php';
+require_once get_template_directory() . '/inc/class/class-marbure-breadcrumb.php';
 require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/nav-menus.php';
 require_once get_template_directory() . '/inc/sidebars.php';

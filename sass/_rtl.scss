@@ -1,0 +1,69 @@
+// =============================================================================
+// RTL — direction overrides for right-to-left languages
+// Compiled separately → style-rtl.css (WordPress loads it via is_rtl()).
+// =============================================================================
+
+[dir="rtl"] {
+
+  // Header — reverse logo + nav row.
+  .site-header__inner {
+    flex-direction: row-reverse;
+  }
+
+  .nav-menu {
+    flex-direction: row-reverse;
+  }
+
+  // Dropdowns open toward the right (visually left for RTL).
+  .nav-menu__dropdown {
+    left: auto;
+    right: 0;
+  }
+
+  // Breadcrumb separator.
+  .breadcrumb__item:not(:first-child)::before {
+    content: '\\';
+  }
+
+  // Mobile off-canvas — slides from left instead of right.
+  .mobile-off-canvas {
+    left: 0;
+    right: auto;
+    transform: translateX(-100%);
+
+    &.is-open { transform: translateX(0); }
+  }
+
+  // Back-to-top button — flip to left side.
+  .back-to-top {
+    right: auto;
+    left: 1.5rem;
+  }
+
+  // Post navigation — swap alignment.
+  .post-navigation__link--prev { text-align: right; }
+  .post-navigation__link--next { text-align: left; }
+
+  // Service card icon margin.
+  .service-card__icon {
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+
+  // Team card socials row direction.
+  .team-card__socials {
+    flex-direction: row-reverse;
+  }
+
+  // Select arrow — flip to left side.
+  select {
+    background-position: left 1rem center;
+    padding-right: 1rem;
+    padding-left: 2.5rem;
+  }
+
+  // Footer columns — reverse order on desktop.
+  .footer-widgets__grid {
+    direction: rtl;
+  }
+}

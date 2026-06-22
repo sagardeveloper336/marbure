@@ -44,10 +44,15 @@ Tags:        law-firm, legal, attorney, one-column, two-columns, custom-colors, 
 @use 'components/back-to-top';
 @use 'components/hero-slider';
 @use 'components/cards';
-@use 'components/team';
+@use 'components/team' as c-team;
 @use 'components/testimonials';
 @use 'components/counters';
 @use 'components/marquee';
+@use 'components/forms';
+@use 'components/accordion';
+@use 'components/pagination';
+@use 'components/breadcrumb';
+@use 'components/preloader';
 
 // =============================================================================
 // Pages
@@ -56,12 +61,12 @@ Tags:        law-firm, legal, attorney, one-column, two-columns, custom-colors, 
 @use 'pages/blog';
 @use 'pages/services';
 @use 'pages/portfolio';
-@use 'pages/team';
+@use 'pages/team' as p-team;
 @use 'pages/contact';
 @use 'pages/faq';
-@use 'pages/404';
+@use 'pages/404' as page404;
 
 // =============================================================================
-// Elementor overrides (added in Phase 5)
+// Elementor overrides
 // =============================================================================
-// @use 'elementor/overrides';
+@use 'elementor/overrides';

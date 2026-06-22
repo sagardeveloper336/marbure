@@ -4,6 +4,11 @@
 // Site Footer
 // =============================================================================
 
+// Required for JS sticky-footer absolute positioning.
+#page.site {
+  position: relative;
+}
+
 .site-footer {
   background: var(--footer-bg);
   color: var(--footer-text);

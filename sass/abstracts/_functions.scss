@@ -1,0 +1,16 @@
+@use 'sass:math';
+
+// Strip unit from a value.
+@function strip-unit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+// Convert px to rem (base 16px).
+@function rem($px, $base: 16) {
+  @return math.div(strip-unit($px), $base) * 1rem;
+}
+
+// Convert px to em relative to a context.
+@function em($px, $context: 16) {
+  @return math.div(strip-unit($px), $context) * 1em;
+}

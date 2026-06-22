@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 // Utility classes.
 
 .container { @include container; }
@@ -10,10 +12,3 @@
 
 .u-flex-center  { @include flex-center; }
 .u-flex-between { @include flex-between; }
-
-@mixin container {
-  width: 100%;
-  max-width: var(--container-width);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
-}
