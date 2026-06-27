@@ -36,12 +36,12 @@ add_action( 'elementor/elements/categories_registered', function ( $mgr ) {
 // ── Vendor scripts & styles ───────────────────────────────────────────────────
 
 add_action( 'wp_enqueue_scripts', function () {
-	// Swiper (Hero Slider, Testimonial Carousel)
+	// Swiper — local copy so it works without internet (WAMP / offline).
 	if ( ! wp_style_is( 'swiper', 'registered' ) ) {
-		wp_register_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0' );
+		wp_register_style( 'swiper', get_template_directory_uri() . '/css/swiper-bundle.min.css', array(), '11.0.0' );
 	}
 	if ( ! wp_script_is( 'swiper', 'registered' ) ) {
-		wp_register_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true );
+		wp_register_script( 'swiper', get_template_directory_uri() . '/js/swiper-bundle.min.js', array(), '11.0.0', true );
 	}
 
 	// GLightbox (Gallery Grid)

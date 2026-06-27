@@ -36,36 +36,34 @@ function marbure_scripts() {
 
 	wp_enqueue_style(
 		'aos',
-		'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css',
+		get_template_directory_uri() . '/css/aos.css',
 		array(),
 		'2.3.4'
 	);
 	wp_enqueue_script(
 		'aos',
-		'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js',
+		get_template_directory_uri() . '/js/aos.js',
 		array(),
 		'2.3.4',
 		true
 	);
 
 	// ── Swiper 11 — hero slider + testimonials carousel ───────────────────────
-	// Loaded on front page and pages that use Swiper.
+	// Served locally so the slider works without internet / CDN access.
 
-	if ( is_front_page() || is_singular( 'marbure_testimonial' ) || marbure_page_uses_swiper() ) {
-		wp_enqueue_style(
-			'swiper',
-			'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
-			array(),
-			'11.0.0'
-		);
-		wp_enqueue_script(
-			'swiper',
-			'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
-			array(),
-			'11.0.0',
-			true
-		);
-	}
+	wp_enqueue_style(
+		'swiper',
+		get_template_directory_uri() . '/css/swiper-bundle.min.css',
+		array(),
+		'11.0.0'
+	);
+	wp_enqueue_script(
+		'swiper',
+		get_template_directory_uri() . '/js/swiper-bundle.min.js',
+		array(),
+		'11.0.0',
+		true
+	);
 
 	// ── GLightbox — video lightbox on hero ────────────────────────────────────
 
@@ -124,11 +122,12 @@ function marbure_scripts() {
 	);
 
 	// ── Main Script ───────────────────────────────────────────────────────────
+	// Depends on swiper so WordPress always outputs swiper.js before main.js.
 
 	wp_enqueue_script(
 		'marbure-main',
 		get_template_directory_uri() . '/js/main.js',
-		array(),
+		array( 'swiper', 'aos' ),
 		MARBURE_VERSION,
 		true
 	);
@@ -154,21 +153,6 @@ function marbure_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'marbure_scripts' );
-
-/**
- * Check if the current page template is a home variant.
- *
- * @return bool
- */
-function marbure_page_uses_swiper() {
-	if ( ! is_page() ) return false;
-	$tpl = get_page_template_slug();
-	return in_array( $tpl, array(
-		'page-templates/page-home.php',
-		'page-templates/page-home-v2.php',
-		'page-templates/page-home-v3.php',
-	), true );
-}
 
 // ── Preconnect hints for Google Fonts ────────────────────────────────────────
 

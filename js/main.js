@@ -122,11 +122,11 @@
 
 	// ── Hero Slider (Swiper) ──────────────────────────────────────────────────
 	// Reads data-autoplay / data-loop / data-speed from the wrapper element so
-	// the Elementor widget can control these settings via its own controls.
+	// the Elementor widget can pass its own settings.
 
-	( function initHeroSlider() {
-		const el = document.querySelector( '.js-hero-swiper' );
-		if ( ! el || typeof Swiper === 'undefined' ) return;
+	function marbureInitHeroSwiper( el ) {
+		if ( ! el || el._swiperHero || typeof Swiper === 'undefined' ) return;
+		el._swiperHero = true;
 
 		var autoplayDelay = el.dataset.autoplay ? parseInt( el.dataset.autoplay, 10 ) : 6000;
 		var loopEnabled   = el.dataset.loop !== '0';
@@ -138,32 +138,66 @@
 			autoplay:   autoplayDelay > 0
 				? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true }
 				: false,
-			effect: 'fade',
+			effect:     'fade',
 			fadeEffect: { crossFade: true },
-			pagination: { el: '.hero-swiper__pagination', clickable: true },
-			navigation: { prevEl: '.hero-swiper__prev', nextEl: '.hero-swiper__next' },
+			pagination: {
+				el:        el.querySelector( '.hero-swiper__pagination' ),
+				clickable: true,
+			},
+			navigation: {
+				prevEl: el.querySelector( '.hero-swiper__prev' ),
+				nextEl: el.querySelector( '.hero-swiper__next' ),
+			},
 			a11y: {
 				prevSlideMessage: ( marbureParams.i18n && marbureParams.i18n.prevSlide ) || 'Previous slide',
 				nextSlideMessage: ( marbureParams.i18n && marbureParams.i18n.nextSlide ) || 'Next slide',
 			},
 		} );
-	}() );
+	}
+
+	document.querySelectorAll( '.js-hero-swiper' ).forEach( marbureInitHeroSwiper );
 
 	// ── Testimonials Carousel (Swiper) ────────────────────────────────────────
 
-	( function initTestimonials() {
-		const el = document.querySelector( '.js-testimonials-swiper' );
-		if ( ! el || typeof Swiper === 'undefined' ) return;
+	function marbureInitTestimonialsSwiper( el ) {
+		if ( ! el || el._swiperTestimonials || typeof Swiper === 'undefined' ) return;
+		el._swiperTestimonials = true;
 
 		new Swiper( el, {
-			loop: true,
-			speed: 600,
-			autoplay: { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true },
+			loop:         true,
+			speed:        600,
+			autoplay:     { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true },
+			slidesPerView: 1,
 			spaceBetween: 24,
-			pagination: { el: '.testimonials-swiper__pagination', clickable: true },
+			pagination:   {
+				el:        el.querySelector( '.testimonials-swiper__pagination' ),
+				clickable: true,
+			},
 			breakpoints: { 768: { slidesPerView: 2 }, 1100: { slidesPerView: 3 } },
 		} );
-	}() );
+	}
+
+	document.querySelectorAll( '.js-testimonials-swiper' ).forEach( marbureInitTestimonialsSwiper );
+
+	// ── Elementor frontend hook — re-init Swiper when a widget is rendered ────
+	// Covers both the editor preview and cached-page first paint in frontend mode.
+
+	if ( typeof elementorFrontend !== 'undefined' && elementorFrontend.hooks ) {
+		elementorFrontend.hooks.addAction(
+			'frontend/element_ready/marbure_hero_slider.default',
+			function ( $scope ) {
+				var el = $scope[ 0 ] && $scope[ 0 ].querySelector( '.js-hero-swiper' );
+				marbureInitHeroSwiper( el );
+			}
+		);
+		elementorFrontend.hooks.addAction(
+			'frontend/element_ready/marbure_testimonial_carousel.default',
+			function ( $scope ) {
+				var el = $scope[ 0 ] && $scope[ 0 ].querySelector( '.js-testimonials-swiper' );
+				marbureInitTestimonialsSwiper( el );
+			}
+		);
+	}
 
 	// ── FAQ Accordion ─────────────────────────────────────────────────────────
 
@@ -297,5 +331,17 @@
 		ptFooterPosition();
 		window.addEventListener( 'resize', ptFooterPosition, { passive: true } );
 	}() );
+
+	// ── AOS — Animate on Scroll ───────────────────────────────────────────────
+	// aos.css hides [data-aos] elements with opacity:0 until aos-animate is added.
+	// Without AOS.init() the content (eyebrow, heading, text, buttons) stays invisible.
+
+	if ( typeof AOS !== 'undefined' ) {
+		AOS.init( {
+			duration: 800,
+			once:     true,
+			offset:   60,
+		} );
+	}
 
 }() );
