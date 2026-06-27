@@ -25,8 +25,8 @@ export function initHeroSlider() {
 			nextEl: '.hero-swiper__next',
 		},
 		a11y: {
-			prevSlideMessage: marbureParams.i18n?.prevSlide || 'Previous slide',
-			nextSlideMessage: marbureParams.i18n?.nextSlide || 'Next slide',
+			prevSlideMessage: ( marbureParams.i18n && marbureParams.i18n.prevSlide ) || 'Previous slide',
+			nextSlideMessage: ( marbureParams.i18n && marbureParams.i18n.nextSlide ) || 'Next slide',
 		},
 		on: {
 			// Re-trigger AOS animations for the active slide content

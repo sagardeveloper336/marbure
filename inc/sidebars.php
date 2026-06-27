@@ -17,7 +17,7 @@ function marbure_widgets_init() {
 		array(
 			'name'        => esc_html__( 'Service Sidebar', 'marbure' ),
 			'id'          => 'sidebar-service',
-			'description' => esc_html__( 'Appears on practice area single pages.', 'marbure' ),
+			'description' => esc_html__( 'Appears on service single pages.', 'marbure' ),
 		),
 		array(
 			'name'        => esc_html__( 'Footer Column 1', 'marbure' ),
@@ -32,7 +32,7 @@ function marbure_widgets_init() {
 		array(
 			'name'        => esc_html__( 'Footer Column 3', 'marbure' ),
 			'id'          => 'footer-col-3',
-			'description' => esc_html__( 'Footer third column — practice areas list.', 'marbure' ),
+			'description' => esc_html__( 'Footer third column — services list.', 'marbure' ),
 		),
 		array(
 			'name'        => esc_html__( 'Footer Column 4', 'marbure' ),

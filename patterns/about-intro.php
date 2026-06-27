@@ -15,7 +15,7 @@
 		<!-- wp:column {"width":"50%","verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
 			<!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"marbure-about-image"} -->
-			<figure class="wp-block-image size-large marbure-about-image"><img src="" alt="About our firm" /></figure>
+			<figure class="wp-block-image size-large marbure-about-image"><img src="" alt="About Marbure — stone specialists" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
@@ -24,15 +24,15 @@
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
 
 			<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.8125rem","fontWeight":"600","letterSpacing":"0.12em","textTransform":"uppercase"},"color":{"text":"#CF9776"}}} -->
-			<p class="has-text-color" style="color:#CF9776;font-size:0.8125rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase">About Our Firm</p>
+			<p class="has-text-color" style="color:#CF9776;font-size:0.8125rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase">About Marbure</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"2.25rem","fontWeight":"700","lineHeight":"1.25"},"color":{"text":"#0A1E3F"}},"fontFamily":"heading"} -->
-			<h2 class="wp-block-heading has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:2.25rem;font-weight:700;line-height:1.25">Committed to Securing the Justice You Deserve</h2>
+			<h2 class="wp-block-heading has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:2.25rem;font-weight:700;line-height:1.25">Crafting Stone Spaces That Endure</h2>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"style":{"color":{"text":"#3D3D3D"},"typography":{"fontSize":"1.0625rem","lineHeight":"1.75"}}} -->
-			<p class="has-text-color" style="color:#3D3D3D;font-size:1.0625rem;line-height:1.75">For over 12 years, Marbure Law Firm has stood as a beacon of justice for individuals and businesses. Our team of dedicated attorneys combines deep legal expertise with genuine compassion for our clients.</p>
+			<p class="has-text-color" style="color:#3D3D3D;font-size:1.0625rem;line-height:1.75">For over 12 years, Marbure has been a trusted name in premium marble, granite, and natural stone. Our team of certified stone specialists combines expert craftsmanship with genuine passion for every project we undertake.</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:columns {"style":{"spacing":{"blockGap":"1.5rem","margin":{"top":"2rem"}}}} -->
@@ -41,10 +41,10 @@
 				<!-- wp:column -->
 				<div class="wp-block-column">
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"3rem","fontWeight":"700"},"color":{"text":"#CF9776"}},"fontFamily":"heading"} -->
-					<h3 class="wp-block-heading has-text-color has-heading-font-family" style="color:#CF9776;font-size:3rem;font-weight:700">750+</h3>
+					<h3 class="wp-block-heading has-text-color has-heading-font-family" style="color:#CF9776;font-size:3rem;font-weight:700">500+</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph {"style":{"color":{"text":"#0A1E3F"},"typography":{"fontWeight":"600"}}} -->
-					<p class="has-text-color" style="color:#0A1E3F;font-weight:600">Cases Won</p>
+					<p class="has-text-color" style="color:#0A1E3F;font-weight:600">Projects Completed</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:column -->
@@ -55,7 +55,7 @@
 					<h3 class="wp-block-heading has-text-color has-heading-font-family" style="color:#CF9776;font-size:3rem;font-weight:700">97%</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph {"style":{"color":{"text":"#0A1E3F"},"typography":{"fontWeight":"600"}}} -->
-					<p class="has-text-color" style="color:#0A1E3F;font-weight:600">Success Rate</p>
+					<p class="has-text-color" style="color:#0A1E3F;font-weight:600">Client Satisfaction</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:column -->

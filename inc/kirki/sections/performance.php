@@ -60,3 +60,16 @@ Kirki::add_field(
 		'priority'    => 30,
 	)
 );
+
+Kirki::add_field(
+	'marbure_theme_options',
+	array(
+		'type'        => 'switch',
+		'settings'    => 'disable_google_fonts',
+		'label'       => esc_html__( 'Disable Google Fonts', 'marbure' ),
+		'description' => esc_html__( 'Stop loading Playfair Display & Inter from Google\'s CDN. Enables GDPR compliance — the theme falls back to Georgia & system-ui fonts. Recommended for EU-based sites.', 'marbure' ),
+		'section'     => 'marbure_section_performance',
+		'default'     => false,
+		'priority'    => 40,
+	)
+);

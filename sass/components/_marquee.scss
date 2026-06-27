@@ -32,7 +32,10 @@
 		background: linear-gradient(to left, var(--color-secondary), transparent);
 	}
 
-	// Pause animation when user prefers reduced motion
+	// Pause on hover (CSS fallback — JS also handles this for older browsers).
+	&:hover .marquee-track { animation-play-state: paused; }
+
+	// Pause animation when user prefers reduced motion.
 	@media (prefers-reduced-motion: reduce) {
 		.marquee-track { animation: none; }
 	}

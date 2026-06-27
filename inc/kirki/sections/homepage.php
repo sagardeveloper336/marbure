@@ -36,21 +36,21 @@ Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'hero_eyebrow',
 	'label' => esc_html__( 'Hero Eyebrow Label', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( '12 Years of Legal Excellence', 'marbure' ), 'priority' => 30,
+	'default' => esc_html__( 'Premium Marble & Stone Since 2012', 'marbure' ), 'priority' => 30,
 ) );
 
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'hero_heading',
 	'label' => esc_html__( 'Hero Heading', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Fighting for Your Justice', 'marbure' ), 'priority' => 40,
+	'default' => esc_html__( 'Elevate Every Surface', 'marbure' ), 'priority' => 40,
 ) );
 
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'textarea', 'settings' => 'hero_subtext',
 	'label' => esc_html__( 'Hero Subtext', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Experienced attorneys committed to protecting your rights and securing the justice you deserve.', 'marbure' ),
+	'default' => esc_html__( 'Premium marble, granite, and natural stone surfaces for homes and businesses that demand perfection.', 'marbure' ),
 	'priority' => 50,
 ) );
 
@@ -58,23 +58,23 @@ Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'hero_btn1_label',
 	'label' => esc_html__( 'Hero Button 1 Label', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Free Consultation', 'marbure' ), 'priority' => 60,
+	'default' => esc_html__( 'Explore Collection', 'marbure' ), 'priority' => 60,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'link', 'settings' => 'hero_btn1_url',
 	'label' => esc_html__( 'Hero Button 1 URL', 'marbure' ),
-	'section' => 'marbure_section_homepage', 'default' => '/contact', 'priority' => 70,
+	'section' => 'marbure_section_homepage', 'default' => '/products', 'priority' => 70,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'hero_btn2_label',
 	'label' => esc_html__( 'Hero Button 2 Label', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Our Practice Areas', 'marbure' ), 'priority' => 80,
+	'default' => esc_html__( 'View Projects', 'marbure' ), 'priority' => 80,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'link', 'settings' => 'hero_btn2_url',
 	'label' => esc_html__( 'Hero Button 2 URL', 'marbure' ),
-	'section' => 'marbure_section_homepage', 'default' => '/practice-areas', 'priority' => 90,
+	'section' => 'marbure_section_homepage', 'default' => '/projects', 'priority' => 90,
 ) );
 
 // ── About Section ─────────────────────────────────────────────────────────────
@@ -93,19 +93,19 @@ Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'about_eyebrow',
 	'label' => esc_html__( 'About Eyebrow', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'About Our Firm', 'marbure' ), 'priority' => 120,
+	'default' => esc_html__( 'About Marbure', 'marbure' ), 'priority' => 120,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'about_heading',
 	'label' => esc_html__( 'About Heading', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Dedicated Legal Advocates You Can Trust', 'marbure' ), 'priority' => 130,
+	'default' => esc_html__( 'Crafting Stone Spaces That Endure', 'marbure' ), 'priority' => 130,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'textarea', 'settings' => 'about_subtext',
 	'label' => esc_html__( 'About Text', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Our law firm is dedicated to delivering trusted legal solutions with professionalism and integrity. We combine deep legal expertise with a compassionate approach to ensure the best outcomes for our clients.', 'marbure' ),
+	'default' => esc_html__( 'Marbure is dedicated to sourcing, supplying, and installing premium marble, granite, and natural stone. We combine expert craftsmanship with personal service to transform every space into a timeless statement.', 'marbure' ),
 	'priority' => 140,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
@@ -172,20 +172,20 @@ Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'cta_band_heading',
 	'label' => esc_html__( 'CTA Heading', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Get the Legal Help You Deserve', 'marbure' ), 'priority' => 240,
+	'default' => esc_html__( 'Transform Your Space with Premium Stone', 'marbure' ), 'priority' => 240,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'textarea', 'settings' => 'cta_band_subtext',
 	'label' => esc_html__( 'CTA Subtext', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Our experienced attorneys are ready to review your case. Contact us today for a free, no-obligation consultation.', 'marbure' ),
+	'default' => esc_html__( 'Our stone specialists are ready to help. Get in touch today for a free, no-obligation quote on your next marble or granite project.', 'marbure' ),
 	'priority' => 250,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'cta_band_btn1_label',
 	'label' => esc_html__( 'CTA Primary Button', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Schedule Consultation', 'marbure' ), 'priority' => 260,
+	'default' => esc_html__( 'Explore Collection', 'marbure' ), 'priority' => 260,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'link', 'settings' => 'cta_band_btn1_url',
@@ -195,11 +195,11 @@ Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'cta_band_btn2_label',
 	'label' => esc_html__( 'CTA Secondary Button', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'View Our Results', 'marbure' ), 'priority' => 280,
+	'default' => esc_html__( 'View Our Projects', 'marbure' ), 'priority' => 280,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'link', 'settings' => 'cta_band_btn2_url',
-	'section' => 'marbure_section_homepage', 'default' => '/case-results', 'priority' => 290,
+	'section' => 'marbure_section_homepage', 'default' => '/portfolio', 'priority' => 290,
 ) );
 
 // Pre-footer CTA fields (referenced in template-parts/footer/pre-footer-cta.php).
@@ -212,19 +212,19 @@ Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'pre_footer_cta_heading',
 	'label' => esc_html__( 'Pre-footer CTA Heading', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Ready to Fight for Your Rights?', 'marbure' ), 'priority' => 310,
+	'default' => esc_html__( 'Ready to Transform Your Space?', 'marbure' ), 'priority' => 310,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'pre_footer_cta_text',
 	'label' => esc_html__( 'Pre-footer CTA Subtext', 'marbure' ),
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Schedule a free consultation with our experienced attorneys today.', 'marbure' ),
+	'default' => esc_html__( 'Request a free quote from our stone specialists today. No obligation, just expert advice.', 'marbure' ),
 	'priority' => 320,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'text', 'settings' => 'pre_footer_cta_btn_label',
 	'section' => 'marbure_section_homepage',
-	'default' => esc_html__( 'Book a Free Consultation', 'marbure' ), 'priority' => 330,
+	'default' => esc_html__( 'Request a Free Quote', 'marbure' ), 'priority' => 330,
 ) );
 Kirki::add_field( 'marbure_theme_options', array(
 	'type' => 'link', 'settings' => 'pre_footer_cta_btn_url',

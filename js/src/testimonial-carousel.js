@@ -31,8 +31,8 @@ export function initTestimonialsCarousel() {
 			},
 		},
 		a11y: {
-			prevSlideMessage: marbureParams.i18n?.prevSlide || 'Previous slide',
-			nextSlideMessage: marbureParams.i18n?.nextSlide || 'Next slide',
+			prevSlideMessage: ( marbureParams.i18n && marbureParams.i18n.prevSlide ) || 'Previous slide',
+			nextSlideMessage: ( marbureParams.i18n && marbureParams.i18n.nextSlide ) || 'Next slide',
 		},
 	} );
 }

@@ -6,7 +6,7 @@
  * @package marbure
  */
 
-$cta_label = marbure_option( 'header_cta_label', __( 'Free Consultation', 'marbure' ) );
+$cta_label = marbure_option( 'header_cta_label', __( 'Get a Free Quote', 'marbure' ) );
 $cta_url   = marbure_option( 'header_cta_url', '/contact' );
 ?>
 <nav

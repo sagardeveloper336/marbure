@@ -28,7 +28,7 @@ Kirki::add_field(
 		'label'    => esc_html__( 'Body Font', 'marbure' ),
 		'section'  => 'marbure_section_typography',
 		'default'  => array(
-			'font-family'    => 'inherit',
+			'font-family'    => 'Roboto',
 			'variant'        => 'regular',
 			'font-size'      => '16px',
 			'line-height'    => '1.6',
@@ -52,7 +52,7 @@ Kirki::add_field(
 		'label'    => esc_html__( 'Heading Font', 'marbure' ),
 		'section'  => 'marbure_section_typography',
 		'default'  => array(
-			'font-family'    => 'inherit',
+			'font-family'    => 'Urbanist',
 			'variant'        => '700',
 			'font-size'      => '32px',
 			'line-height'    => '1.3',

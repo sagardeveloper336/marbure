@@ -3,7 +3,7 @@
  * Title: Services Grid
  * Slug: marbure/services-grid
  * Categories: featured
- * Description: Three-column practice area cards with icon, title, excerpt, and link.
+ * Description: Three-column service cards for marble and stone tile businesses.
  */
 ?>
 <!-- wp:group {"align":"full","style":{"color":{"background":"#F8F8F8"},"spacing":{"padding":{"top":"5rem","bottom":"5rem","left":"2rem","right":"2rem"}}},"className":"marbure-services-section"} -->
@@ -15,10 +15,10 @@
 		<p class="has-text-align-center has-text-color" style="color:#CF9776;font-size:0.8125rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase">What We Do</p>
 		<!-- /wp:paragraph -->
 		<!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"},"color":{"text":"#0A1E3F"}},"fontFamily":"heading"} -->
-		<h2 class="wp-block-heading has-text-align-center has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:2.5rem;font-weight:700">Our Practice Areas</h2>
+		<h2 class="wp-block-heading has-text-align-center has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:2.5rem;font-weight:700">Our Services</h2>
 		<!-- /wp:heading -->
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"1.0625rem"},"color":{"text":"#6b7280"}}} -->
-		<p class="has-text-align-center has-text-color" style="color:#6b7280;font-size:1.0625rem">We offer a comprehensive range of legal services, each delivered with the expertise your case demands.</p>
+		<p class="has-text-align-center has-text-color" style="color:#6b7280;font-size:1.0625rem">From premium stone supply to expert installation — we deliver the complete marble and tile experience.</p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
@@ -31,18 +31,18 @@
 			<!-- wp:group {"style":{"color":{"background":"#ffffff"},"border":{"radius":"8px"},"spacing":{"padding":{"top":"2rem","bottom":"2rem","left":"1.75rem","right":"1.75rem"}}},"className":"marbure-service-card"} -->
 			<div class="wp-block-group marbure-service-card" style="background-color:#ffffff;border-radius:8px;padding-top:2rem;padding-bottom:2rem;padding-left:1.75rem;padding-right:1.75rem">
 				<!-- wp:paragraph {"style":{"typography":{"fontSize":"2.5rem"},"color":{"text":"#CF9776"}}} -->
-				<p class="has-text-color" style="color:#CF9776;font-size:2.5rem">⚖️</p>
+				<p class="has-text-color" style="color:#CF9776;font-size:2.5rem">💎</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.25rem","fontWeight":"700"},"color":{"text":"#0A1E3F"}},"fontFamily":"heading"} -->
-				<h3 class="wp-block-heading has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:1.25rem;font-weight:700">Criminal Defense</h3>
+				<h3 class="wp-block-heading has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:1.25rem;font-weight:700">Marble Flooring</h3>
 				<!-- /wp:heading -->
 				<!-- wp:paragraph {"style":{"color":{"text":"#6b7280"}}} -->
-				<p class="has-text-color" style="color:#6b7280">Expert defense strategies tailored to protect your rights and secure your future.</p>
+				<p class="has-text-color" style="color:#6b7280">Premium Italian and imported marble flooring, professionally installed for a timeless finish.</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:buttons -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"style":{"color":{"text":"#0A1E3F"},"border":{"radius":"4px"}},"className":"is-style-outline"} -->
-					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-text-color wp-element-button" href="/practice-areas/criminal-defense" style="color:#0A1E3F;border-radius:4px">Learn More</a></div>
+					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-text-color wp-element-button" href="/services/marble-flooring" style="color:#0A1E3F;border-radius:4px">Learn More</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -56,18 +56,18 @@
 			<!-- wp:group {"style":{"color":{"background":"#ffffff"},"border":{"radius":"8px"},"spacing":{"padding":{"top":"2rem","bottom":"2rem","left":"1.75rem","right":"1.75rem"}}},"className":"marbure-service-card"} -->
 			<div class="wp-block-group marbure-service-card" style="background-color:#ffffff;border-radius:8px;padding-top:2rem;padding-bottom:2rem;padding-left:1.75rem;padding-right:1.75rem">
 				<!-- wp:paragraph {"style":{"typography":{"fontSize":"2.5rem"},"color":{"text":"#CF9776"}}} -->
-				<p class="has-text-color" style="color:#CF9776;font-size:2.5rem">🏥</p>
+				<p class="has-text-color" style="color:#CF9776;font-size:2.5rem">🪨</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.25rem","fontWeight":"700"},"color":{"text":"#0A1E3F"}},"fontFamily":"heading"} -->
-				<h3 class="wp-block-heading has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:1.25rem;font-weight:700">Personal Injury</h3>
+				<h3 class="wp-block-heading has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:1.25rem;font-weight:700">Granite Countertops</h3>
 				<!-- /wp:heading -->
 				<!-- wp:paragraph {"style":{"color":{"text":"#6b7280"}}} -->
-				<p class="has-text-color" style="color:#6b7280">Fighting for maximum compensation after accidents, injuries, and wrongful acts.</p>
+				<p class="has-text-color" style="color:#6b7280">Custom-cut granite countertops for kitchens, bathrooms, and commercial spaces.</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:buttons -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"style":{"color":{"text":"#0A1E3F"},"border":{"radius":"4px"}},"className":"is-style-outline"} -->
-					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-text-color wp-element-button" href="/practice-areas/personal-injury" style="color:#0A1E3F;border-radius:4px">Learn More</a></div>
+					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-text-color wp-element-button" href="/services/granite-countertops" style="color:#0A1E3F;border-radius:4px">Learn More</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -81,18 +81,18 @@
 			<!-- wp:group {"style":{"color":{"background":"#ffffff"},"border":{"radius":"8px"},"spacing":{"padding":{"top":"2rem","bottom":"2rem","left":"1.75rem","right":"1.75rem"}}},"className":"marbure-service-card"} -->
 			<div class="wp-block-group marbure-service-card" style="background-color:#ffffff;border-radius:8px;padding-top:2rem;padding-bottom:2rem;padding-left:1.75rem;padding-right:1.75rem">
 				<!-- wp:paragraph {"style":{"typography":{"fontSize":"2.5rem"},"color":{"text":"#CF9776"}}} -->
-				<p class="has-text-color" style="color:#CF9776;font-size:2.5rem">🏢</p>
+				<p class="has-text-color" style="color:#CF9776;font-size:2.5rem">🏗️</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.25rem","fontWeight":"700"},"color":{"text":"#0A1E3F"}},"fontFamily":"heading"} -->
-				<h3 class="wp-block-heading has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:1.25rem;font-weight:700">Business Law</h3>
+				<h3 class="wp-block-heading has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:1.25rem;font-weight:700">Stone Installation</h3>
 				<!-- /wp:heading -->
 				<!-- wp:paragraph {"style":{"color":{"text":"#6b7280"}}} -->
-				<p class="has-text-color" style="color:#6b7280">Comprehensive legal support for contracts, disputes, and business transactions.</p>
+				<p class="has-text-color" style="color:#6b7280">End-to-end installation by certified craftsmen for residential and commercial projects.</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:buttons -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"style":{"color":{"text":"#0A1E3F"},"border":{"radius":"4px"}},"className":"is-style-outline"} -->
-					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-text-color wp-element-button" href="/practice-areas/business-law" style="color:#0A1E3F;border-radius:4px">Learn More</a></div>
+					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-text-color wp-element-button" href="/services/stone-installation" style="color:#0A1E3F;border-radius:4px">Learn More</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -107,7 +107,7 @@
 	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"2.5rem"}}}} -->
 	<div class="wp-block-buttons" style="margin-top:2.5rem">
 		<!-- wp:button {"style":{"color":{"text":"#0A1E3F"},"border":{"radius":"4px","color":"#0A1E3F","width":"2px"}},"className":"is-style-outline"} -->
-		<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-text-color wp-element-button" href="/practice-areas" style="color:#0A1E3F;border-radius:4px;border-color:#0A1E3F;border-width:2px">View All Practice Areas</a></div>
+		<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-text-color wp-element-button" href="/services" style="color:#0A1E3F;border-radius:4px;border-color:#0A1E3F;border-width:2px">View All Services</a></div>
 		<!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->

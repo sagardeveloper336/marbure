@@ -8,28 +8,28 @@
 
 $stats = array(
 	array(
-		'value'  => marbure_option( 'stat_1_value', '750' ),
-		'suffix' => marbure_option( 'stat_1_suffix', '+' ),
-		'label'  => marbure_option( 'stat_1_label', __( 'Cases Won', 'marbure' ) ),
-		'icon'   => marbure_option( 'stat_1_icon', 'fas fa-gavel' ),
+		'value'  => marbure_option( 'stat_1_value', '4.5' ),
+		'suffix' => marbure_option( 'stat_1_suffix', '★' ),
+		'label'  => marbure_option( 'stat_1_label', __( 'Client Rating', 'marbure' ) ),
+		'icon'   => marbure_option( 'stat_1_icon', 'fas fa-star' ),
 	),
 	array(
 		'value'  => marbure_option( 'stat_2_value', '97' ),
 		'suffix' => marbure_option( 'stat_2_suffix', '%' ),
 		'label'  => marbure_option( 'stat_2_label', __( 'Success Rate', 'marbure' ) ),
-		'icon'   => marbure_option( 'stat_2_icon', 'fas fa-chart-line' ),
+		'icon'   => marbure_option( 'stat_2_icon', 'fas fa-trophy' ),
 	),
 	array(
-		'value'  => marbure_option( 'stat_3_value', '12' ),
-		'suffix' => marbure_option( 'stat_3_suffix', '+' ),
-		'label'  => marbure_option( 'stat_3_label', __( 'Years Experience', 'marbure' ) ),
-		'icon'   => marbure_option( 'stat_3_icon', 'fas fa-balance-scale' ),
+		'value'  => marbure_option( 'stat_3_value', '7' ),
+		'suffix' => marbure_option( 'stat_3_suffix', 'M+' ),
+		'label'  => marbure_option( 'stat_3_label', __( 'Average Deal Value', 'marbure' ) ),
+		'icon'   => marbure_option( 'stat_3_icon', 'fas fa-dollar-sign' ),
 	),
 	array(
-		'value'  => marbure_option( 'stat_4_value', '5000' ),
+		'value'  => marbure_option( 'stat_4_value', '12' ),
 		'suffix' => marbure_option( 'stat_4_suffix', '+' ),
-		'label'  => marbure_option( 'stat_4_label', __( 'Happy Clients', 'marbure' ) ),
-		'icon'   => marbure_option( 'stat_4_icon', 'fas fa-users' ),
+		'label'  => marbure_option( 'stat_4_label', __( 'Years Experience', 'marbure' ) ),
+		'icon'   => marbure_option( 'stat_4_icon', 'fas fa-briefcase' ),
 	),
 );
 ?>

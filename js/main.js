@@ -121,15 +121,23 @@
 	} );
 
 	// ── Hero Slider (Swiper) ──────────────────────────────────────────────────
+	// Reads data-autoplay / data-loop / data-speed from the wrapper element so
+	// the Elementor widget can control these settings via its own controls.
 
 	( function initHeroSlider() {
 		const el = document.querySelector( '.js-hero-swiper' );
 		if ( ! el || typeof Swiper === 'undefined' ) return;
 
+		var autoplayDelay = el.dataset.autoplay ? parseInt( el.dataset.autoplay, 10 ) : 6000;
+		var loopEnabled   = el.dataset.loop !== '0';
+		var slideSpeed    = el.dataset.speed ? parseInt( el.dataset.speed, 10 ) : 800;
+
 		new Swiper( el, {
-			loop: true,
-			speed: 800,
-			autoplay: { delay: 6000, disableOnInteraction: false, pauseOnMouseEnter: true },
+			loop:       loopEnabled,
+			speed:      slideSpeed,
+			autoplay:   autoplayDelay > 0
+				? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true }
+				: false,
 			effect: 'fade',
 			fadeEffect: { crossFade: true },
 			pagination: { el: '.hero-swiper__pagination', clickable: true },
@@ -223,6 +231,34 @@
 		} else {
 			counters.forEach( animate );
 		}
+	}() );
+
+	// ── Marquee Strip — pause on hover ────────────────────────────────────────
+	// CSS provides the same pause via :hover, but JS ensures correct behaviour
+	// after dynamic DOM insertions (e.g. Elementor front-end editing).
+
+	( function initMarquee() {
+		var strips = document.querySelectorAll( '.marquee-strip' );
+		if ( ! strips.length ) return;
+
+		var prefersReduced = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+
+		strips.forEach( function ( strip ) {
+			var track = strip.querySelector( '.marquee-strip__track' );
+			if ( ! track ) return;
+
+			if ( prefersReduced ) {
+				track.style.animationPlayState = 'paused';
+				return;
+			}
+
+			strip.addEventListener( 'mouseenter', function () {
+				track.style.animationPlayState = 'paused';
+			} );
+			strip.addEventListener( 'mouseleave', function () {
+				track.style.animationPlayState = 'running';
+			} );
+		} );
 	}() );
 
 	// ── Sticky Footer ────────────────────────────────────────────────────────

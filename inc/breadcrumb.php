@@ -50,11 +50,11 @@ if ( ! class_exists( 'Marbure_Breadcrumb' ) ) :
 			if ( is_singular() ) {
 				$post_type = get_post_type();
 				if ( 'marbure_service' === $post_type ) {
-					$this->items[] = array( 'label' => esc_html__( 'Practice Areas', 'marbure' ), 'url' => get_post_type_archive_link( 'marbure_service' ) );
+					$this->items[] = array( 'label' => esc_html__( 'Services', 'marbure' ), 'url' => get_post_type_archive_link( 'marbure_service' ) );
 				} elseif ( 'marbure_portfolio' === $post_type ) {
-					$this->items[] = array( 'label' => esc_html__( 'Case Results', 'marbure' ), 'url' => get_post_type_archive_link( 'marbure_portfolio' ) );
+					$this->items[] = array( 'label' => esc_html__( 'Portfolio', 'marbure' ), 'url' => get_post_type_archive_link( 'marbure_portfolio' ) );
 				} elseif ( 'marbure_team' === $post_type ) {
-					$this->items[] = array( 'label' => esc_html__( 'Attorneys', 'marbure' ), 'url' => get_post_type_archive_link( 'marbure_team' ) );
+					$this->items[] = array( 'label' => esc_html__( 'Team', 'marbure' ), 'url' => get_post_type_archive_link( 'marbure_team' ) );
 				} elseif ( 'post' === $post_type ) {
 					$this->items[] = array( 'label' => esc_html__( 'Blog', 'marbure' ), 'url' => get_permalink( get_option( 'page_for_posts' ) ) );
 				}

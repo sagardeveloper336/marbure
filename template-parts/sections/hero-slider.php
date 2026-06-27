@@ -9,13 +9,13 @@
  * @package marbure
  */
 
-$eyebrow  = marbure_option( 'hero_eyebrow', __( '12 Years of Legal Excellence', 'marbure' ) );
-$heading  = marbure_option( 'hero_heading', __( 'Fighting for Your Justice', 'marbure' ) );
-$subtext  = marbure_option( 'hero_subtext', __( 'Experienced attorneys committed to protecting your rights and securing the justice you deserve.', 'marbure' ) );
-$btn1     = marbure_option( 'hero_btn1_label', __( 'Free Consultation', 'marbure' ) );
-$btn1_url = marbure_option( 'hero_btn1_url', '/contact' );
-$btn2     = marbure_option( 'hero_btn2_label', __( 'Our Practice Areas', 'marbure' ) );
-$btn2_url = marbure_option( 'hero_btn2_url', '/practice-areas' );
+$eyebrow  = marbure_option( 'hero_eyebrow', __( 'Premium Marble & Stone Since 2012', 'marbure' ) );
+$heading  = marbure_option( 'hero_heading', __( 'Elevate Every Surface', 'marbure' ) );
+$subtext  = marbure_option( 'hero_subtext', __( 'Premium marble, granite, and natural stone surfaces for homes and businesses that demand perfection.', 'marbure' ) );
+$btn1     = marbure_option( 'hero_btn1_label', __( 'Explore Collection', 'marbure' ) );
+$btn1_url = marbure_option( 'hero_btn1_url', '/products' );
+$btn2     = marbure_option( 'hero_btn2_label', __( 'View Projects', 'marbure' ) );
+$btn2_url = marbure_option( 'hero_btn2_url', '/projects' );
 $bg_img   = marbure_option( 'hero_bg_image', '' );
 
 $slides = array(
@@ -29,19 +29,19 @@ $slides = array(
 	),
 	array(
 		'bg'      => '',
-		'eyebrow' => __( 'Trusted Legal Counsel', 'marbure' ),
-		'heading' => __( 'Standing Firm for What\'s Right', 'marbure' ),
-		'text'    => __( 'We navigate complex legal challenges so you can focus on what matters most. Your justice is our mission.', 'marbure' ),
-		'btn1'    => __( 'Our Attorneys', 'marbure' ), 'btn1_url' => '/attorneys',
-		'btn2'    => __( 'Case Results', 'marbure' ),  'btn2_url' => '/case-results',
+		'eyebrow' => __( 'Trusted Stone Specialists', 'marbure' ),
+		'heading' => __( 'Crafted for Lasting Beauty', 'marbure' ),
+		'text'    => __( 'From Italian marble flooring to custom granite countertops — we bring timeless elegance to every space.', 'marbure' ),
+		'btn1'    => __( 'Our Services', 'marbure' ), 'btn1_url' => '/services',
+		'btn2'    => __( 'Get a Quote', 'marbure' ),  'btn2_url' => '/contact',
 	),
 	array(
 		'bg'      => '',
-		'eyebrow' => __( 'Results-Driven Representation', 'marbure' ),
-		'heading' => __( 'Advocating for Your Rights', 'marbure' ),
-		'text'    => __( 'From personal injury to business litigation, we bring the full weight of our experience to every case we handle.', 'marbure' ),
-		'btn1'    => __( 'Free Consultation', 'marbure' ), 'btn1_url' => '/contact',
-		'btn2'    => __( 'Practice Areas', 'marbure' ),   'btn2_url' => '/practice-areas',
+		'eyebrow' => __( 'Exceptional Craftsmanship', 'marbure' ),
+		'heading' => __( 'Stone Surfaces That Endure', 'marbure' ),
+		'text'    => __( 'Travertine, quartzite, onyx, and granite — expertly sourced and installed by our certified stone craftsmen.', 'marbure' ),
+		'btn1'    => __( 'Explore Collection', 'marbure' ), 'btn1_url' => '/products',
+		'btn2'    => __( 'View Projects', 'marbure' ),      'btn2_url' => '/portfolio',
 	),
 );
 ?>

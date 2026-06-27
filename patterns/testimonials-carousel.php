@@ -33,7 +33,7 @@
 				<p class="has-text-color" style="color:#CF9776;font-size:1.5rem">★★★★★</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:quote {"style":{"typography":{"fontSize":"1rem","fontStyle":"italic","lineHeight":"1.75"},"color":{"text":"#3D3D3D"},"spacing":{"margin":{"top":"0","bottom":"1.5rem"}}}} -->
-				<blockquote class="wp-block-quote has-text-color" style="color:#3D3D3D;font-size:1rem;font-style:italic;line-height:1.75;margin-top:0;margin-bottom:1.5rem"><p>"The team secured a $2.5M settlement I never thought possible. They treated my case with incredible care and professionalism throughout."</p><cite>Robert Martinez — Personal Injury Client</cite></blockquote>
+				<blockquote class="wp-block-quote has-text-color" style="color:#3D3D3D;font-size:1rem;font-style:italic;line-height:1.75;margin-top:0;margin-bottom:1.5rem"><p>"The Carrara marble they installed in our kitchen is absolutely stunning. Professional team, immaculate finish, delivered on time."</p><cite>Robert Martinez — Residential Client</cite></blockquote>
 				<!-- /wp:quote -->
 			</div>
 			<!-- /wp:group -->
@@ -48,7 +48,7 @@
 				<p class="has-text-color" style="color:#CF9776;font-size:1.5rem">★★★★★</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:quote {"style":{"typography":{"fontSize":"1rem","fontStyle":"italic","lineHeight":"1.75"},"color":{"text":"#3D3D3D"},"spacing":{"margin":{"top":"0","bottom":"1.5rem"}}}} -->
-				<blockquote class="wp-block-quote has-text-color" style="color:#3D3D3D;font-size:1rem;font-style:italic;line-height:1.75;margin-top:0;margin-bottom:1.5rem"><p>"Professional, compassionate, and relentlessly effective. I will always recommend Marbure Law Firm to anyone in need."</p><cite>Linda Chen — Family Law Client</cite></blockquote>
+				<blockquote class="wp-block-quote has-text-color" style="color:#3D3D3D;font-size:1rem;font-style:italic;line-height:1.75;margin-top:0;margin-bottom:1.5rem"><p>"Professional, detail-oriented, and beautifully executed. I will always recommend Marbure for premium stone work."</p><cite>Linda Chen — Commercial Project</cite></blockquote>
 				<!-- /wp:quote -->
 			</div>
 			<!-- /wp:group -->
@@ -63,7 +63,7 @@
 				<p class="has-text-color" style="color:#CF9776;font-size:1.5rem">★★★★★</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:quote {"style":{"typography":{"fontSize":"1rem","fontStyle":"italic","lineHeight":"1.75"},"color":{"text":"#3D3D3D"},"spacing":{"margin":{"top":"0","bottom":"1.5rem"}}}} -->
-				<blockquote class="wp-block-quote has-text-color" style="color:#3D3D3D;font-size:1rem;font-style:italic;line-height:1.75;margin-top:0;margin-bottom:1.5rem"><p>"They turned a complicated business dispute into a clear victory. Outstanding strategic thinking and communication from start to finish."</p><cite>David Thompson — Business Litigation Client</cite></blockquote>
+				<blockquote class="wp-block-quote has-text-color" style="color:#3D3D3D;font-size:1rem;font-style:italic;line-height:1.75;margin-top:0;margin-bottom:1.5rem"><p>"They sourced rare Black Marquina marble and delivered flawless custom panels for our hotel lobby. Outstanding craftsmanship from start to finish."</p><cite>David Thompson — Hotel Interior Project</cite></blockquote>
 				<!-- /wp:quote -->
 			</div>
 			<!-- /wp:group -->

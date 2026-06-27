@@ -26,7 +26,7 @@ get_header();
 					<?php esc_html_e( 'Back to Home', 'marbure' ); ?>
 				</a>
 				<a href="<?php echo esc_url( get_post_type_archive_link( 'marbure_service' ) ); ?>" class="btn btn--outline">
-					<?php esc_html_e( 'Practice Areas', 'marbure' ); ?>
+					<?php esc_html_e( 'Our Services', 'marbure' ); ?>
 				</a>
 			</div>
 

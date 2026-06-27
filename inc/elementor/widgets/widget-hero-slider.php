@@ -1,7 +1,7 @@
 <?php
 /**
  * Elementor Widget: Hero Slider
- * Outputs a Swiper full-width hero matching the hero-slider template-part HTML.
+ * Full-width Swiper hero slider for marble & stone business homepages.
  *
  * @package marbure
  */
@@ -38,7 +38,7 @@ class Marbure_Widget_Hero_Slider extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Eyebrow Text', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( '12 Years of Legal Excellence', 'marbure' ),
+				'default' => esc_html__( 'Premium Marble & Stone Since 2012', 'marbure' ),
 			)
 		);
 
@@ -47,7 +47,7 @@ class Marbure_Widget_Hero_Slider extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Heading', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Fighting for Your Justice', 'marbure' ),
+				'default' => esc_html__( 'Elevate Every Surface', 'marbure' ),
 			)
 		);
 
@@ -56,7 +56,7 @@ class Marbure_Widget_Hero_Slider extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Subtext', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Experienced attorneys committed to protecting your rights and securing the justice you deserve.', 'marbure' ),
+				'default' => esc_html__( 'Premium marble, granite, and natural stone surfaces for homes and businesses that demand perfection.', 'marbure' ),
 			)
 		);
 
@@ -83,7 +83,7 @@ class Marbure_Widget_Hero_Slider extends \Elementor\Widget_Base {
 			array(
 				'label'     => esc_html__( 'Button 1 Label', 'marbure' ),
 				'type'      => \Elementor\Controls_Manager::TEXT,
-				'default'   => esc_html__( 'Free Consultation', 'marbure' ),
+				'default'   => esc_html__( 'Explore Collection', 'marbure' ),
 				'separator' => 'before',
 			)
 		);
@@ -103,7 +103,7 @@ class Marbure_Widget_Hero_Slider extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Button 2 Label', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Our Practice Areas', 'marbure' ),
+				'default' => esc_html__( 'View Projects', 'marbure' ),
 			)
 		);
 
@@ -112,7 +112,7 @@ class Marbure_Widget_Hero_Slider extends \Elementor\Widget_Base {
 			array(
 				'label'         => esc_html__( 'Button 2 URL', 'marbure' ),
 				'type'          => \Elementor\Controls_Manager::URL,
-				'placeholder'   => esc_html__( '/practice-areas', 'marbure' ),
+				'placeholder'   => esc_html__( '/projects', 'marbure' ),
 				'show_external' => true,
 			)
 		);
@@ -126,18 +126,18 @@ class Marbure_Widget_Hero_Slider extends \Elementor\Widget_Base {
 				'title_field' => '{{{ heading }}}',
 				'default'     => array(
 					array(
-						'eyebrow'   => esc_html__( '12 Years of Legal Excellence', 'marbure' ),
-						'heading'   => esc_html__( 'Fighting for Your Justice', 'marbure' ),
-						'text'      => esc_html__( 'Experienced attorneys committed to protecting your rights.', 'marbure' ),
-						'btn1_label' => esc_html__( 'Free Consultation', 'marbure' ),
-						'btn2_label' => esc_html__( 'Our Practice Areas', 'marbure' ),
+						'eyebrow'    => esc_html__( 'Premium Marble & Stone Since 2012', 'marbure' ),
+						'heading'    => esc_html__( 'Elevate Every Surface', 'marbure' ),
+						'text'       => esc_html__( 'Premium marble, granite, and natural stone surfaces for homes and businesses that demand perfection.', 'marbure' ),
+						'btn1_label' => esc_html__( 'Explore Collection', 'marbure' ),
+						'btn2_label' => esc_html__( 'View Projects', 'marbure' ),
 					),
 					array(
-						'eyebrow'   => esc_html__( 'Trusted Legal Counsel', 'marbure' ),
-						'heading'   => esc_html__( 'Standing Firm for What\'s Right', 'marbure' ),
-						'text'      => esc_html__( 'We navigate complex legal challenges so you can focus on what matters most.', 'marbure' ),
-						'btn1_label' => esc_html__( 'Our Attorneys', 'marbure' ),
-						'btn2_label' => esc_html__( 'Case Results', 'marbure' ),
+						'eyebrow'    => esc_html__( 'Trusted Stone Specialists', 'marbure' ),
+						'heading'    => esc_html__( 'Crafted for Lasting Beauty', 'marbure' ),
+						'text'       => esc_html__( 'From Italian marble flooring to custom granite countertops — we bring timeless elegance to every space.', 'marbure' ),
+						'btn1_label' => esc_html__( 'Our Services', 'marbure' ),
+						'btn2_label' => esc_html__( 'Get a Quote', 'marbure' ),
 					),
 				),
 			)
@@ -255,7 +255,7 @@ class Marbure_Widget_Hero_Slider extends \Elementor\Widget_Base {
 								<div class="hero-slide__overlay" style="opacity:<?php echo esc_attr( $opacity ); ?>;"></div>
 
 								<div class="container">
-									<div class="hero-slide__content">
+									<div class="hero-slide__content" data-aos="fade-right" data-aos-duration="800">
 
 										<?php if ( $slide['eyebrow'] ) : ?>
 											<span class="hero-slide__eyebrow eyebrow">

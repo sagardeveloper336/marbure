@@ -45,7 +45,7 @@ class Marbure_Widget_Marquee_Strip extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Text', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( '$7M Personal Injury Settlement', 'marbure' ),
+				'default' => esc_html__( 'Premium Italian Marble', 'marbure' ),
 			)
 		);
 
@@ -57,13 +57,13 @@ class Marbure_Widget_Marquee_Strip extends \Elementor\Widget_Base {
 				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ text }}}',
 				'default'     => array(
-					array( 'icon_class' => 'fas fa-trophy',       'text' => esc_html__( '$7M Personal Injury Settlement', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-gavel',        'text' => esc_html__( 'Best Law Firm 2024', 'marbure' ) ),
+					array( 'icon_class' => 'fas fa-gem',          'text' => esc_html__( 'Premium Italian Marble', 'marbure' ) ),
+					array( 'icon_class' => 'fas fa-trophy',       'text' => esc_html__( 'Best Stone Supplier 2024', 'marbure' ) ),
 					array( 'icon_class' => 'fas fa-star',         'text' => esc_html__( '4.9★ Client Rating', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-award',        'text' => esc_html__( 'Yorke Prize Winner', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-balance-scale','text' => esc_html__( '97% Success Rate', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-handshake',    'text' => esc_html__( '$3.5M Business Litigation Win', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-medal',        'text' => esc_html__( 'Harrison Award 2023', 'marbure' ) ),
+					array( 'icon_class' => 'fas fa-award',        'text' => esc_html__( 'Excellence in Craftsmanship', 'marbure' ) ),
+					array( 'icon_class' => 'fas fa-check-circle', 'text' => esc_html__( '97% Client Satisfaction', 'marbure' ) ),
+					array( 'icon_class' => 'fas fa-handshake',    'text' => esc_html__( '500+ Projects Completed', 'marbure' ) ),
+					array( 'icon_class' => 'fas fa-medal',        'text' => esc_html__( 'Certified Natural Stone Experts', 'marbure' ) ),
 					array( 'icon_class' => 'fas fa-shield-alt',   'text' => esc_html__( '12+ Years of Excellence', 'marbure' ) ),
 				),
 			)

@@ -21,10 +21,10 @@ if ( ! $posts->have_posts() ) return;
 	<div class="container">
 
 		<div class="section__header" data-aos="fade-up">
-			<span class="eyebrow"><?php esc_html_e( 'Legal Insights', 'marbure' ); ?></span>
-			<h2 class="section-heading"><?php esc_html_e( 'From Our Legal Blog', 'marbure' ); ?></h2>
+			<span class="eyebrow"><?php esc_html_e( 'Stone Insights', 'marbure' ); ?></span>
+			<h2 class="section-heading"><?php esc_html_e( 'From Our Blog', 'marbure' ); ?></h2>
 			<p class="section-subheading">
-				<?php esc_html_e( 'Stay informed with the latest legal news, case insights, and expert perspectives from our attorneys.', 'marbure' ); ?>
+				<?php esc_html_e( 'Stone care tips, design trends, and inspiration from the Marbure team.', 'marbure' ); ?>
 			</p>
 		</div>
 

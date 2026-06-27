@@ -78,7 +78,7 @@ class Marbure_Widget_Faq_Accordion extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Question', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'How much does a consultation cost?', 'marbure' ),
+				'default' => esc_html__( 'What types of stone do you supply?', 'marbure' ),
 			)
 		);
 
@@ -87,7 +87,7 @@ class Marbure_Widget_Faq_Accordion extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Answer', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Your initial consultation is completely free of charge. We believe everyone deserves to understand their legal options.', 'marbure' ),
+				'default' => esc_html__( 'We supply marble, granite, travertine, limestone, quartzite, and onyx sourced directly from quarries worldwide.', 'marbure' ),
 			)
 		);
 
@@ -100,20 +100,20 @@ class Marbure_Widget_Faq_Accordion extends \Elementor\Widget_Base {
 				'title_field' => '{{{ question }}}',
 				'default'     => array(
 					array(
-						'question' => esc_html__( 'How much does a consultation cost?', 'marbure' ),
-						'answer'   => esc_html__( 'Your initial consultation is completely free of charge. We believe everyone deserves to understand their legal options without financial barriers.', 'marbure' ),
+						'question' => esc_html__( 'What types of stone do you supply?', 'marbure' ),
+						'answer'   => esc_html__( 'We supply a wide range of natural stone including marble, granite, travertine, limestone, quartzite, and onyx — sourced directly from quarries in Italy, Turkey, India, and Brazil.', 'marbure' ),
 					),
 					array(
-						'question' => esc_html__( 'Do you work on a contingency fee basis?', 'marbure' ),
-						'answer'   => esc_html__( 'Yes. For personal injury cases we work on a contingency fee — you pay nothing unless we win your case.', 'marbure' ),
+						'question' => esc_html__( 'Do you offer installation services?', 'marbure' ),
+						'answer'   => esc_html__( 'Yes. Our certified installation team handles everything from floor and wall tiling to custom countertops and feature walls. We manage the full project from design to completion.', 'marbure' ),
 					),
 					array(
-						'question' => esc_html__( 'How long will my case take?', 'marbure' ),
-						'answer'   => esc_html__( 'Case timelines vary depending on complexity. Simple cases can resolve in a few months; complex litigation may take longer. We keep you updated throughout.', 'marbure' ),
+						'question' => esc_html__( 'How long does a typical installation take?', 'marbure' ),
+						'answer'   => esc_html__( 'Project timelines depend on scope. A bathroom floor can take 1-2 days; a full kitchen or commercial installation may take 1-2 weeks. We provide a detailed schedule before work begins.', 'marbure' ),
 					),
 					array(
-						'question' => esc_html__( 'Which practice areas does your firm cover?', 'marbure' ),
-						'answer'   => esc_html__( 'We cover criminal defense, personal injury, business litigation, family law, real estate, and employment law. See our Practice Areas page for the full list.', 'marbure' ),
+						'question' => esc_html__( 'Can I request a custom stone cut or finish?', 'marbure' ),
+						'answer'   => esc_html__( 'Absolutely. We offer custom cutting, edge profiling (polished, honed, brushed, or leathered), and bespoke sizing for any application. Contact us with your specifications for a quote.', 'marbure' ),
 					),
 				),
 			)

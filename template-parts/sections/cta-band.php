@@ -5,9 +5,9 @@
  * @package marbure
  */
 
-$heading  = marbure_option( 'cta_band_heading', __( 'Ready to Protect Your Rights?', 'marbure' ) );
-$subtext  = marbure_option( 'cta_band_subtext', __( 'Speak with one of our experienced attorneys today. Initial consultations are completely free and confidential.', 'marbure' ) );
-$btn1     = marbure_option( 'cta_band_btn1_label', __( 'Schedule Free Consultation', 'marbure' ) );
+$heading  = marbure_option( 'cta_band_heading', __( 'Transform Your Space with Premium Stone', 'marbure' ) );
+$subtext  = marbure_option( 'cta_band_subtext', __( 'Speak with our stone specialists today. Get a free, no-obligation quote for your marble or granite project.', 'marbure' ) );
+$btn1     = marbure_option( 'cta_band_btn1_label', __( 'Get a Free Quote', 'marbure' ) );
 $btn1_url = marbure_option( 'cta_band_btn1_url', '/contact' );
 $btn2     = marbure_option( 'cta_band_btn2_label', __( 'Call Us Now', 'marbure' ) );
 $btn2_url = marbure_option( 'cta_band_btn2_url', 'tel:+10000000000' );

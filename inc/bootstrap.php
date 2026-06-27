@@ -40,5 +40,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require_once get_template_directory() . '/inc/jetpack.php';
 }
 
+// Plugin recommendations (Elementor notice when not active).
+require_once get_template_directory() . '/inc/plugins.php';
+
 // Elementor integration — hooks are registered inside via elementor/loaded action.
 require_once get_template_directory() . '/inc/elementor/elementor-support.php';

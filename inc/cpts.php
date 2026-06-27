@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 function marbure_register_cpts() {
 
-	// ── Services (Practice Areas) ─────────────────────────────────────────────
+	// ── Services ─────────────────────────────────────────────────────────────
 	register_post_type(
 		'marbure_service',
 		array(
@@ -31,12 +31,12 @@ function marbure_register_cpts() {
 			'menu_icon'     => 'dashicons-hammer',
 			'menu_position' => 5,
 			'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes' ),
-			'rewrite'       => array( 'slug' => 'practice-areas', 'with_front' => false ),
+			'rewrite'       => array( 'slug' => 'services', 'with_front' => false ),
 			'show_in_rest'  => true,
 		)
 	);
 
-	// ── Portfolio (Case Results) ───────────────────────────────────────────────
+	// ── Portfolio ─────────────────────────────────────────────────────────────
 	register_post_type(
 		'marbure_portfolio',
 		array(
@@ -58,12 +58,12 @@ function marbure_register_cpts() {
 			'menu_icon'     => 'dashicons-portfolio',
 			'menu_position' => 6,
 			'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
-			'rewrite'       => array( 'slug' => 'case-results', 'with_front' => false ),
+			'rewrite'       => array( 'slug' => 'portfolio', 'with_front' => false ),
 			'show_in_rest'  => true,
 		)
 	);
 
-	// ── Team (Attorneys) ──────────────────────────────────────────────────────
+	// ── Team ──────────────────────────────────────────────────────────────────
 	register_post_type(
 		'marbure_team',
 		array(
@@ -85,7 +85,7 @@ function marbure_register_cpts() {
 			'menu_icon'     => 'dashicons-businessman',
 			'menu_position' => 7,
 			'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
-			'rewrite'       => array( 'slug' => 'attorneys', 'with_front' => false ),
+			'rewrite'       => array( 'slug' => 'team', 'with_front' => false ),
 			'show_in_rest'  => true,
 		)
 	);
@@ -136,7 +136,85 @@ function marbure_register_cpts() {
 			'show_in_menu'  => true,
 			'menu_icon'     => 'dashicons-id-alt',
 			'menu_position' => 9,
-			'supports'      => array( 'title' ),
+			'supports'      => array( 'title', 'thumbnail' ),
+			'show_in_rest'  => true,
+		)
+	);
+
+	// ── Products (Marble / Stone tiles) ───────────────────────────────────────
+	register_post_type(
+		'marbure_product',
+		array(
+			'labels'        => array(
+				'name'               => esc_html__( 'Products', 'marbure' ),
+				'singular_name'      => esc_html__( 'Product', 'marbure' ),
+				'add_new'            => esc_html__( 'Add New', 'marbure' ),
+				'add_new_item'       => esc_html__( 'Add New Product', 'marbure' ),
+				'edit_item'          => esc_html__( 'Edit Product', 'marbure' ),
+				'new_item'           => esc_html__( 'New Product', 'marbure' ),
+				'view_item'          => esc_html__( 'View Product', 'marbure' ),
+				'search_items'       => esc_html__( 'Search Products', 'marbure' ),
+				'not_found'          => esc_html__( 'No products found.', 'marbure' ),
+				'not_found_in_trash' => esc_html__( 'No products found in trash.', 'marbure' ),
+				'menu_name'          => esc_html__( 'Products', 'marbure' ),
+			),
+			'public'        => true,
+			'has_archive'   => true,
+			'menu_icon'     => 'dashicons-products',
+			'menu_position' => 10,
+			'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes' ),
+			'rewrite'       => array( 'slug' => 'products', 'with_front' => false ),
+			'show_in_rest'  => true,
+		)
+	);
+
+	// ── Projects (Completed installations) ────────────────────────────────────
+	register_post_type(
+		'marbure_project',
+		array(
+			'labels'        => array(
+				'name'               => esc_html__( 'Projects', 'marbure' ),
+				'singular_name'      => esc_html__( 'Project', 'marbure' ),
+				'add_new'            => esc_html__( 'Add New', 'marbure' ),
+				'add_new_item'       => esc_html__( 'Add New Project', 'marbure' ),
+				'edit_item'          => esc_html__( 'Edit Project', 'marbure' ),
+				'new_item'           => esc_html__( 'New Project', 'marbure' ),
+				'view_item'          => esc_html__( 'View Project', 'marbure' ),
+				'search_items'       => esc_html__( 'Search Projects', 'marbure' ),
+				'not_found'          => esc_html__( 'No projects found.', 'marbure' ),
+				'not_found_in_trash' => esc_html__( 'No projects found in trash.', 'marbure' ),
+				'menu_name'          => esc_html__( 'Projects', 'marbure' ),
+			),
+			'public'        => true,
+			'has_archive'   => true,
+			'menu_icon'     => 'dashicons-hammer',
+			'menu_position' => 11,
+			'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+			'rewrite'       => array( 'slug' => 'projects', 'with_front' => false ),
+			'show_in_rest'  => true,
+		)
+	);
+
+	// ── FAQ ───────────────────────────────────────────────────────────────────
+	register_post_type(
+		'marbure_faq',
+		array(
+			'labels'        => array(
+				'name'               => esc_html__( 'FAQs', 'marbure' ),
+				'singular_name'      => esc_html__( 'FAQ', 'marbure' ),
+				'add_new'            => esc_html__( 'Add New', 'marbure' ),
+				'add_new_item'       => esc_html__( 'Add New FAQ', 'marbure' ),
+				'edit_item'          => esc_html__( 'Edit FAQ', 'marbure' ),
+				'not_found'          => esc_html__( 'No FAQs found.', 'marbure' ),
+				'not_found_in_trash' => esc_html__( 'No FAQs found in trash.', 'marbure' ),
+				'menu_name'          => esc_html__( 'FAQs', 'marbure' ),
+			),
+			'public'        => false,
+			'show_ui'       => true,
+			'show_in_menu'  => true,
+			'menu_icon'     => 'dashicons-editor-help',
+			'menu_position' => 12,
+			'supports'      => array( 'title', 'editor' ),
 			'show_in_rest'  => true,
 		)
 	);

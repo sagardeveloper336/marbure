@@ -5,9 +5,9 @@
  * @package marbure
  */
 
-$heading = marbure_option( 'pre_footer_cta_heading', __( 'Ready to Fight for Your Rights?', 'marbure' ) );
-$text    = marbure_option( 'pre_footer_cta_text', __( 'Schedule a free consultation with our experienced attorneys today.', 'marbure' ) );
-$btn     = marbure_option( 'pre_footer_cta_btn_label', __( 'Book a Free Consultation', 'marbure' ) );
+$heading = marbure_option( 'pre_footer_cta_heading', __( 'Ready to Transform Your Space?', 'marbure' ) );
+$text    = marbure_option( 'pre_footer_cta_text', __( 'Request a free, no-obligation quote from our stone specialists today.', 'marbure' ) );
+$btn     = marbure_option( 'pre_footer_cta_btn_label', __( 'Request a Free Quote', 'marbure' ) );
 $url     = marbure_option( 'pre_footer_cta_btn_url', '/contact' );
 
 if ( ! $heading && ! $btn ) {

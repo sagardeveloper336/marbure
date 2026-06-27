@@ -10,13 +10,18 @@ defined( 'ABSPATH' ) || exit;
 function marbure_scripts() {
 
 	// ── Fonts ─────────────────────────────────────────────────────────────────
+	// Skip Google Fonts when the user opts out (GDPR compliance).
 
-	wp_enqueue_style(
-		'marbure-fonts',
-		'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap',
-		array(),
-		null
-	);
+	$disable_google_fonts = (bool) marbure_option( 'disable_google_fonts', false );
+
+	if ( ! $disable_google_fonts ) {
+		wp_enqueue_style(
+			'marbure-fonts',
+			'https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap',
+			array(),
+			null
+		);
+	}
 
 	// ── Font Awesome 6 (icons used in header, footer, cards) ─────────────────
 
@@ -82,13 +87,41 @@ function marbure_scripts() {
 
 	// ── Main Stylesheet ───────────────────────────────────────────────────────
 
+	$style_deps = $disable_google_fonts ? array( 'font-awesome', 'aos' ) : array( 'marbure-fonts', 'font-awesome', 'aos' );
+
 	wp_enqueue_style(
 		'marbure-style',
 		get_stylesheet_uri(),
-		array( 'marbure-fonts', 'font-awesome' ),
-		_S_VERSION
+		$style_deps,
+		MARBURE_VERSION
 	);
 	wp_style_add_data( 'marbure-style', 'rtl', 'replace' );
+
+	// ── Organized CSS files ───────────────────────────────────────────────────
+	// core.css   — CSS custom properties, reset, base typography, animations, grid.
+	// theme.css  — All component & layout styles (header, footer, cards, pages…).
+	// responsive.css — All @media queries.
+
+	wp_enqueue_style(
+		'marbure-core',
+		get_template_directory_uri() . '/css/core.css',
+		array( 'marbure-style' ),
+		MARBURE_VERSION
+	);
+
+	wp_enqueue_style(
+		'marbure-theme',
+		get_template_directory_uri() . '/css/theme.css',
+		array( 'marbure-core' ),
+		MARBURE_VERSION
+	);
+
+	wp_enqueue_style(
+		'marbure-responsive',
+		get_template_directory_uri() . '/css/responsive.css',
+		array( 'marbure-theme' ),
+		MARBURE_VERSION
+	);
 
 	// ── Main Script ───────────────────────────────────────────────────────────
 
@@ -96,7 +129,7 @@ function marbure_scripts() {
 		'marbure-main',
 		get_template_directory_uri() . '/js/main.js',
 		array(),
-		_S_VERSION,
+		MARBURE_VERSION,
 		true
 	);
 
@@ -109,6 +142,10 @@ function marbure_scripts() {
 			'stickyHeader' => (bool) marbure_option( 'sticky_header', true ),
 			'backToTop'    => (bool) marbure_option( 'show_back_to_top', true ),
 			'isFrontPage'  => (bool) is_front_page(),
+			'i18n'         => array(
+				'prevSlide' => esc_html__( 'Previous slide', 'marbure' ),
+				'nextSlide' => esc_html__( 'Next slide', 'marbure' ),
+			),
 		)
 	);
 
@@ -136,7 +173,7 @@ function marbure_page_uses_swiper() {
 // ── Preconnect hints for Google Fonts ────────────────────────────────────────
 
 function marbure_resource_hints( $urls, $relation_type ) {
-	if ( 'preconnect' === $relation_type ) {
+	if ( 'preconnect' === $relation_type && ! (bool) marbure_option( 'disable_google_fonts', false ) ) {
 		$urls[] = array( 'href' => 'https://fonts.googleapis.com' );
 		$urls[] = array( 'href' => 'https://fonts.gstatic.com', 'crossorigin' => true );
 	}
@@ -145,15 +182,5 @@ function marbure_resource_hints( $urls, $relation_type ) {
 add_filter( 'wp_resource_hints', 'marbure_resource_hints', 10, 2 );
 
 // ── Customizer preview script ─────────────────────────────────────────────────
-if ( ! function_exists( 'marbure_customize_preview_js' ) ) {
-	function marbure_customize_preview_js() {
-		wp_enqueue_script(
-			'marbure-customizer',
-			get_template_directory_uri() . '/js/customizer.js',
-			array( 'customize-preview' ),
-			_S_VERSION,
-			true
-		);
-	}
-}
-add_action( 'customize_preview_init', 'marbure_customize_preview_js' );
+// Note: marbure_customize_preview_js() is defined in inc/customizer.php and
+// registered there. This file intentionally does not re-add the action.

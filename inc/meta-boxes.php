@@ -32,12 +32,14 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 		}
 
 		public function register() {
-			add_meta_box( 'marbure-team-details',        __( 'Attorney Details', 'marbure' ),    array( $this, 'render_team' ),        'marbure_team',        'normal', 'high' );
+			add_meta_box( 'marbure-team-details',        __( 'Team Member Details', 'marbure' ), array( $this, 'render_team' ),        'marbure_team',        'normal', 'high' );
 			add_meta_box( 'marbure-service-details',     __( 'Service Details', 'marbure' ),     array( $this, 'render_service' ),     'marbure_service',     'normal', 'high' );
-			add_meta_box( 'marbure-portfolio-details',   __( 'Case Details', 'marbure' ),        array( $this, 'render_portfolio' ),   'marbure_portfolio',   'normal', 'high' );
+			add_meta_box( 'marbure-portfolio-details',   __( 'Portfolio Details', 'marbure' ),   array( $this, 'render_portfolio' ),   'marbure_portfolio',   'normal', 'high' );
 			add_meta_box( 'marbure-testimonial-details', __( 'Testimonial Details', 'marbure' ), array( $this, 'render_testimonial' ), 'marbure_testimonial', 'normal', 'high' );
 			add_meta_box( 'marbure-client-logo-hover',   __( 'Client Logo Hover', 'marbure' ),   array( $this, 'render_client_logo_hover' ), 'marbure_client', 'normal', 'high' );
 			add_meta_box( 'marbure-client-logo',         __( 'Select Client Logo', 'marbure' ),  array( $this, 'render_client_logo' ),       'marbure_client', 'normal', 'high' );
+			add_meta_box( 'marbure-product-details',     __( 'Product Details', 'marbure' ),     array( $this, 'render_product' ),     'marbure_product',     'normal', 'high' );
+			add_meta_box( 'marbure-project-details',     __( 'Project Details', 'marbure' ),     array( $this, 'render_project' ),     'marbure_project',     'normal', 'high' );
 		}
 
 		// ── Field renderers ───────────────────────────────────────────────────
@@ -48,7 +50,7 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 				'_team_position'   => __( 'Position / Title', 'marbure' ),
 				'_team_phone'      => __( 'Phone', 'marbure' ),
 				'_team_email'      => __( 'Email', 'marbure' ),
-				'_team_bar_number' => __( 'Bar Number', 'marbure' ),
+				'_team_bar_number' => __( 'Certification / Speciality', 'marbure' ),
 				'_team_linkedin'   => __( 'LinkedIn URL', 'marbure' ),
 				'_team_facebook'   => __( 'Facebook URL', 'marbure' ),
 				'_team_twitter'    => __( 'Twitter / X URL', 'marbure' ),
@@ -75,26 +77,53 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 		public function render_portfolio( $post ) {
 			wp_nonce_field( 'marbure_portfolio_save', 'marbure_portfolio_nonce' );
 			$fields = array(
-				'_portfolio_case_type'   => __( 'Case Type', 'marbure' ),
-				'_portfolio_settlement'  => __( 'Settlement / Award Value (e.g. $2.5M)', 'marbure' ),
-				'_portfolio_year'        => __( 'Year of Resolution', 'marbure' ),
+				'_portfolio_case_type'   => __( 'Project Type (e.g. Residential, Commercial)', 'marbure' ),
+				'_portfolio_settlement'  => __( 'Project Value / Budget (e.g. $50,000)', 'marbure' ),
+				'_portfolio_year'        => __( 'Year of Completion', 'marbure' ),
 			);
 			$this->render_text_fields( $post->ID, $fields );
 
 			// Outcome select.
 			$outcome  = get_post_meta( $post->ID, '_portfolio_outcome', true );
 			$outcomes = array(
-				''          => __( '— Select Outcome —', 'marbure' ),
-				'won'       => __( 'Won', 'marbure' ),
-				'settled'   => __( 'Settled', 'marbure' ),
-				'dismissed' => __( 'Dismissed', 'marbure' ),
+				''            => __( '— Select Status —', 'marbure' ),
+				'completed'   => __( 'Completed', 'marbure' ),
+				'in-progress' => __( 'In Progress', 'marbure' ),
+				'featured'    => __( 'Featured', 'marbure' ),
 			);
-			echo '<p><label for="_portfolio_outcome"><strong>' . esc_html__( 'Outcome', 'marbure' ) . '</strong></label><br>';
+			echo '<p><label for="_portfolio_outcome"><strong>' . esc_html__( 'Project Status', 'marbure' ) . '</strong></label><br>';
 			echo '<select name="_portfolio_outcome" id="_portfolio_outcome">';
 			foreach ( $outcomes as $val => $label ) {
 				echo '<option value="' . esc_attr( $val ) . '"' . selected( $outcome, $val, false ) . '>' . esc_html( $label ) . '</option>';
 			}
 			echo '</select></p>';
+		}
+
+		public function render_product( $post ) {
+			wp_nonce_field( 'marbure_product_save', 'marbure_product_nonce' );
+			$fields = array(
+				'_product_material' => __( 'Material (e.g. Marble, Granite)', 'marbure' ),
+				'_product_size'     => __( 'Size (e.g. 60×60 cm)', 'marbure' ),
+				'_product_finish'   => __( 'Finish (e.g. Polished, Honed)', 'marbure' ),
+			);
+			$this->render_text_fields( $post->ID, $fields );
+
+			$featured = get_post_meta( $post->ID, '_product_featured', true );
+			echo '<p><label>';
+			echo '<input type="checkbox" name="_product_featured" value="1"' . checked( '1', $featured, false ) . '> ';
+			echo esc_html__( 'Show in Featured Collections section', 'marbure' );
+			echo '</label></p>';
+		}
+
+		public function render_project( $post ) {
+			wp_nonce_field( 'marbure_project_save', 'marbure_project_nonce' );
+			$fields = array(
+				'_project_location'         => __( 'Location', 'marbure' ),
+				'_project_type'             => __( 'Project Type (e.g. Residential, Commercial)', 'marbure' ),
+				'_project_area'             => __( 'Area / Size (e.g. 120 m²)', 'marbure' ),
+				'_project_completion_year'  => __( 'Year of Completion', 'marbure' ),
+			);
+			$this->render_text_fields( $post->ID, $fields );
 		}
 
 		public function render_client_logo_hover( $post ) {
@@ -164,6 +193,8 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 				'marbure_portfolio'   => 'marbure_portfolio_nonce',
 				'marbure_testimonial' => 'marbure_testimonial_nonce',
 				'marbure_client'      => 'marbure_client_nonce',
+				'marbure_product'     => 'marbure_product_nonce',
+				'marbure_project'     => 'marbure_project_nonce',
 			);
 
 			if ( ! isset( $nonces[ $post->post_type ] ) ) return;
@@ -179,6 +210,8 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 				'_service_icon_class', '_service_tagline',
 				'_portfolio_case_type', '_portfolio_settlement', '_portfolio_year', '_portfolio_outcome',
 				'_testimonial_client_title', '_testimonial_source_url',
+				'_product_material', '_product_size', '_product_finish',
+				'_project_location', '_project_type', '_project_area', '_project_completion_year',
 			);
 
 			foreach ( $text_keys as $key ) {
@@ -194,6 +227,9 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 
 			// Service featured — checkbox.
 			update_post_meta( $post_id, '_service_featured', isset( $_POST['_service_featured'] ) ? '1' : '0' );
+
+			// Product featured — checkbox.
+			update_post_meta( $post_id, '_product_featured', isset( $_POST['_product_featured'] ) ? '1' : '0' );
 
 			// Client logos — attachment IDs.
 			foreach ( array( '_client_logo_id', '_client_logo_hover_id' ) as $img_key ) {

@@ -88,7 +88,7 @@ Kirki::add_field(
 		'settings' => 'header_cta_label',
 		'label'    => esc_html__( 'CTA Button Label', 'marbure' ),
 		'section'  => 'marbure_section_header',
-		'default'  => esc_html__( 'Free Consultation', 'marbure' ),
+		'default'  => esc_html__( 'Get a Free Quote', 'marbure' ),
 		'priority' => 50,
 	)
 );

@@ -89,7 +89,7 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Client Title / Description', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Personal Injury Client', 'marbure' ),
+				'default' => esc_html__( 'Residential Client', 'marbure' ),
 			)
 		);
 
@@ -114,7 +114,7 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Quote', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'The team fought tirelessly for my case and secured a settlement far beyond what I expected. I am truly grateful.', 'marbure' ),
+				'default' => esc_html__( 'The craftsmanship is outstanding. Our marble flooring transformed the entire feel of our home — we couldn\'t be happier.', 'marbure' ),
 			)
 		);
 
@@ -146,21 +146,21 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 				'default'     => array(
 					array(
 						'client_name'  => esc_html__( 'Robert Martinez', 'marbure' ),
-						'client_title' => esc_html__( 'Personal Injury Client', 'marbure' ),
+						'client_title' => esc_html__( 'Residential Renovation', 'marbure' ),
 						'rating'       => '5',
-						'quote'        => esc_html__( 'The team secured a $2.5M settlement I never thought possible. They treated my case with incredible care.', 'marbure' ),
+						'quote'        => esc_html__( 'Our Carrara marble kitchen transformed the entire home. The installation team was meticulous and professional from start to finish.', 'marbure' ),
 					),
 					array(
 						'client_name'  => esc_html__( 'Linda Chen', 'marbure' ),
-						'client_title' => esc_html__( 'Family Law Client', 'marbure' ),
+						'client_title' => esc_html__( 'Commercial Project', 'marbure' ),
 						'rating'       => '5',
-						'quote'        => esc_html__( 'Professional, compassionate, and relentlessly effective. I will always recommend Marbure Law Firm.', 'marbure' ),
+						'quote'        => esc_html__( 'Professional, detail-oriented, and beautifully executed. I will always recommend Marbure for high-end stone work.', 'marbure' ),
 					),
 					array(
 						'client_name'  => esc_html__( 'David Thompson', 'marbure' ),
-						'client_title' => esc_html__( 'Business Litigation Client', 'marbure' ),
+						'client_title' => esc_html__( 'Hotel Interior Design', 'marbure' ),
 						'rating'       => '5',
-						'quote'        => esc_html__( 'They turned a complicated dispute into a clear victory. Outstanding strategic thinking throughout.', 'marbure' ),
+						'quote'        => esc_html__( 'They sourced rare granite and delivered flawless custom countertops. Outstanding quality and project management throughout.', 'marbure' ),
 					),
 				),
 			)

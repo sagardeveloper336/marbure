@@ -1,0 +1,331 @@
+/*
+ * Marbure — Responsive CSS
+ * All @media query overrides, organized mobile-first (min-width) where applicable.
+ * Base styles → core.css | Component styles → theme.css
+ *
+ * Breakpoints:
+ *   xs  480px
+ *   sm  576px
+ *   md  768px
+ *   lg  992px
+ *   xl  1200px
+ */
+
+/* =============================================================================
+   XL — max-width: 1200px
+   ============================================================================= */
+
+@media (max-width: 1200px) {
+
+  :root {
+    --container-width: 1100px;
+    --section-padding-y: 80px;
+  }
+
+  .footer-widgets__grid { grid-template-columns: repeat(2, 1fr); }
+  .mega-panel__inner { grid-template-columns: repeat(3, 1fr); }
+
+  .about-section__grid { gap: 3rem; }
+}
+
+/* =============================================================================
+   LG — max-width: 992px
+   ============================================================================= */
+
+@media (max-width: 992px) {
+
+  :root {
+    --header-height: 74px;
+    --header-shrunk: 60px;
+    --section-padding-y: 60px;
+  }
+
+  /* Header: hide desktop nav, show hamburger */
+  .site-header__nav { display: none; }
+  .mobile-menu-toggle { display: flex; }
+
+  /* Header CTA: hide text, keep icon on narrow */
+  .header-cta { padding: 0.55rem 1rem; font-size: 0.82rem; }
+
+  /* Hero */
+  .hero-slide { min-height: 80vh; }
+  .hero-slide__content { padding: 120px 0 80px; }
+  .hero-swiper__prev,
+  .hero-swiper__next { display: none !important; }
+
+  /* About */
+  .about-section__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-section__image-wrap img,
+  .about-section__image-placeholder { height: 360px; }
+  .about-section__badge { width: 100px; height: 100px; right: -0.75rem; bottom: -0.75rem; }
+  .about-section__badge-number { font-size: 1.4rem; }
+
+  /* Services */
+  .services-grid.row { grid-template-columns: repeat(2, 1fr); }
+
+  /* Portfolio */
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Blog */
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid--archive .blog-card,
+  .blog-grid--list .blog-card { flex-direction: column; max-height: none; }
+  .blog-grid--archive .blog-card__image,
+  .blog-grid--list .blog-card__image { width: 100%; }
+  .blog-grid--archive .blog-card__image img,
+  .blog-grid--list .blog-card__image img { height: 220px; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .stat-item:nth-child(2n) { border-right: none; }
+
+  /* Team */
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Sidebar / content layout */
+  .content-row--sidebar { grid-template-columns: 1fr; }
+  .content-row--sidebar .widget-area.content-sidebar { order: 2; }
+
+  /* Footer */
+  .pre-footer-cta .container { flex-direction: column; text-align: center; }
+  .pre-footer-cta__action { align-self: center; }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  /* Portfolio single */
+  .portfolio-grid--related { grid-template-columns: repeat(2, 1fr); }
+
+  /* Services single */
+  .related-services__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Attorney / team profile */
+  .attorney-profile__header { grid-template-columns: 240px 1fr; gap: 2rem; }
+
+  /* Mega menu — disable on tablet */
+  .mega-panel { display: none; }
+  .nav-menu .sub-menu { display: none; }
+}
+
+/* =============================================================================
+   MD — max-width: 768px
+   ============================================================================= */
+
+@media (max-width: 768px) {
+
+  :root {
+    --section-padding-y: 50px;
+    --gutter: 20px;
+  }
+
+  /* Topbar — hide on small screens */
+  .site-header__topbar { display: none; }
+
+  /* Hero */
+  .hero-slide { min-height: 70vh; }
+  .hero-slide__content { max-width: 100%; padding: 100px 0 60px; }
+  .hero-slide__title { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+  .hero-slide__text { font-size: 1rem; }
+  .hero-slide__actions { gap: 0.75rem; }
+
+  /* About pillars */
+  .about-section__pillars { grid-template-columns: 1fr; }
+
+  /* Services */
+  .services-grid.row { grid-template-columns: 1fr; }
+
+  /* Portfolio */
+  .portfolio-grid { grid-template-columns: 1fr; }
+
+  /* Blog */
+  .blog-grid { grid-template-columns: 1fr; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+
+  /* Team */
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Testimonials */
+  .testimonial-card { padding: 2rem 1.5rem; }
+
+  /* CTA Band */
+  .cta-band__inner { flex-direction: column; text-align: center; gap: 1.25rem; }
+  .cta-band__subtext { margin-inline: auto; }
+  .cta-band__actions { justify-content: center; }
+
+  /* Footer widgets */
+  .footer-widgets { padding-block: 3rem 2rem; }
+  .footer-widgets__grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom .container { flex-direction: column; text-align: center; gap: 0.5rem; }
+
+  /* Portfolio single meta band */
+  .portfolio-single__meta-band { flex-direction: column; border-radius: 8px; }
+  .portfolio-single__meta-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); flex: none; }
+  .portfolio-single__meta-item:last-child { border-bottom: none; }
+
+  /* Related grid */
+  .portfolio-grid--related { grid-template-columns: 1fr; }
+  .related-services__grid { grid-template-columns: 1fr; }
+
+  /* Attorney profile */
+  .attorney-profile__header { grid-template-columns: 1fr; }
+  .attorney-profile__photo { max-width: 280px; }
+
+  /* Post navigation */
+  .post-navigation { grid-template-columns: 1fr; }
+
+  /* Contact form */
+  .marbure-form__row { flex-direction: column; }
+
+  /* Page header band */
+  .page-header-band__inner { padding-block: 2rem; }
+  .page-header-band__title { font-size: clamp(1.5rem, 5vw, 2rem); }
+
+  /* Section header */
+  .section__header { margin-bottom: 2rem; }
+
+  /* Form row */
+  .form-row { grid-template-columns: 1fr; }
+
+  /* Back to top */
+  .back-to-top { bottom: 1.25rem; right: 1.25rem; }
+
+  /* Mobile menu width */
+  .mobile-menu { width: min(300px, 90vw); }
+}
+
+/* =============================================================================
+   SM — max-width: 576px
+   ============================================================================= */
+
+@media (max-width: 576px) {
+
+  :root {
+    --section-padding-y: 40px;
+    --gutter: 16px;
+  }
+
+  /* Hero */
+  .hero-slide { min-height: 60vh; }
+  .hero-slide__content { padding: 90px 0 50px; }
+  .hero-slide__actions { flex-direction: column; }
+  .hero-slide__actions .btn { width: 100%; justify-content: center; }
+
+  /* Stats — single column on tiny screens */
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-item__number { font-size: 2.25rem; }
+
+  /* Team — single column */
+  .team-grid { grid-template-columns: 1fr; }
+
+  /* About badge — reposition so it doesn't clip */
+  .about-section__badge { right: 0.5rem; bottom: 0.5rem; width: 88px; height: 88px; }
+  .about-section__badge-number { font-size: 1.2rem; }
+
+  /* Pre-footer */
+  .pre-footer-cta { padding-block: 2.5rem; }
+  .pre-footer-cta__action .btn { width: 100%; justify-content: center; }
+
+  /* Contact form */
+  .contact-form-box { padding: 1.75rem 1.25rem; }
+
+  /* Blog cards */
+  .blog-card__image img { height: 180px; }
+
+  /* Portfolio cards */
+  .portfolio-card__image img { height: 180px; }
+
+  /* Section heading sizes */
+  .section-heading { font-size: 1.625rem; }
+
+  /* Mobile menu */
+  .mobile-menu { width: 100vw; border-radius: 0; }
+
+  /* 404 page */
+  .error-404__actions { flex-direction: column; align-items: center; }
+  .error-404__actions .btn { width: 100%; max-width: 280px; justify-content: center; }
+
+  /* Pagination */
+  .page-numbers { min-width: 36px; height: 36px; font-size: 0.85rem; }
+
+  /* CTA band actions */
+  .cta-band__actions { flex-direction: column; width: 100%; }
+  .cta-band__actions .btn { width: 100%; justify-content: center; }
+
+  /* Footer bottom nav */
+  .footer-bottom__nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+
+  /* FAQ */
+  .faq-item__question { font-size: 0.9375rem; }
+  .faq-item__answer-body { padding: 0 1.25rem 1.25rem; }
+
+  /* Accordion */
+  .accordion__trigger { font-size: 0.9375rem; padding: 1rem 1.25rem; }
+  .accordion__panel { padding: 0 1.25rem 1rem; }
+
+  /* Marquee */
+  .marquee-item { padding: 0 1.75rem; }
+}
+
+/* =============================================================================
+   XS — max-width: 480px
+   ============================================================================= */
+
+@media (max-width: 480px) {
+
+  /* Stats — one column on very small screens */
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item { border-right: none; }
+
+  /* Buttons */
+  .btn--lg { padding: 0.875rem 1.75rem; font-size: 0.9375rem; }
+
+  /* Hero slide */
+  .hero-slide__title { font-size: 1.625rem; }
+
+  /* Contact info cards */
+  .contact-info-card { flex-direction: column; align-items: flex-start; }
+
+  /* Blog archive list — stack image above text */
+  .blog-grid--archive .blog-card,
+  .blog-grid--list .blog-card { flex-direction: column; max-height: none; }
+
+  /* Team card: keep full width */
+  .team-card__image { height: 260px; }
+}
+
+/* =============================================================================
+   Print
+   ============================================================================= */
+
+@media print {
+
+  .site-header,
+  .site-footer,
+  .back-to-top,
+  .mobile-menu,
+  .mobile-overlay,
+  .preloader,
+  .hero-swiper__prev,
+  .hero-swiper__next,
+  .hero-swiper__pagination {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000;
+  }
+
+  a::after { content: ' (' attr(href) ')'; font-size: 0.8em; color: #555; }
+
+  .page-header-band { min-height: auto; background: none !important; color: #000 !important; }
+  .page-header-band::after { display: none; }
+  .page-header-band__title,
+  .breadcrumb__link { color: #000 !important; }
+
+  .contact-form-box { box-shadow: none; border: 1px solid #ccc; }
+}

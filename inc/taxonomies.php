@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 function marbure_register_taxonomies() {
 
-	// ── Service Category → Practice Areas ─────────────────────────────────────
+	// ── Service Category ──────────────────────────────────────────────────────
 	register_taxonomy(
 		'service_cat',
 		'marbure_service',
@@ -33,31 +33,31 @@ function marbure_register_taxonomies() {
 		)
 	);
 
-	// ── Portfolio Category → Case Results ─────────────────────────────────────
+	// ── Portfolio Category ────────────────────────────────────────────────────
 	register_taxonomy(
 		'portfolio_cat',
 		'marbure_portfolio',
 		array(
 			'labels'        => array(
-				'name'              => esc_html__( 'Case Categories', 'marbure' ),
-				'singular_name'     => esc_html__( 'Case Category', 'marbure' ),
-				'all_items'         => esc_html__( 'All Case Categories', 'marbure' ),
-				'edit_item'         => esc_html__( 'Edit Case Category', 'marbure' ),
-				'update_item'       => esc_html__( 'Update Case Category', 'marbure' ),
-				'add_new_item'      => esc_html__( 'Add New Case Category', 'marbure' ),
-				'new_item_name'     => esc_html__( 'New Case Category Name', 'marbure' ),
-				'search_items'      => esc_html__( 'Search Case Categories', 'marbure' ),
-				'not_found'         => esc_html__( 'No case categories found.', 'marbure' ),
-				'menu_name'         => esc_html__( 'Case Categories', 'marbure' ),
+				'name'              => esc_html__( 'Portfolio Categories', 'marbure' ),
+				'singular_name'     => esc_html__( 'Portfolio Category', 'marbure' ),
+				'all_items'         => esc_html__( 'All Portfolio Categories', 'marbure' ),
+				'edit_item'         => esc_html__( 'Edit Portfolio Category', 'marbure' ),
+				'update_item'       => esc_html__( 'Update Portfolio Category', 'marbure' ),
+				'add_new_item'      => esc_html__( 'Add New Portfolio Category', 'marbure' ),
+				'new_item_name'     => esc_html__( 'New Portfolio Category Name', 'marbure' ),
+				'search_items'      => esc_html__( 'Search Portfolio Categories', 'marbure' ),
+				'not_found'         => esc_html__( 'No portfolio categories found.', 'marbure' ),
+				'menu_name'         => esc_html__( 'Portfolio Categories', 'marbure' ),
 			),
 			'hierarchical'  => true,
 			'public'        => true,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => 'case-category', 'with_front' => false ),
+			'rewrite'       => array( 'slug' => 'portfolio-category', 'with_front' => false ),
 		)
 	);
 
-	// ── Team Department → Attorneys ───────────────────────────────────────────
+	// ── Team Department ───────────────────────────────────────────────────────
 	register_taxonomy(
 		'team_dept',
 		'marbure_team',
@@ -124,6 +124,54 @@ function marbure_register_taxonomies() {
 			'public'        => false,
 			'show_ui'       => true,
 			'show_in_rest'  => true,
+		)
+	);
+
+	// ── Product Category → Products ───────────────────────────────────────────
+	register_taxonomy(
+		'product_cat',
+		'marbure_product',
+		array(
+			'labels'        => array(
+				'name'              => esc_html__( 'Product Categories', 'marbure' ),
+				'singular_name'     => esc_html__( 'Product Category', 'marbure' ),
+				'all_items'         => esc_html__( 'All Categories', 'marbure' ),
+				'edit_item'         => esc_html__( 'Edit Category', 'marbure' ),
+				'update_item'       => esc_html__( 'Update Category', 'marbure' ),
+				'add_new_item'      => esc_html__( 'Add New Category', 'marbure' ),
+				'new_item_name'     => esc_html__( 'New Category Name', 'marbure' ),
+				'search_items'      => esc_html__( 'Search Categories', 'marbure' ),
+				'not_found'         => esc_html__( 'No categories found.', 'marbure' ),
+				'menu_name'         => esc_html__( 'Categories', 'marbure' ),
+			),
+			'hierarchical'  => true,
+			'public'        => true,
+			'show_in_rest'  => true,
+			'rewrite'       => array( 'slug' => 'product-category', 'with_front' => false ),
+		)
+	);
+
+	// ── Project Category → Projects ───────────────────────────────────────────
+	register_taxonomy(
+		'project_cat',
+		'marbure_project',
+		array(
+			'labels'        => array(
+				'name'              => esc_html__( 'Project Categories', 'marbure' ),
+				'singular_name'     => esc_html__( 'Project Category', 'marbure' ),
+				'all_items'         => esc_html__( 'All Categories', 'marbure' ),
+				'edit_item'         => esc_html__( 'Edit Category', 'marbure' ),
+				'update_item'       => esc_html__( 'Update Category', 'marbure' ),
+				'add_new_item'      => esc_html__( 'Add New Category', 'marbure' ),
+				'new_item_name'     => esc_html__( 'New Category Name', 'marbure' ),
+				'search_items'      => esc_html__( 'Search Categories', 'marbure' ),
+				'not_found'         => esc_html__( 'No categories found.', 'marbure' ),
+				'menu_name'         => esc_html__( 'Categories', 'marbure' ),
+			),
+			'hierarchical'  => true,
+			'public'        => true,
+			'show_in_rest'  => true,
+			'rewrite'       => array( 'slug' => 'project-category', 'with_front' => false ),
 		)
 	);
 }

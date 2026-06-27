@@ -12,13 +12,13 @@
 	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"0.5rem","margin":{"bottom":"3rem"}}},"layout":{"type":"constrained"}} -->
 	<div class="wp-block-group alignwide" style="margin-bottom:3rem">
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"0.8125rem","fontWeight":"600","letterSpacing":"0.12em","textTransform":"uppercase"},"color":{"text":"#CF9776"}}} -->
-		<p class="has-text-align-center has-text-color" style="color:#CF9776;font-size:0.8125rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase">Legal Insights</p>
+		<p class="has-text-align-center has-text-color" style="color:#CF9776;font-size:0.8125rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase">Stone Insights</p>
 		<!-- /wp:paragraph -->
 		<!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"},"color":{"text":"#0A1E3F"}},"fontFamily":"heading"} -->
 		<h2 class="wp-block-heading has-text-align-center has-text-color has-heading-font-family" style="color:#0A1E3F;font-size:2.5rem;font-weight:700">Latest From Our Blog</h2>
 		<!-- /wp:heading -->
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"1.0625rem"},"color":{"text":"#6b7280"}}} -->
-		<p class="has-text-align-center has-text-color" style="color:#6b7280;font-size:1.0625rem">Stay informed with practical legal advice and news from our attorneys.</p>
+		<p class="has-text-align-center has-text-color" style="color:#6b7280;font-size:1.0625rem">Stone care tips, design trends, and news from the Marbure team.</p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->

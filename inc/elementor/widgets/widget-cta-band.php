@@ -34,7 +34,7 @@ class Marbure_Widget_Cta_Band extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Heading', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Ready to Protect Your Rights?', 'marbure' ),
+				'default' => esc_html__( 'Ready to Transform Your Space?', 'marbure' ),
 			)
 		);
 
@@ -43,7 +43,7 @@ class Marbure_Widget_Cta_Band extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Subtext', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Speak with one of our experienced attorneys today. Initial consultations are completely free and confidential.', 'marbure' ),
+				'default' => esc_html__( 'Speak with our stone specialists today. Get a free, no-obligation quote for your marble or granite project.', 'marbure' ),
 			)
 		);
 
@@ -52,7 +52,7 @@ class Marbure_Widget_Cta_Band extends \Elementor\Widget_Base {
 			array(
 				'label'     => esc_html__( 'Button 1 Label', 'marbure' ),
 				'type'      => \Elementor\Controls_Manager::TEXT,
-				'default'   => esc_html__( 'Schedule Free Consultation', 'marbure' ),
+				'default'   => esc_html__( 'Get a Free Quote', 'marbure' ),
 				'separator' => 'before',
 			)
 		);

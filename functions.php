@@ -7,8 +7,8 @@
  * @package marbure
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
-	define( '_S_VERSION', '1.0.0' );
+if ( ! defined( 'MARBURE_VERSION' ) ) {
+	define( 'MARBURE_VERSION', '1.0.0' );
 }
 
 require get_template_directory() . '/inc/bootstrap.php';

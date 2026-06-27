@@ -1,7 +1,7 @@
 <?php
 /**
  * Elementor Widget: Team Card Grid
- * Attorney cards with photo, name, role, social links, and hover overlay.
+ * Staff/team member cards with photo, name, role, social links, and hover overlay.
  *
  * @package marbure
  */
@@ -14,7 +14,7 @@ class Marbure_Widget_Team_Card extends \Elementor\Widget_Base {
 	public function get_title()      { return esc_html__( 'Team Cards', 'marbure' ); }
 	public function get_icon()       { return 'eicon-person'; }
 	public function get_categories() { return array( 'marbure' ); }
-	public function get_keywords()   { return array( 'team', 'attorney', 'lawyer', 'staff', 'card', 'grid' ); }
+	public function get_keywords()   { return array( 'team', 'staff', 'members', 'card', 'grid', 'people' ); }
 
 	protected function register_controls() {
 
@@ -53,7 +53,7 @@ class Marbure_Widget_Team_Card extends \Elementor\Widget_Base {
 			array(
 				'label'     => esc_html__( 'Heading', 'marbure' ),
 				'type'      => \Elementor\Controls_Manager::TEXT,
-				'default'   => esc_html__( 'Our Expert Attorneys', 'marbure' ),
+				'default'   => esc_html__( 'Meet Our Expert Team', 'marbure' ),
 				'condition' => array( 'show_header' => 'yes' ),
 			)
 		);
@@ -103,7 +103,7 @@ class Marbure_Widget_Team_Card extends \Elementor\Widget_Base {
 			array(
 				'label'   => esc_html__( 'Role / Title', 'marbure' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Senior Partner', 'marbure' ),
+				'default' => esc_html__( 'Stone Specialist', 'marbure' ),
 			)
 		);
 
@@ -151,9 +151,9 @@ class Marbure_Widget_Team_Card extends \Elementor\Widget_Base {
 				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ name }}}',
 				'default'     => array(
-					array( 'name' => esc_html__( 'John Smith', 'marbure' ),   'role' => esc_html__( 'Senior Partner', 'marbure' ) ),
-					array( 'name' => esc_html__( 'Sarah Johnson', 'marbure' ),'role' => esc_html__( 'Criminal Defense', 'marbure' ) ),
-					array( 'name' => esc_html__( 'Michael Lee', 'marbure' ),  'role' => esc_html__( 'Personal Injury', 'marbure' ) ),
+					array( 'name' => esc_html__( 'John Smith', 'marbure' ),   'role' => esc_html__( 'Lead Stone Specialist', 'marbure' ) ),
+					array( 'name' => esc_html__( 'Sarah Johnson', 'marbure' ),'role' => esc_html__( 'Interior Design Consultant', 'marbure' ) ),
+					array( 'name' => esc_html__( 'Michael Lee', 'marbure' ),  'role' => esc_html__( 'Master Installer', 'marbure' ) ),
 				),
 			)
 		);
