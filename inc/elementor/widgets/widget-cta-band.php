@@ -69,9 +69,8 @@ class Marbure_Widget_Cta_Band extends \Elementor\Widget_Base {
 		$this->add_control(
 			'btn1_icon',
 			array(
-				'label'       => esc_html__( 'Button 1 Icon (FA class)', 'marbure' ),
-				'type'        => \Elementor\Controls_Manager::TEXT,
-				'placeholder' => 'fas fa-calendar-alt',
+				'label' => esc_html__( 'Button 1 Icon', 'marbure' ),
+				'type'  => \Elementor\Controls_Manager::ICONS,
 			)
 		);
 
@@ -98,9 +97,12 @@ class Marbure_Widget_Cta_Band extends \Elementor\Widget_Base {
 		$this->add_control(
 			'btn2_icon',
 			array(
-				'label'   => esc_html__( 'Button 2 Icon (FA class)', 'marbure' ),
-				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => 'fas fa-phone',
+				'label'   => esc_html__( 'Button 2 Icon', 'marbure' ),
+				'type'    => \Elementor\Controls_Manager::ICONS,
+				'default' => array(
+					'value'   => 'fas fa-phone',
+					'library' => 'fa-solid',
+				),
 			)
 		);
 
@@ -213,8 +215,8 @@ class Marbure_Widget_Cta_Band extends \Elementor\Widget_Base {
 							$ext1 = ! empty( $settings['btn1_url']['is_external'] ) ? ' target="_blank" rel="noopener noreferrer"' : '';
 						?>
 							<a href="<?php echo esc_url( $settings['btn1_url']['url'] ); ?>"<?php echo $ext1; // phpcs:ignore ?> class="btn btn--primary">
-								<?php if ( $settings['btn1_icon'] ) : ?>
-									<i class="<?php echo esc_attr( $settings['btn1_icon'] ); ?>" aria-hidden="true"></i>
+								<?php if ( ! empty( $settings['btn1_icon']['value'] ) ) : ?>
+									<?php \Elementor\Icons_Manager::render_icon( $settings['btn1_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 								<?php endif; ?>
 								<?php echo esc_html( $settings['btn1_label'] ); ?>
 							</a>
@@ -224,8 +226,8 @@ class Marbure_Widget_Cta_Band extends \Elementor\Widget_Base {
 							$ext2 = ! empty( $settings['btn2_url']['is_external'] ) ? ' target="_blank" rel="noopener noreferrer"' : '';
 						?>
 							<a href="<?php echo esc_url( $settings['btn2_url']['url'] ); ?>"<?php echo $ext2; // phpcs:ignore ?> class="btn btn--outline-white">
-								<?php if ( $settings['btn2_icon'] ) : ?>
-									<i class="<?php echo esc_attr( $settings['btn2_icon'] ); ?>" aria-hidden="true"></i>
+								<?php if ( ! empty( $settings['btn2_icon']['value'] ) ) : ?>
+									<?php \Elementor\Icons_Manager::render_icon( $settings['btn2_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 								<?php endif; ?>
 								<?php echo esc_html( $settings['btn2_label'] ); ?>
 							</a>

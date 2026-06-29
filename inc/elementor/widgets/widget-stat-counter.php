@@ -31,10 +31,12 @@ class Marbure_Widget_Stat_Counter extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'icon_class',
 			array(
-				'label'       => esc_html__( 'Icon (Font Awesome class)', 'marbure' ),
-				'type'        => \Elementor\Controls_Manager::TEXT,
-				'placeholder' => 'fas fa-gavel',
-				'default'     => 'fas fa-gavel',
+				'label'   => esc_html__( 'Icon', 'marbure' ),
+				'type'    => \Elementor\Controls_Manager::ICONS,
+				'default' => array(
+					'value'   => 'fas fa-gavel',
+					'library' => 'fa-solid',
+				),
 			)
 		);
 
@@ -86,10 +88,10 @@ class Marbure_Widget_Stat_Counter extends \Elementor\Widget_Base {
 				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ label }}}',
 				'default'     => array(
-					array( 'icon_class' => 'fas fa-gavel',        'number' => 750,  'suffix' => '+',  'label' => esc_html__( 'Cases Won', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-chart-line',   'number' => 97,   'suffix' => '%',  'label' => esc_html__( 'Success Rate', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-balance-scale','number' => 12,   'suffix' => '+',  'label' => esc_html__( 'Years Experience', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-users',        'number' => 5000, 'suffix' => '+',  'label' => esc_html__( 'Happy Clients', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-gavel',         'library' => 'fa-solid' ), 'number' => 750,  'suffix' => '+', 'label' => esc_html__( 'Cases Won', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-chart-line',    'library' => 'fa-solid' ), 'number' => 97,   'suffix' => '%', 'label' => esc_html__( 'Success Rate', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-balance-scale', 'library' => 'fa-solid' ), 'number' => 12,   'suffix' => '+', 'label' => esc_html__( 'Years Experience', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-users',         'library' => 'fa-solid' ), 'number' => 5000, 'suffix' => '+', 'label' => esc_html__( 'Happy Clients', 'marbure' ) ),
 				),
 			)
 		);
@@ -110,9 +112,9 @@ class Marbure_Widget_Stat_Counter extends \Elementor\Widget_Base {
 				<div class="stats-grid" data-aos="fade-up">
 					<?php foreach ( $stats as $stat ) : ?>
 						<div class="stat-item">
-							<?php if ( $stat['icon_class'] ) : ?>
+							<?php if ( ! empty( $stat['icon_class']['value'] ) ) : ?>
 								<div class="stat-item__icon" aria-hidden="true">
-									<i class="<?php echo esc_attr( $stat['icon_class'] ); ?>"></i>
+									<?php \Elementor\Icons_Manager::render_icon( $stat['icon_class'], [ 'aria-hidden' => 'true' ] ); ?>
 								</div>
 							<?php endif; ?>
 							<div class="stat-item__number">

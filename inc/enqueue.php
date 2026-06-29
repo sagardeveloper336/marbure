@@ -24,10 +24,13 @@ function marbure_scripts() {
 	}
 
 	// ── Font Awesome 6 (icons used in header, footer, cards) ─────────────────
+	// The pt-theme-addon plugin registers the same 'font-awesome' handle with
+	// FA 4.7 at priority 4. Deregister it so our local FA 6 takes effect.
 
+	wp_deregister_style( 'font-awesome' );
 	wp_enqueue_style(
 		'font-awesome',
-		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css',
+		get_template_directory_uri() . '/css/font-awesome.min.css',
 		array(),
 		'6.5.2'
 	);

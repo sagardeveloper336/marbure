@@ -33,10 +33,12 @@ class Marbure_Widget_Marquee_Strip extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'icon_class',
 			array(
-				'label'       => esc_html__( 'Icon (Font Awesome class)', 'marbure' ),
-				'type'        => \Elementor\Controls_Manager::TEXT,
-				'placeholder' => 'fas fa-trophy',
-				'default'     => 'fas fa-trophy',
+				'label'   => esc_html__( 'Icon', 'marbure' ),
+				'type'    => \Elementor\Controls_Manager::ICONS,
+				'default' => array(
+					'value'   => 'fas fa-trophy',
+					'library' => 'fa-solid',
+				),
 			)
 		);
 
@@ -57,14 +59,14 @@ class Marbure_Widget_Marquee_Strip extends \Elementor\Widget_Base {
 				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ text }}}',
 				'default'     => array(
-					array( 'icon_class' => 'fas fa-gem',          'text' => esc_html__( 'Premium Italian Marble', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-trophy',       'text' => esc_html__( 'Best Stone Supplier 2024', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-star',         'text' => esc_html__( '4.9★ Client Rating', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-award',        'text' => esc_html__( 'Excellence in Craftsmanship', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-check-circle', 'text' => esc_html__( '97% Client Satisfaction', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-handshake',    'text' => esc_html__( '500+ Projects Completed', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-medal',        'text' => esc_html__( 'Certified Natural Stone Experts', 'marbure' ) ),
-					array( 'icon_class' => 'fas fa-shield-alt',   'text' => esc_html__( '12+ Years of Excellence', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-gem',          'library' => 'fa-solid' ), 'text' => esc_html__( 'Premium Italian Marble', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-trophy',       'library' => 'fa-solid' ), 'text' => esc_html__( 'Best Stone Supplier 2024', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-star',         'library' => 'fa-solid' ), 'text' => esc_html__( '4.9★ Client Rating', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-award',        'library' => 'fa-solid' ), 'text' => esc_html__( 'Excellence in Craftsmanship', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-check-circle', 'library' => 'fa-solid' ), 'text' => esc_html__( '97% Client Satisfaction', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-handshake',    'library' => 'fa-solid' ), 'text' => esc_html__( '500+ Projects Completed', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-medal',        'library' => 'fa-solid' ), 'text' => esc_html__( 'Certified Natural Stone Experts', 'marbure' ) ),
+					array( 'icon_class' => array( 'value' => 'fas fa-shield-alt',   'library' => 'fa-solid' ), 'text' => esc_html__( '12+ Years of Excellence', 'marbure' ) ),
 				),
 			)
 		);
@@ -141,8 +143,8 @@ class Marbure_Widget_Marquee_Strip extends \Elementor\Widget_Base {
 			>
 				<?php foreach ( $all_items as $item ) : ?>
 					<div class="marquee-item">
-						<?php if ( $item['icon_class'] ) : ?>
-							<i class="<?php echo esc_attr( $item['icon_class'] ); ?>" aria-hidden="true"></i>
+						<?php if ( ! empty( $item['icon_class']['value'] ) ) : ?>
+							<?php \Elementor\Icons_Manager::render_icon( $item['icon_class'], [ 'aria-hidden' => 'true' ] ); ?>
 						<?php endif; ?>
 						<span><?php echo esc_html( $item['text'] ); ?></span>
 					</div>
