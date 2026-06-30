@@ -38,8 +38,6 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 			add_meta_box( 'marbure-testimonial-details', __( 'Testimonial Details', 'marbure' ), array( $this, 'render_testimonial' ), 'marbure_testimonial', 'normal', 'high' );
 			add_meta_box( 'marbure-client-logo-hover',   __( 'Client Logo Hover', 'marbure' ),   array( $this, 'render_client_logo_hover' ), 'marbure_client', 'normal', 'high' );
 			add_meta_box( 'marbure-client-logo',         __( 'Select Client Logo', 'marbure' ),  array( $this, 'render_client_logo' ),       'marbure_client', 'normal', 'high' );
-			add_meta_box( 'marbure-product-details',     __( 'Product Details', 'marbure' ),     array( $this, 'render_product' ),     'marbure_product',     'normal', 'high' );
-			add_meta_box( 'marbure-project-details',     __( 'Project Details', 'marbure' ),     array( $this, 'render_project' ),     'marbure_project',     'normal', 'high' );
 		}
 
 		// ── Field renderers ───────────────────────────────────────────────────
@@ -97,33 +95,6 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 				echo '<option value="' . esc_attr( $val ) . '"' . selected( $outcome, $val, false ) . '>' . esc_html( $label ) . '</option>';
 			}
 			echo '</select></p>';
-		}
-
-		public function render_product( $post ) {
-			wp_nonce_field( 'marbure_product_save', 'marbure_product_nonce' );
-			$fields = array(
-				'_product_material' => __( 'Material (e.g. Marble, Granite)', 'marbure' ),
-				'_product_size'     => __( 'Size (e.g. 60×60 cm)', 'marbure' ),
-				'_product_finish'   => __( 'Finish (e.g. Polished, Honed)', 'marbure' ),
-			);
-			$this->render_text_fields( $post->ID, $fields );
-
-			$featured = get_post_meta( $post->ID, '_product_featured', true );
-			echo '<p><label>';
-			echo '<input type="checkbox" name="_product_featured" value="1"' . checked( '1', $featured, false ) . '> ';
-			echo esc_html__( 'Show in Featured Collections section', 'marbure' );
-			echo '</label></p>';
-		}
-
-		public function render_project( $post ) {
-			wp_nonce_field( 'marbure_project_save', 'marbure_project_nonce' );
-			$fields = array(
-				'_project_location'         => __( 'Location', 'marbure' ),
-				'_project_type'             => __( 'Project Type (e.g. Residential, Commercial)', 'marbure' ),
-				'_project_area'             => __( 'Area / Size (e.g. 120 m²)', 'marbure' ),
-				'_project_completion_year'  => __( 'Year of Completion', 'marbure' ),
-			);
-			$this->render_text_fields( $post->ID, $fields );
 		}
 
 		public function render_client_logo_hover( $post ) {
@@ -193,9 +164,7 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 				'marbure_portfolio'   => 'marbure_portfolio_nonce',
 				'marbure_testimonial' => 'marbure_testimonial_nonce',
 				'marbure_client'      => 'marbure_client_nonce',
-				'marbure_product'     => 'marbure_product_nonce',
-				'marbure_project'     => 'marbure_project_nonce',
-			);
+				);
 
 			if ( ! isset( $nonces[ $post->post_type ] ) ) return;
 
@@ -210,9 +179,7 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 				'_service_icon_class', '_service_tagline',
 				'_portfolio_case_type', '_portfolio_settlement', '_portfolio_year', '_portfolio_outcome',
 				'_testimonial_client_title', '_testimonial_source_url',
-				'_product_material', '_product_size', '_product_finish',
-				'_project_location', '_project_type', '_project_area', '_project_completion_year',
-			);
+				);
 
 			foreach ( $text_keys as $key ) {
 				if ( isset( $_POST[ $key ] ) ) {
@@ -227,9 +194,6 @@ if ( ! class_exists( 'Marbure_Meta_Boxes' ) ) :
 
 			// Service featured — checkbox.
 			update_post_meta( $post_id, '_service_featured', isset( $_POST['_service_featured'] ) ? '1' : '0' );
-
-			// Product featured — checkbox.
-			update_post_meta( $post_id, '_product_featured', isset( $_POST['_product_featured'] ) ? '1' : '0' );
 
 			// Client logos — attachment IDs.
 			foreach ( array( '_client_logo_id', '_client_logo_hover_id' ) as $img_key ) {

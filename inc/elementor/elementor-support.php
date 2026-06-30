@@ -60,13 +60,10 @@ add_action( 'elementor/widgets/register', function ( $mgr ) {
 
 	$map = array(
 		'widget-hero-slider'          => 'Marbure_Widget_Hero_Slider',
-		'widget-product-card'         => 'Marbure_Widget_Product_Card',
 		'widget-stat-counter'         => 'Marbure_Widget_Stat_Counter',
 		'widget-team-card'            => 'Marbure_Widget_Team_Card',
 		'widget-testimonial-carousel' => 'Marbure_Widget_Testimonial_Carousel',
-		'widget-project-card'         => 'Marbure_Widget_Project_Card',
-		'widget-faq-accordion'        => 'Marbure_Widget_Faq_Accordion',
-		'widget-cta-band'             => 'Marbure_Widget_Cta_Band',
+'widget-cta-band'             => 'Marbure_Widget_Cta_Band',
 		'widget-marquee-strip'        => 'Marbure_Widget_Marquee_Strip',
 		'widget-gallery-grid'         => 'Marbure_Widget_Gallery_Grid',
 	);

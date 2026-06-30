@@ -127,52 +127,5 @@ function marbure_register_taxonomies() {
 		)
 	);
 
-	// ── Product Category → Products ───────────────────────────────────────────
-	register_taxonomy(
-		'product_cat',
-		'marbure_product',
-		array(
-			'labels'        => array(
-				'name'              => esc_html__( 'Product Categories', 'marbure' ),
-				'singular_name'     => esc_html__( 'Product Category', 'marbure' ),
-				'all_items'         => esc_html__( 'All Categories', 'marbure' ),
-				'edit_item'         => esc_html__( 'Edit Category', 'marbure' ),
-				'update_item'       => esc_html__( 'Update Category', 'marbure' ),
-				'add_new_item'      => esc_html__( 'Add New Category', 'marbure' ),
-				'new_item_name'     => esc_html__( 'New Category Name', 'marbure' ),
-				'search_items'      => esc_html__( 'Search Categories', 'marbure' ),
-				'not_found'         => esc_html__( 'No categories found.', 'marbure' ),
-				'menu_name'         => esc_html__( 'Categories', 'marbure' ),
-			),
-			'hierarchical'  => true,
-			'public'        => true,
-			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => 'product-category', 'with_front' => false ),
-		)
-	);
-
-	// ── Project Category → Projects ───────────────────────────────────────────
-	register_taxonomy(
-		'project_cat',
-		'marbure_project',
-		array(
-			'labels'        => array(
-				'name'              => esc_html__( 'Project Categories', 'marbure' ),
-				'singular_name'     => esc_html__( 'Project Category', 'marbure' ),
-				'all_items'         => esc_html__( 'All Categories', 'marbure' ),
-				'edit_item'         => esc_html__( 'Edit Category', 'marbure' ),
-				'update_item'       => esc_html__( 'Update Category', 'marbure' ),
-				'add_new_item'      => esc_html__( 'Add New Category', 'marbure' ),
-				'new_item_name'     => esc_html__( 'New Category Name', 'marbure' ),
-				'search_items'      => esc_html__( 'Search Categories', 'marbure' ),
-				'not_found'         => esc_html__( 'No categories found.', 'marbure' ),
-				'menu_name'         => esc_html__( 'Categories', 'marbure' ),
-			),
-			'hierarchical'  => true,
-			'public'        => true,
-			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => 'project-category', 'with_front' => false ),
-		)
-	);
 }
 add_action( 'init', 'marbure_register_taxonomies' );

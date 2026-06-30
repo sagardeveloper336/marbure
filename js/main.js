@@ -199,31 +199,6 @@
 		);
 	}
 
-	// ── FAQ Accordion ─────────────────────────────────────────────────────────
-
-	( function initFaqAccordion() {
-		var accordion = document.querySelector( '.faq-accordion' );
-		if ( ! accordion ) return;
-
-		accordion.querySelectorAll( '.faq-item__question' ).forEach( function ( btn ) {
-			btn.addEventListener( 'click', function () {
-				var expanded = btn.getAttribute( 'aria-expanded' ) === 'true';
-				var answer   = document.getElementById( btn.getAttribute( 'aria-controls' ) );
-
-				accordion.querySelectorAll( '.faq-item__question' ).forEach( function ( b ) {
-					if ( b !== btn ) {
-						b.setAttribute( 'aria-expanded', 'false' );
-						var a = document.getElementById( b.getAttribute( 'aria-controls' ) );
-						if ( a ) a.setAttribute( 'aria-hidden', 'true' );
-					}
-				} );
-
-				btn.setAttribute( 'aria-expanded', String( ! expanded ) );
-				if ( answer ) answer.setAttribute( 'aria-hidden', String( expanded ) );
-			} );
-		} );
-	}() );
-
 	// ── Stat Counters ─────────────────────────────────────────────────────────
 
 	( function initCounters() {

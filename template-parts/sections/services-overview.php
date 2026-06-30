@@ -11,7 +11,7 @@ $services = array(
 		'icon'  => 'fas fa-store',
 		'title' => __( 'Tile Supply', 'marbure' ),
 		'text'  => __( 'Thousands of tiles in stock — floor, wall, outdoor, mosaic, and more. We source from the world\'s leading manufacturers so you always find the perfect match.', 'marbure' ),
-		'link'  => get_post_type_archive_link( 'marbure_product' ) ?: '#',
+		'link'  => '#',
 		'cta'   => __( 'Browse Products', 'marbure' ),
 	),
 	array(
