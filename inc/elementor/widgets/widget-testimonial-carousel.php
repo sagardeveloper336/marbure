@@ -1,7 +1,14 @@
 <?php
 /**
  * Elementor Widget: Testimonial Carousel
- * Swiper-powered testimonial slider; HTML structure matches testimonials-carousel template-part.
+ * Swiper-powered testimonial slider with a multi-style system.
+ * Each style loads its own template and stylesheet at render time.
+ *
+ * Adding a new style:
+ *   1. Add an entry to the 'style' control options array below.
+ *   2. Create  template-parts/testimonial/testimonial-{style-key}.php
+ *   3. Create  css/testimonial/testimonial-{style-key}.css
+ *   4. Add a preview image at assets/images/testimonial-{style-key}.svg
  *
  * @package marbure
  */
@@ -21,7 +28,30 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 
 	protected function register_controls() {
 
-		// ── CONTENT: Section Header ───────────────────────────────────────────
+		$this->start_controls_section(
+			'section_style_selector',
+			array(
+				'label' => esc_html__( 'Style', 'marbure' ),
+				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
+			)
+		);
+
+		$this->add_control(
+			'style',
+			array(
+				'label'   => esc_html__( 'Card Style', 'marbure' ),
+				'type'    => \Elementor\Controls_Manager::SELECT,
+				'default' => 'style-1',
+				'options' => array(
+					'style-1' => esc_html__( 'Style 1 – Dark Glass', 'marbure' ),
+					'style-2' => esc_html__( 'Style 2 – Light Cards', 'marbure' ),
+					'style-3' => esc_html__( 'Style 3 – Minimal', 'marbure' ),
+					'style-4' => esc_html__( 'Style 4 – Bold Accent', 'marbure' ),
+				),
+			)
+		);
+
+		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_header',
@@ -63,8 +93,6 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
-		// ── CONTENT: Testimonials ─────────────────────────────────────────────
-
 		$this->start_controls_section(
 			'section_testimonials',
 			array(
@@ -103,7 +131,7 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 					'4' => '4 ' . esc_html__( 'Stars', 'marbure' ),
 					'3' => '3 ' . esc_html__( 'Stars', 'marbure' ),
 					'2' => '2 ' . esc_html__( 'Stars', 'marbure' ),
-					'1' => '1 ' . esc_html__( 'Star', 'marbure' ),
+					'1' => '1 ' . esc_html__( 'Star',  'marbure' ),
 				),
 				'default' => '5',
 			)
@@ -168,8 +196,6 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
-		// ── CONTENT: Slider Settings ──────────────────────────────────────────
-
 		$this->start_controls_section(
 			'section_slider',
 			array(
@@ -221,87 +247,31 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 		if ( empty( $testimonials ) ) {
 			return;
 		}
-		?>
-		<section class="section testimonials-section">
-			<div class="container">
 
-				<?php if ( 'yes' === $settings['show_header'] && ( $settings['heading'] || $settings['eyebrow'] ) ) : ?>
-					<div class="section__header" data-aos="fade-up">
-						<?php if ( $settings['eyebrow'] ) : ?>
-							<span class="eyebrow"><?php echo esc_html( $settings['eyebrow'] ); ?></span>
-						<?php endif; ?>
-						<?php if ( $settings['heading'] ) : ?>
-							<h2 class="section-heading"><?php echo esc_html( $settings['heading'] ); ?></h2>
-						<?php endif; ?>
-					</div>
-				<?php endif; ?>
+		// Resolve and sanitise the selected style key.
+		$style = isset( $settings['style'] ) && $settings['style']
+			? sanitize_key( $settings['style'] )
+			: 'style-1';
 
-				<div class="swiper js-testimonials-swiper" data-aos="fade-up" data-aos-delay="100">
-					<div class="swiper-wrapper">
+		// Enqueue only the CSS for the active style.
+		$css_file = get_template_directory() . '/css/testimonial/testimonial-' . $style . '.css';
+		if ( file_exists( $css_file ) ) {
+			wp_enqueue_style(
+				'marbure-testimonial-' . $style,
+				get_template_directory_uri() . '/css/testimonial/testimonial-' . $style . '.css',
+				array( 'marbure-theme' ),
+				MARBURE_VERSION
+			);
+		}
 
-						<?php foreach ( $testimonials as $item ) :
-							$rating = max( 1, min( 5, (int) $item['rating'] ) );
-						?>
-							<div class="swiper-slide">
-								<div class="testimonial-card">
+		// Load the style template; fall back to style-1 if the file is missing.
+		$template = get_template_directory() . '/template-parts/testimonial/testimonial-' . $style . '.php';
+		if ( ! file_exists( $template ) ) {
+			$template = get_template_directory() . '/template-parts/testimonial/testimonial-style-1.php';
+		}
 
-									<div class="testimonial-card__quote-icon" aria-hidden="true">
-										<i class="fas fa-quote-left"></i>
-									</div>
-
-									<div class="testimonial-card__stars" aria-label="<?php printf( esc_attr__( '%d out of 5 stars', 'marbure' ), $rating ); ?>">
-										<?php for ( $i = 1; $i <= 5; $i++ ) : ?>
-											<i class="<?php echo $i <= $rating ? 'fas fa-star' : 'far fa-star'; ?>" aria-hidden="true"></i>
-										<?php endfor; ?>
-									</div>
-
-									<blockquote class="testimonial-card__body">
-										<p class="testimonial-card__text"><?php echo esc_html( $item['quote'] ); ?></p>
-									</blockquote>
-
-									<footer class="testimonial-card__footer">
-										<?php if ( ! empty( $item['avatar']['url'] ) ) : ?>
-											<div class="testimonial-card__avatar">
-												<img
-													src="<?php echo esc_url( $item['avatar']['url'] ); ?>"
-													alt="<?php echo esc_attr( $item['client_name'] ); ?>"
-													loading="lazy"
-													width="60"
-													height="60"
-												/>
-											</div>
-										<?php else : ?>
-											<div class="testimonial-card__avatar testimonial-card__avatar--initials" aria-hidden="true">
-												<?php echo esc_html( mb_substr( $item['client_name'], 0, 1 ) ); ?>
-											</div>
-										<?php endif; ?>
-										<div class="testimonial-card__author">
-											<?php if ( ! empty( $item['source_url']['url'] ) ) : ?>
-												<cite>
-													<a href="<?php echo esc_url( $item['source_url']['url'] ); ?>" target="_blank" rel="noopener noreferrer">
-														<?php echo esc_html( $item['client_name'] ); ?>
-													</a>
-												</cite>
-											<?php else : ?>
-												<cite><?php echo esc_html( $item['client_name'] ); ?></cite>
-											<?php endif; ?>
-											<?php if ( $item['client_title'] ) : ?>
-												<span class="testimonial-card__title"><?php echo esc_html( $item['client_title'] ); ?></span>
-											<?php endif; ?>
-										</div>
-									</footer>
-
-								</div>
-							</div>
-						<?php endforeach; ?>
-
-					</div><!-- .swiper-wrapper -->
-
-					<div class="swiper-pagination testimonials-swiper__pagination"></div>
-				</div><!-- .swiper -->
-
-			</div>
-		</section>
-		<?php
+		if ( file_exists( $template ) ) {
+			include $template; // $settings and $testimonials are in scope.
+		}
 	}
 }

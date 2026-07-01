@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180">
+  <defs>
+    <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0A1E3F"/>
+      <stop offset="100%" stop-color="#1a3a6b"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="180" fill="url(#g4)"/>
+
+  <!-- Card 1 -->
+  <rect x="12" y="20" width="140" height="136" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+  <rect x="12" y="20" width="140" height="3"   rx="0" fill="#CF9776"/>
+  <text x="24" y="44" font-family="sans-serif" font-size="10" fill="#fbbf24">★★★★★</text>
+  <rect x="24" y="52"  width="116" height="5" rx="2.5" fill="rgba(255,255,255,0.55)"/>
+  <rect x="24" y="62"  width="100" height="5" rx="2.5" fill="rgba(255,255,255,0.55)"/>
+  <rect x="24" y="72"  width="108" height="5" rx="2.5" fill="rgba(255,255,255,0.55)"/>
+  <rect x="24" y="82"  width="80"  height="5" rx="2.5" fill="rgba(255,255,255,0.55)"/>
+  <circle cx="38" cy="124" r="12" fill="#CF9776"/>
+  <text x="33" y="129" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">R</text>
+  <rect x="56" y="117" width="70" height="5" rx="2.5" fill="rgba(255,255,255,0.9)"/>
+  <rect x="56" y="127" width="52" height="4" rx="2"   fill="rgba(255,255,255,0.45)"/>
+
+  <!-- Card 2 -->
+  <rect x="164" y="20" width="140" height="136" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+  <rect x="164" y="20" width="140" height="3"   rx="0" fill="#CF9776"/>
+  <text x="176" y="44" font-family="sans-serif" font-size="10" fill="#fbbf24">★★★★★</text>
+  <rect x="176" y="52"  width="112" height="5" rx="2.5" fill="rgba(255,255,255,0.55)"/>
+  <rect x="176" y="62"  width="92"  height="5" rx="2.5" fill="rgba(255,255,255,0.55)"/>
+  <rect x="176" y="72"  width="104" height="5" rx="2.5" fill="rgba(255,255,255,0.55)"/>
+  <rect x="176" y="82"  width="76"  height="5" rx="2.5" fill="rgba(255,255,255,0.55)"/>
+  <circle cx="190" cy="124" r="12" fill="#CF9776"/>
+  <text x="185" y="129" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">L</text>
+  <rect x="208" y="117" width="70" height="5" rx="2.5" fill="rgba(255,255,255,0.9)"/>
+  <rect x="208" y="127" width="52" height="4" rx="2"   fill="rgba(255,255,255,0.45)"/>
+
+  <!-- Controls row: prev · dots · next -->
+  <text x="130" y="167" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.6)" text-anchor="middle">‹</text>
+  <circle cx="148" cy="163" r="3.5" fill="#CF9776"/>
+  <rect   cx="157" cy="161" width="10" height="5" rx="2.5" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="172" cy="163" r="3.5" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="182" cy="163" r="3.5" fill="rgba(255,255,255,0.3)"/>
+  <text x="194" y="167" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.6)" text-anchor="middle">›</text>
+
+  <!-- Label -->
+  <text x="160" y="12" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.45)" text-anchor="middle">Style 4 — Bold Accent</text>
+</svg>

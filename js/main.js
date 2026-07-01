@@ -158,45 +158,64 @@
 	document.querySelectorAll( '.js-hero-swiper' ).forEach( marbureInitHeroSwiper );
 
 	// ── Testimonials Carousel (Swiper) ────────────────────────────────────────
+	// Settings are read from data-* attrs set by the PHP template so the JS
+	// always reflects the Elementor widget controls without a separate AJAX call.
 
 	function marbureInitTestimonialsSwiper( el ) {
 		if ( ! el || el._swiperTestimonials || typeof Swiper === 'undefined' ) return;
 		el._swiperTestimonials = true;
 
+		var loopEnabled = el.dataset.loop     !== '0';
+		var autoEnabled = el.dataset.autoplay !== '0';
+		var autoDelay   = el.dataset.autoplayDelay ? parseInt( el.dataset.autoplayDelay, 10 ) : 5000;
+		var slidesLg    = el.dataset.slidesLg      ? parseInt( el.dataset.slidesLg,      10 ) : 3;
+		var slidesMd    = el.dataset.slidesMd      ? parseInt( el.dataset.slidesMd,      10 ) : 2;
+		var prevEl      = el.querySelector( '.testimonials-swiper__prev' );
+		var nextEl      = el.querySelector( '.testimonials-swiper__next' );
+		var pagerEl     = el.querySelector( '.testimonials-swiper__pagination' );
+
 		new Swiper( el, {
-			loop:         true,
-			speed:        600,
-			autoplay:     { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true },
+			loop:          loopEnabled,
+			speed:         600,
+			autoplay:      autoEnabled
+				? { delay: autoDelay, disableOnInteraction: false, pauseOnMouseEnter: true }
+				: false,
 			slidesPerView: 1,
-			spaceBetween: 24,
-			pagination:   {
-				el:        el.querySelector( '.testimonials-swiper__pagination' ),
-				clickable: true,
+			spaceBetween:  24,
+			pagination:    pagerEl ? { el: pagerEl, clickable: true } : false,
+			navigation:    ( prevEl && nextEl ) ? { prevEl: prevEl, nextEl: nextEl } : false,
+			breakpoints: {
+				768:  { slidesPerView: slidesMd },
+				1100: { slidesPerView: slidesLg },
 			},
-			breakpoints: { 768: { slidesPerView: 2 }, 1100: { slidesPerView: 3 } },
 		} );
 	}
 
 	document.querySelectorAll( '.js-testimonials-swiper' ).forEach( marbureInitTestimonialsSwiper );
 
 	// ── Elementor frontend hook — re-init Swiper when a widget is rendered ────
-	// Covers both the editor preview and cached-page first paint in frontend mode.
+	// jQuery(window).on('elementor/frontend/init') fires AFTER elementorFrontend
+	// is fully ready (both on the frontend and inside the editor preview iframe).
+	// This is the Elementor-idiomatic pattern; it is reliable where window.load
+	// checks are not, because elementorFrontend can initialise asynchronously.
 
-	if ( typeof elementorFrontend !== 'undefined' && elementorFrontend.hooks ) {
-		elementorFrontend.hooks.addAction(
-			'frontend/element_ready/marbure_hero_slider.default',
-			function ( $scope ) {
-				var el = $scope[ 0 ] && $scope[ 0 ].querySelector( '.js-hero-swiper' );
-				marbureInitHeroSwiper( el );
-			}
-		);
-		elementorFrontend.hooks.addAction(
-			'frontend/element_ready/marbure_testimonial_carousel.default',
-			function ( $scope ) {
-				var el = $scope[ 0 ] && $scope[ 0 ].querySelector( '.js-testimonials-swiper' );
-				marbureInitTestimonialsSwiper( el );
-			}
-		);
+	if ( typeof jQuery !== 'undefined' ) {
+		jQuery( window ).on( 'elementor/frontend/init', function () {
+			elementorFrontend.hooks.addAction(
+				'frontend/element_ready/marbure_hero_slider.default',
+				function ( $scope ) {
+					var el = $scope[ 0 ] && $scope[ 0 ].querySelector( '.js-hero-swiper' );
+					marbureInitHeroSwiper( el );
+				}
+			);
+			elementorFrontend.hooks.addAction(
+				'frontend/element_ready/marbure_testimonial_carousel.default',
+				function ( $scope ) {
+					var el = $scope[ 0 ] && $scope[ 0 ].querySelector( '.js-testimonials-swiper' );
+					marbureInitTestimonialsSwiper( el );
+				}
+			);
+		} );
 	}
 
 	// ── Stat Counters ─────────────────────────────────────────────────────────

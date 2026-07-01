@@ -53,6 +53,13 @@ add_action( 'wp_enqueue_scripts', function () {
 	}
 }, 5 );
 
+// ── Custom controls ───────────────────────────────────────────────────────────
+
+add_action( 'elementor/controls/register', function ( $mgr ) {
+	require_once get_template_directory() . '/inc/elementor/controls/control-image-select.php';
+	$mgr->register( new Marbure_Control_Image_Select() );
+} );
+
 // ── Load and register all 10 widgets ─────────────────────────────────────────
 
 add_action( 'elementor/widgets/register', function ( $mgr ) {
@@ -63,7 +70,7 @@ add_action( 'elementor/widgets/register', function ( $mgr ) {
 		'widget-stat-counter'         => 'Marbure_Widget_Stat_Counter',
 		'widget-team-card'            => 'Marbure_Widget_Team_Card',
 		'widget-testimonial-carousel' => 'Marbure_Widget_Testimonial_Carousel',
-'widget-cta-band'             => 'Marbure_Widget_Cta_Band',
+		'widget-cta-band'             => 'Marbure_Widget_Cta_Band',
 		'widget-marquee-strip'        => 'Marbure_Widget_Marquee_Strip',
 		'widget-gallery-grid'         => 'Marbure_Widget_Gallery_Grid',
 	);

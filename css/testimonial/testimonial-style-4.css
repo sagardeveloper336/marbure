@@ -1,0 +1,187 @@
+/**
+ * Testimonial Carousel – Style 4
+ * Bold gradient background, solid accent cards, 2-per-view with nav controls.
+ *
+ * @package marbure
+ */
+
+/* ── Section wrapper ──────────────────────────────────────────────────────── */
+
+.testimonials-style-4 {
+	background: linear-gradient( 135deg, var(--color-primary) 0%, #1a3a6b 100% );
+	position: relative;
+	overflow: hidden;
+}
+
+.testimonials-style-4::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+	pointer-events: none;
+}
+
+/* ── Section header ──────────────────────────────────────────────────────── */
+
+.testimonials-style-4 .section-heading,
+.testimonials-style-4 .eyebrow {
+	color: #fff;
+}
+
+/* ── Swiper ──────────────────────────────────────────────────────────────── */
+
+.testimonials-style-4 .js-testimonials-swiper {
+	position: relative;
+	z-index: 1;
+	padding-bottom: 1rem;
+}
+
+/* ── Controls row (prev · dots · next) ───────────────────────────────────── */
+
+.testimonials-style-4__controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.25rem;
+	margin-top: 2rem;
+	position: relative;
+}
+
+.testimonials-style-4 .testimonials-swiper__prev,
+.testimonials-style-4 .testimonials-swiper__next {
+	position: static;
+	color: rgba( 255, 255, 255, 0.7 );
+	width: 36px;
+	height: 36px;
+	margin: 0;
+	transform: none;
+	top: auto;
+}
+
+.testimonials-style-4 .testimonials-swiper__prev::after,
+.testimonials-style-4 .testimonials-swiper__next::after {
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.testimonials-style-4 .testimonials-swiper__prev:hover,
+.testimonials-style-4 .testimonials-swiper__next:hover {
+	color: #fff;
+}
+
+/* ── Pagination ──────────────────────────────────────────────────────────── */
+
+.testimonials-style-4 .testimonials-swiper__pagination {
+	position: static !important;
+	width: auto;
+	bottom: auto;
+}
+
+.testimonials-style-4 .testimonials-swiper__pagination .swiper-pagination-bullet {
+	background: rgba( 255, 255, 255, 0.35 );
+	opacity: 1;
+	width: 8px;
+	height: 8px;
+	transition: background 0.3s, width 0.3s;
+	border-radius: 4px;
+}
+
+.testimonials-style-4 .testimonials-swiper__pagination .swiper-pagination-bullet-active {
+	background: var(--color-secondary);
+	width: 22px;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+
+.testimonials-style-4 .testimonial-card {
+	background: rgba( 255, 255, 255, 0.1 );
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	border-top: 3px solid var(--color-secondary);
+	border-radius: 10px;
+	padding: 2.25rem 2rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	transition: background 0.3s;
+}
+
+.testimonials-style-4 .testimonial-card:hover {
+	background: rgba( 255, 255, 255, 0.14 );
+}
+
+.testimonials-style-4 .testimonial-card__stars {
+	display: flex;
+	gap: 0.2rem;
+	margin-bottom: 1.25rem;
+	color: #fbbf24;
+	font-size: 1rem;
+}
+
+.testimonials-style-4 .testimonial-card__body {
+	flex-grow: 1;
+}
+
+.testimonials-style-4 .testimonial-card__text {
+	color: rgba( 255, 255, 255, 0.9 );
+	font-size: 1.0625rem;
+	line-height: 1.8;
+	font-style: italic;
+	margin: 0 0 1.75rem;
+}
+
+.testimonials-style-4 .testimonial-card__footer {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-top: auto;
+}
+
+.testimonials-style-4 .testimonial-card__avatar {
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	overflow: hidden;
+	flex-shrink: 0;
+	border: 2px solid var(--color-secondary);
+}
+
+.testimonials-style-4 .testimonial-card__avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.testimonials-style-4 .testimonial-card__avatar--initials {
+	background: var(--color-secondary);
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 1.25rem;
+}
+
+.testimonials-style-4 .testimonial-card__author cite {
+	display: block;
+	font-style: normal;
+	font-weight: 700;
+	color: #fff;
+	font-size: 0.9375rem;
+}
+
+.testimonials-style-4 .testimonial-card__author cite a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.testimonials-style-4 .testimonial-card__author cite a:hover {
+	color: var(--color-secondary);
+}
+
+.testimonials-style-4 .testimonial-card__title {
+	display: block;
+	font-size: 0.8125rem;
+	color: rgba( 255, 255, 255, 0.55 );
+	margin-top: 0.15rem;
+}

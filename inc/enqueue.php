@@ -130,7 +130,7 @@ function marbure_scripts() {
 	wp_enqueue_script(
 		'marbure-main',
 		get_template_directory_uri() . '/js/main.js',
-		array( 'swiper', 'aos' ),
+		array( 'jquery', 'swiper', 'aos' ),
 		MARBURE_VERSION,
 		true
 	);

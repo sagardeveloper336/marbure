@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180">
+  <rect width="320" height="180" fill="#f4f6f8"/>
+
+  <!-- Card 1 -->
+  <rect x="16" y="20" width="136" height="140" rx="8" fill="#fff" stroke="#e8ecf0" stroke-width="1"/>
+  <filter id="s1"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-opacity="0.07"/></filter>
+  <rect x="16" y="20" width="136" height="140" rx="8" fill="#fff" filter="url(#s1)"/>
+  <text x="28" y="48" font-family="serif" font-size="16" fill="#CF9776">"</text>
+  <text x="28" y="63" font-family="sans-serif" font-size="10" fill="#fbbf24">★★★★★</text>
+  <rect x="28" y="72" width="110" height="5" rx="2.5" fill="#4a5568" opacity="0.3"/>
+  <rect x="28" y="82" width="90"  height="5" rx="2.5" fill="#4a5568" opacity="0.3"/>
+  <rect x="28" y="92" width="100" height="5" rx="2.5" fill="#4a5568" opacity="0.3"/>
+  <line x1="28" y1="114" x2="138" y2="114" stroke="#edf0f3" stroke-width="1"/>
+  <circle cx="44" cy="133" r="12" fill="#CF9776"/>
+  <text x="39" y="138" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">R</text>
+  <rect x="62" y="126" width="66" height="5" rx="2.5" fill="#0A1E3F" opacity="0.8"/>
+  <rect x="62" y="136" width="50" height="4" rx="2"   fill="#718096" opacity="0.6"/>
+
+  <!-- Card 2 -->
+  <rect x="168" y="20" width="136" height="140" rx="8" fill="#fff" filter="url(#s1)"/>
+  <text x="180" y="48" font-family="serif" font-size="16" fill="#CF9776">"</text>
+  <text x="180" y="63" font-family="sans-serif" font-size="10" fill="#fbbf24">★★★★★</text>
+  <rect x="180" y="72" width="108" height="5" rx="2.5" fill="#4a5568" opacity="0.3"/>
+  <rect x="180" y="82" width="85"  height="5" rx="2.5" fill="#4a5568" opacity="0.3"/>
+  <rect x="180" y="92" width="95"  height="5" rx="2.5" fill="#4a5568" opacity="0.3"/>
+  <line x1="180" y1="114" x2="290" y2="114" stroke="#edf0f3" stroke-width="1"/>
+  <circle cx="196" cy="133" r="12" fill="#CF9776"/>
+  <text x="191" y="138" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">L</text>
+  <rect x="214" y="126" width="66" height="5" rx="2.5" fill="#0A1E3F" opacity="0.8"/>
+  <rect x="214" y="136" width="50" height="4" rx="2"   fill="#718096" opacity="0.6"/>
+
+  <!-- Pagination dots -->
+  <circle cx="143" cy="169" r="3.5" fill="#CF9776"/>
+  <rect   x="150" y="166.5" width="10" height="5" rx="2.5" fill="#0A1E3F" opacity="0.2"/>
+  <circle cx="165" cy="169" r="3.5" fill="#0A1E3F" opacity="0.2"/>
+  <circle cx="173" cy="169" r="3.5" fill="#0A1E3F" opacity="0.2"/>
+
+  <!-- Label -->
+  <text x="160" y="12" font-family="sans-serif" font-size="9" fill="#718096" text-anchor="middle">Style 2 — Light Cards</text>
+</svg>
