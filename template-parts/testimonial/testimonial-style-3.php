@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<section class="section testimonials-section testimonials-style-3">
+<section class="section testimonials-section testimonials-<?php echo esc_attr( $style ); ?>">
 	<div class="container">
 
 		<?php if ( 'yes' === $settings['show_header'] && ( $settings['heading'] || $settings['eyebrow'] ) ) : ?>
@@ -22,20 +22,18 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 		<?php endif; ?>
 
-		<div class="swiper js-testimonials-swiper"
-		     data-aos="fade-up"
-		     data-aos-delay="100"
-		     data-loop="<?php echo ( 'yes' === $settings['loop'] ) ? '1' : '0'; ?>"
-		     data-autoplay="<?php echo ( 'yes' === $settings['autoplay'] ) ? '1' : '0'; ?>"
-		     data-autoplay-delay="<?php echo esc_attr( (int) $settings['autoplay_delay'] ); ?>"
-		     data-slides-lg="1"
-		     data-slides-md="1">
-			<div class="swiper-wrapper">
+		<?php $is_grid = isset( $settings['layout'] ) && 'grid' === $settings['layout']; ?>
+
+		<?php if ( $is_grid ) : ?>
+		<div class="testimonials-grid" data-aos="fade-up" data-aos-delay="100">
+		<?php else : ?>
+		<?php marbure_testimonials_swiper_open( $settings ); ?>
+		<?php endif; ?>
 
 				<?php foreach ( $testimonials as $item ) :
 					$rating = max( 1, min( 5, (int) $item['rating'] ) );
 				?>
-					<div class="swiper-slide">
+					<div class="<?php echo $is_grid ? 'testimonials-grid__item' : 'swiper-slide'; ?>">
 						<div class="testimonial-card">
 
 							<div class="testimonial-card__stars"
@@ -92,11 +90,15 @@ defined( 'ABSPATH' ) || exit;
 					</div>
 				<?php endforeach; ?>
 
+		<?php if ( $is_grid ) : ?>
+		</div><!-- .testimonials-grid -->
+		<?php else : ?>
 			</div><!-- .swiper-wrapper -->
 
 			<div class="swiper-button-prev testimonials-swiper__prev" aria-label="<?php esc_attr_e( 'Previous', 'marbure' ); ?>"></div>
 			<div class="swiper-button-next testimonials-swiper__next" aria-label="<?php esc_attr_e( 'Next', 'marbure' ); ?>"></div>
 		</div><!-- .swiper -->
+		<?php endif; ?>
 
 	</div>
 </section>

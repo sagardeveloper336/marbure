@@ -153,6 +153,30 @@ if ( ! function_exists( 'marbure_post_thumbnail' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'marbure_testimonials_swiper_open' ) ) :
+	/**
+	 * Shared Swiper container open tag for the testimonial widget's carousel
+	 * layout — identical across all testimonial-style-*.php templates, so it
+	 * lives here once instead of being duplicated in every style file.
+	 *
+	 * @param array $settings Widget settings from get_settings_for_display().
+	 */
+	function marbure_testimonials_swiper_open( $settings ) {
+		?>
+		<div class="swiper js-testimonials-swiper"
+		     data-aos="fade-up"
+		     data-aos-delay="100"
+		     data-loop="<?php echo ( 'yes' === $settings['loop'] ) ? '1' : '0'; ?>"
+		     data-autoplay="<?php echo ( 'yes' === $settings['autoplay'] ) ? '1' : '0'; ?>"
+		     data-autoplay-delay="<?php echo esc_attr( (int) $settings['autoplay_delay'] ); ?>"
+		     data-slides-lg="<?php echo esc_attr( $settings['columns'] ?? '3' ); ?>"
+		     data-slides-md="<?php echo esc_attr( $settings['columns_tablet'] ?? '2' ); ?>"
+		     data-slides-sm="<?php echo esc_attr( $settings['columns_mobile'] ?? '1' ); ?>">
+			<div class="swiper-wrapper">
+		<?php
+	}
+endif;
+
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
 	 * Shim for sites older than 5.2.

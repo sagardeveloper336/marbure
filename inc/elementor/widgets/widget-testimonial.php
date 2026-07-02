@@ -1,24 +1,16 @@
 <?php
 /**
- * Elementor Widget: Testimonial Carousel
- * Swiper-powered testimonial slider with a multi-style system.
- * Each style loads its own template and stylesheet at render time.
- *
- * Adding a new style:
- *   1. Add an entry to the 'style' control options array below.
- *   2. Create  template-parts/testimonial/testimonial-{style-key}.php
- *   3. Create  css/testimonial/testimonial-{style-key}.css
- *   4. Add a preview image at assets/images/testimonial-{style-key}.svg
- *
+ * Elementor Widget: Testimonial Widget
+
  * @package marbure
  */
 
 defined( 'ABSPATH' ) || exit;
 
-class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
+class Marbure_Widget_Testimonial extends \Elementor\Widget_Base {
 
-	public function get_name()       { return 'marbure_testimonial_carousel'; }
-	public function get_title()      { return esc_html__( 'Testimonial Carousel', 'marbure' ); }
+	public function get_name()       { return 'marbure_testimonial'; }
+	public function get_title()      { return esc_html__( 'Testimonial', 'marbure' ); }
 	public function get_icon()       { return 'eicon-testimonial-carousel'; }
 	public function get_categories() { return array( 'marbure' ); }
 	public function get_keywords()   { return array( 'testimonial', 'review', 'carousel', 'slider', 'client' ); }
@@ -43,10 +35,10 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'default' => 'style-1',
 				'options' => array(
-					'style-1' => esc_html__( 'Style 1 – Dark Glass', 'marbure' ),
-					'style-2' => esc_html__( 'Style 2 – Light Cards', 'marbure' ),
-					'style-3' => esc_html__( 'Style 3 – Minimal', 'marbure' ),
-					'style-4' => esc_html__( 'Style 4 – Bold Accent', 'marbure' ),
+					'style-1' => esc_html__( 'Style 1', 'marbure' ),
+					'style-2' => esc_html__( 'Style 2', 'marbure' ),
+					'style-3' => esc_html__( 'Style 3', 'marbure' ),
+					'style-4' => esc_html__( 'Style 4', 'marbure' ),
 				),
 			)
 		);
@@ -203,6 +195,41 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			)
 		);
+		$this->add_control(
+			'layout',
+			[
+				'label'   => esc_html__( 'Layout', 'marbure' ),
+				'type'    => \Elementor\Controls_Manager::SELECT,
+				'default' => 'carousel',
+				'options' => [
+					'carousel' => esc_html__( 'Carousel', 'marbure' ),
+					'grid'     => esc_html__( 'Grid', 'marbure' ),
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'columns',
+			[
+				'label'          => esc_html__( 'Columns', 'marbure' ),
+				'type'           => \Elementor\Controls_Manager::SELECT,
+				'default'        => '3',
+				'tablet_default' => '2',
+				'mobile_default' => '1',
+				'options' => [
+					'1' => '1 Column',
+					'2' => '2 Columns',
+					'3' => '3 Columns',
+					'4' => '4 Columns',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .testimonials-grid' => 'grid-template-columns: repeat({{VALUE}}, 1fr);',
+				],
+				// Force a full widget re-render (not just a live CSS patch) so the
+				// carousel's data-slides-* attributes — baked into markup, not CSS —
+				// pick up the new value inside the editor preview too.
+				'render_type' => 'template',
+			]
+		);
 
 		$this->add_control(
 			'loop',
@@ -211,6 +238,9 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'default'      => 'yes',
+				'condition' => [
+					'layout' => 'carousel',
+				]
 			)
 		);
 
@@ -221,6 +251,9 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'default'      => 'yes',
+				'condition' => [
+					'layout' => 'carousel',
+				]
 			)
 		);
 
@@ -233,7 +266,10 @@ class Marbure_Widget_Testimonial_Carousel extends \Elementor\Widget_Base {
 				'min'       => 1000,
 				'max'       => 15000,
 				'step'      => 500,
-				'condition' => array( 'autoplay' => 'yes' ),
+				'condition' => [
+					'autoplay' => 'yes',
+					'layout'   => 'carousel',
+				],
 			)
 		);
 

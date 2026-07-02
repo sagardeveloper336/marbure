@@ -1283,37 +1283,6 @@ body.menu-open { overflow: hidden; }
    16. Testimonials
    ============================================================================= */
 
-.testimonials-section {
-  background: var(--color-primary);
-  position: relative;
-  overflow: hidden;
-}
-
-.testimonials-section::before {
-  content: '\201C';
-  position: absolute;
-  top: -2rem;
-  left: -1rem;
-  font-size: 20rem;
-  color: rgba(255,255,255,0.03);
-  font-family: Georgia, serif;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.testimonials-section .section-heading,
-.testimonials-section .eyebrow { color: #fff; }
-
-.testimonial-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
-  padding: 2.5rem 2rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 .testimonial-card__quote-icon { font-size: 2rem; color: var(--color-secondary); margin-bottom: 1rem; opacity: 0.8; }
 .testimonial-card__stars { display: flex; gap: 0.2rem; margin-bottom: 1rem; color: #fbbf24; font-size: 0.9375rem; }
 .testimonial-card__body { flex-grow: 1; }
@@ -1332,6 +1301,9 @@ body.menu-open { overflow: hidden; }
 .testimonials-swiper__pagination .swiper-pagination-bullet-active { background: var(--color-secondary); width: 24px; }
 .js-testimonials-swiper { padding-bottom: 3rem !important; }
 
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.testimonials-grid .testimonial-card { height: 100%; }
+
 /* =============================================================================
    17. Stats / Counter
    ============================================================================= */
@@ -1342,7 +1314,6 @@ body.menu-open { overflow: hidden; }
   position: relative;
   overflow: hidden;
 }
-
 .stats-section::after {
   content: '';
   position: absolute;

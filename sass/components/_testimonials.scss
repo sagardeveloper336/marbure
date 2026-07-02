@@ -135,3 +135,11 @@
 .js-testimonials-swiper {
 	padding-bottom: 3rem !important;
 }
+
+.testimonials-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+
+	.testimonial-card { height: 100%; }
+}

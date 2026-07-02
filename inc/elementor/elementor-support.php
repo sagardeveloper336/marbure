@@ -69,7 +69,7 @@ add_action( 'elementor/widgets/register', function ( $mgr ) {
 		'widget-hero-slider'          => 'Marbure_Widget_Hero_Slider',
 		'widget-stat-counter'         => 'Marbure_Widget_Stat_Counter',
 		'widget-team-card'            => 'Marbure_Widget_Team_Card',
-		'widget-testimonial-carousel' => 'Marbure_Widget_Testimonial_Carousel',
+		'widget-testimonial'		  => 'Marbure_Widget_Testimonial',
 		'widget-cta-band'             => 'Marbure_Widget_Cta_Band',
 		'widget-marquee-strip'        => 'Marbure_Widget_Marquee_Strip',
 		'widget-gallery-grid'         => 'Marbure_Widget_Gallery_Grid',

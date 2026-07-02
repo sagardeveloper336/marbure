@@ -168,8 +168,9 @@
 		var loopEnabled = el.dataset.loop     !== '0';
 		var autoEnabled = el.dataset.autoplay !== '0';
 		var autoDelay   = el.dataset.autoplayDelay ? parseInt( el.dataset.autoplayDelay, 10 ) : 5000;
-		var slidesLg    = el.dataset.slidesLg      ? parseInt( el.dataset.slidesLg,      10 ) : 3;
+		var slidesSm    = el.dataset.slidesSm      ? parseInt( el.dataset.slidesSm,      10 ) : 1;
 		var slidesMd    = el.dataset.slidesMd      ? parseInt( el.dataset.slidesMd,      10 ) : 2;
+		var slidesLg    = el.dataset.slidesLg      ? parseInt( el.dataset.slidesLg,      10 ) : 3;
 		var prevEl      = el.querySelector( '.testimonials-swiper__prev' );
 		var nextEl      = el.querySelector( '.testimonials-swiper__next' );
 		var pagerEl     = el.querySelector( '.testimonials-swiper__pagination' );
@@ -180,7 +181,7 @@
 			autoplay:      autoEnabled
 				? { delay: autoDelay, disableOnInteraction: false, pauseOnMouseEnter: true }
 				: false,
-			slidesPerView: 1,
+			slidesPerView: slidesSm,
 			spaceBetween:  24,
 			pagination:    pagerEl ? { el: pagerEl, clickable: true } : false,
 			navigation:    ( prevEl && nextEl ) ? { prevEl: prevEl, nextEl: nextEl } : false,
@@ -209,7 +210,7 @@
 				}
 			);
 			elementorFrontend.hooks.addAction(
-				'frontend/element_ready/marbure_testimonial_carousel.default',
+				'frontend/element_ready/marbure_testimonial.default',
 				function ( $scope ) {
 					var el = $scope[ 0 ] && $scope[ 0 ].querySelector( '.js-testimonials-swiper' );
 					marbureInitTestimonialsSwiper( el );
